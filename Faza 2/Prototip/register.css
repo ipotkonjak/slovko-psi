@@ -91,6 +91,7 @@ a:hover{
 input{
     border-radius: 10px;
     font-size: 20px;
+	background-color: white;
 }
 
 label {

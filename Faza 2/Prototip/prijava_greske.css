@@ -93,6 +93,10 @@ input{
     font-size: 20px;
 }
 
+textarea{
+	background-color: white;
+}
+
 label {
     font-size: 17px;
 }
