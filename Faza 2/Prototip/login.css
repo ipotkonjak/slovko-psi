@@ -35,8 +35,12 @@ input{
 }
 
 #submit{
+	padding: 5px;
+	height: 40px;
+	font-size: 17px;
 	background-color: black;
 	color: white;
+	font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .lab{
@@ -47,14 +51,15 @@ input{
 .login{
 	padding: 30px;
 	border: 2px groove black;
-	margin-top: 120px;
+	margin-top: 50px;
 	text-align: center;
 }
 
-.login h1{
+.login h2{
 	text-decoration: underline;
-	font-size: 50px;
-	font-weight: normal;
+	font-weight: bold;
+	font-size: 28px;
+    text-transform: uppercase;
 }
 
 .registerlink a{
@@ -62,12 +67,16 @@ input{
 }
 
 .registerlink{
-	text-align: left !important;
 	font-size: 20px;
-	text-align: left;
+	text-align: center;
 	color: black;
 }
 
 .login label{
 	font-size: 30px;
+}
+
+::placeholder {
+    font-size: 20px;
+	margin-left: 10px;
 }
