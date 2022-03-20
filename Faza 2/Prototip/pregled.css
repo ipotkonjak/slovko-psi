@@ -58,33 +58,6 @@ header{
 }
 
 
-.options {
-    width: 45%;
-    text-align: left;
-    border: 2px solid black;
-    padding: 20px;
-}
-
-.options-title {
-    text-align: center;
-    text-decoration: underline;
-}
-
-
-dd {
-    margin-top: 10px;
-    margin-left: 20px;
-}
-
-dd p {
-    margin-left: 30px;
-}
-
-dt {
-    margin-top: 10px;
-}
-
-
 #button-igraj {
     background-color: black;
     color: white;
@@ -97,4 +70,37 @@ dt {
 li {
     margin-top: 10px;
     margin-bottom: 10px;
+    text-align: left;
+}
+
+
+td {
+    text-align: left;
+}
+
+th {
+    text-align: left;
+}
+
+#stat{
+    padding:10px;
+    text-align: center;
+}
+
+
+.styled-info {
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+    min-width: 400px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.styled-info td{
+    padding:5px;
+}
+
+.styled-info thead tr {
+    border-bottom: 0.5px solid gray;
 }
