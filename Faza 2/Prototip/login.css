@@ -54,7 +54,7 @@ input{
 .login h1{
 	text-decoration: underline;
 	font-size: 50px;
-	font-weigth: normal;
+	font-weight: normal;
 }
 
 .registerlink a{
@@ -62,7 +62,7 @@ input{
 }
 
 .registerlink{
-	text-align: left; !important
+	text-align: left !important;
 	font-size: 20px;
 	text-align: left;
 	color: black;
