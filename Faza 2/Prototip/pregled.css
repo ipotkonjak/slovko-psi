@@ -101,6 +101,10 @@ th {
     padding:5px;
 }
 
+.styled-info th{
+    padding:5px;
+}
+
 .styled-info thead tr {
     border-bottom: 0.5px solid gray;
 }

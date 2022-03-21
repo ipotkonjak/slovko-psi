@@ -37,6 +37,10 @@ a{
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+#rang {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
 #rang thead th {
     background-color: rgba(89, 217, 131, 0.5);
     text-align: center;
