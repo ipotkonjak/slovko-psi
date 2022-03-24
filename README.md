@@ -12,5 +12,5 @@ Studenti koji rade na projektu **Slovko** su:
 
 ## O projektu
 
-**Slovko** je predstavlja unapređenje postojeća igre Wordle. Ideja je proširiti igru novim, zanimljivim funkcionalnostima.
+**Slovko** predstavlja unapređenje postojeća igre Wordle. Ideja je proširiti igru novim, zanimljivim funkcionalnostima.
 
