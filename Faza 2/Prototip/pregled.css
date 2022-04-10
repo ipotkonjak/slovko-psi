@@ -57,6 +57,11 @@ header{
     text-transform: uppercase;
 }
 
+.dugmici {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 #button-igraj {
     background-color: black;
@@ -66,6 +71,7 @@ header{
     padding: 7px;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
 
 li {
     margin-top: 10px;
