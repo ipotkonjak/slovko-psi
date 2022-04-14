@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylesheets/style.css">
+    <script src="scripts/singleplayer.js"></script>
     <title>Словко</title>
 </head>
 
@@ -39,88 +40,88 @@
             </div>
             <div id="board-container">
                 <div id="board">
-                    <div class="row">
-                        <div class="square" id="square1"></div>
-                        <div class="square" id="square2"></div>
-                        <div class="square" id="square3"></div>
-                        <div class="square" id="square4"></div>
-                        <div class="square" id="square5"></div>
-                    </div>
-                    <div class="row">
-                        <div class="square" id="square6"></div>
-                        <div class="square" id="square7"></div>
-                        <div class="square" id="square8"></div>
-                        <div class="square" id="square9"></div>
-                        <div class="square" id="square10"></div>
-                    </div>
-                    <div class="row">
+                    <div class="row" id="row1">
                         <div class="square" id="square11"></div>
                         <div class="square" id="square12"></div>
                         <div class="square" id="square13"></div>
                         <div class="square" id="square14"></div>
                         <div class="square" id="square15"></div>
                     </div>
-                    <div class="row">
-                        <div class="square" id="square16"></div>
-                        <div class="square" id="square17"></div>
-                        <div class="square" id="square18"></div>
-                        <div class="square" id="square19"></div>
-                        <div class="square" id="square20"></div>
-                    </div>
-                    <div class="row">
+                    <div class="row" id="row2">
                         <div class="square" id="square21"></div>
                         <div class="square" id="square22"></div>
                         <div class="square" id="square23"></div>
                         <div class="square" id="square24"></div>
                         <div class="square" id="square25"></div>
                     </div>
-                    <div class="row">
-                        <div class="square" id="square26"></div>
-                        <div class="square" id="square27"></div>
-                        <div class="square" id="square28"></div>
-                        <div class="square" id="square29"></div>
-                        <div class="square" id="square30"></div>
+                    <div class="row" id="row3">
+                        <div class="square" id="square31"></div>
+                        <div class="square" id="square32"></div>
+                        <div class="square" id="square33"></div>
+                        <div class="square" id="square34"></div>
+                        <div class="square" id="square35"></div>
+                    </div>
+                    <div class="row" id="row4">
+                        <div class="square" id="square41"></div>
+                        <div class="square" id="square42"></div>
+                        <div class="square" id="square43"></div>
+                        <div class="square" id="square44"></div>
+                        <div class="square" id="square45"></div>
+                    </div>
+                    <div class="row" id="row5">
+                        <div class="square" id="square51"></div>
+                        <div class="square" id="square52"></div>
+                        <div class="square" id="square53"></div>
+                        <div class="square" id="square54"></div>
+                        <div class="square" id="square55"></div>
+                    </div>
+                    <div class="row" id="row6">
+                        <div class="square" id="square61"></div>
+                        <div class="square" id="square62"></div>
+                        <div class="square" id="square63"></div>
+                        <div class="square" id="square64"></div>
+                        <div class="square" id="square65"></div>
                     </div>
                 </div>
             </div>
             <div id="keyboard">
                 <div class="k-row">
-                    <button data-key="љ">љ</button>
-                    <button data-key="њ">њ</button>
-                    <button data-key="е">е</button>
-                    <button data-key="р">р</button>
-                    <button data-key="т">т</button>
-                    <button data-key="з">з</button>
-                    <button data-key="у">у</button>
-                    <button data-key="и">и</button>
-                    <button data-key="о">о</button>
-                    <button data-key="п">п</button>
-                    <button data-key="ш">ш</button>
-                    <button data-key="ђ">ђ</button>
-                    <button data-key="ж">ж</button>
+                    <button id="љ" onclick="enter('љ')">љ</button>
+                    <button id="њ" onclick="enter('њ')">њ</button>
+                    <button id="е" onclick="enter('е')">е</button>
+                    <button id="р" onclick="enter('р')">р</button>
+                    <button id="т" onclick="enter('т')">т</button>
+                    <button id="з" onclick="enter('з')">з</button>
+                    <button id="у" onclick="enter('у')">у</button>
+                    <button id="и" onclick="enter('и')">и</button>
+                    <button id="о" onclick="enter('о')">о</button>
+                    <button id="п" onclick="enter('п')">п</button>
+                    <button id="ш" onclick="enter('ш')">ш</button>
+                    <button id="ђ" onclick="enter('ђ')">ђ</button>
+                    <button id="ж" onclick="enter('ж')">ж</button>
                 </div>
                 <div class="k-row">
-                    <button data-key="а">а</button>
-                    <button data-key="с">с</button>
-                    <button data-key="д">д</button>
-                    <button data-key="ф">ф</button>
-                    <button data-key="г">г</button>
-                    <button data-key="х">х</button>
-                    <button data-key="ј">ј</button>
-                    <button data-key="к">к</button>
-                    <button data-key="л">л</button>
-                    <button data-key="ч">ч</button>
-                    <button data-key="ћ">ћ</button>
+                    <button id="а" onclick="enter('а')">а</button>
+                    <button id="с" onclick="enter('с')">с</button>
+                    <button id="д" onclick="enter('д')">д</button>
+                    <button id="ф" onclick="enter('ф')">ф</button>
+                    <button id="г" onclick="enter('г')">г</button>
+                    <button id="х" onclick="enter('х')">х</button>
+                    <button id="ј" onclick="enter('ј')">ј</button>
+                    <button id="к" onclick="enter('к')">к</button>
+                    <button id="л" onclick="enter('л')">л</button>
+                    <button id="ч" onclick="enter('ч')">ч</button>
+                    <button id="ћ" onclick="enter('ћ')">ћ</button>
                 </div>
                 <div class="k-row">
-                    <a href="pokusaj1.html"><button data-key="↵" class="one-and-a-half">унеси</button></a>
-                    <button data-key="џ">џ</button>
-                    <button data-key="ц">ц</button>
-                    <button data-key="в">в</button>
-                    <button data-key="б">б</button>
-                    <button data-key="н">н</button>
-                    <button data-key="м">м</button>
-                    <button data-key="←" class="one-and-a-half">обриши</button>
+                    <button data-key="↵" class="one-and-a-half" onclick="checkEnteredWord()">унеси</button></a>
+                    <button id="џ" onclick="enter('џ')">џ</button>
+                    <button id="ц" onclick="enter('ц')">ц</button>
+                    <button id="в" onclick="enter('в')">в</button>
+                    <button id="б" onclick="enter('б')">б</button>
+                    <button id="н" onclick="enter('н')">н</button>
+                    <button id="м" onclick="enter('м')">м</button>
+                    <button id="←" class="one-and-a-half" onclick="removeLetter()">обриши</button>
                 </div>
             </div>
         </div>
