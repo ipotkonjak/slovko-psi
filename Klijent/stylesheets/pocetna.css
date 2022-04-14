@@ -1,0 +1,100 @@
+/* Katarina Jocic 2019/0014 */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: lightgrey;
+}
+
+a{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+    color: black;
+    text-decoration: none;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+    border-bottom: 0.5px solid grey;
+}
+
+.logo{
+    cursor: pointer;
+}
+
+
+#container{
+    display: flex;
+    background-color: black;
+    height: 100%;
+    align-items: center;
+    flex-direction: column;
+    background-color: lightgrey;
+}
+
+.welcome-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+}
+
+.title-left, .title-right{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.title-left, .title-right{
+    width: 4em;
+}
+
+.title-center{
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+
+.options {
+    width: 45%;
+    text-align: left;
+    border: 2px solid black;
+    padding: 20px;
+}
+
+.options-title {
+    text-align: center;
+    text-decoration: underline;
+}
+
+
+dd {
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+dd p {
+    margin-left: 30px;
+}
+
+dt {
+    margin-top: 10px;
+}
+
+
+#button-igraj {
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 7px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
