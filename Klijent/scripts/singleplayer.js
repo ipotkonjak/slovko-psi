@@ -70,8 +70,29 @@ function checkEnteredWord() {
     if (currentCol != 6) return;
     let greens = 0;
     (colored = []).length = 5; colored.fill(false);
-    
-    for(let i = 0; i < 5; i++) {
+	
+	
+    for(let i = 0; i < 5; i++) { 
+        if (colored[i]) continue;
+        document.getElementById(enteredWord[i].square).style.backgroundColor = colorGrey;
+		let keyboard = document.getElementById(enteredWord[i].letter);
+        if(keyboard.style.backgroundColor!==colorGreen && keyboard.style.backgroundColor!==colorPink) keyboard.style.backgroundColor = colorGrey;
+        colored[i] = true;
+    }
+
+    for(let i = 0; i < 5; i++) { 
+        if (colored[i]) continue;
+        let ind = letterMap.get(enteredWord[i].letter);
+        if (count[ind - 1] > 0) {
+            document.getElementById(enteredWord[i].square).style.backgroundColor = colorPink;
+            let keyboard = document.getElementById(enteredWord[i].letter);
+			if(keyboard.style.backgroundColor!==colorGreen) keyboard.style.backgroundColor = colorPink;
+            colored[i] = true;
+            count[ind - 1] -= 1;
+        }
+    }
+	
+	for(let i = 0; i < 5; i++) {
         if (enteredWord[i].letter == secretWord[i]) {          
             document.getElementById(enteredWord[i].square).style.backgroundColor = colorGreen;
             document.getElementById(enteredWord[i].letter).style.backgroundColor = colorGreen;
@@ -81,22 +102,7 @@ function checkEnteredWord() {
             continue;
         }     
     }
-    for(let i = 0; i < 5; i++) { 
-        if (colored[i]) continue;
-        let ind = letterMap.get(enteredWord[i].letter);
-        if (count[ind - 1] > 0) {
-            document.getElementById(enteredWord[i].square).style.backgroundColor = colorPink;
-            document.getElementById(enteredWord[i].letter).style.backgroundColor = colorPink;
-            colored[i] = true;
-            count[ind - 1] -= 1;
-        }
-    }
-    for(let i = 0; i < 5; i++) { 
-        if (colored[i]) continue;
-        document.getElementById(enteredWord[i].square).style.backgroundColor = colorGrey;
-        document.getElementById(enteredWord[i].letter).style.backgroundColor = colorGrey;
-        colored[i] = true;
-    }
+
 
     if (greens < 5) { enableEntry = true; return; }
     
