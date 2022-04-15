@@ -23,6 +23,14 @@ letterMap.set('т', 22); letterMap.set('ћ', 23); letterMap.set('у', 24);
 letterMap.set('ф', 25); letterMap.set('х', 26); letterMap.set('ц', 27);
 letterMap.set('ч', 28); letterMap.set('џ', 29); letterMap.set('ш', 30);
 
+const keyMap = {
+    "KeyA" : "а", "KeyB" : "б", "KeyV" : "в", "KeyG" : "г", "KeyD" : "д", "BracketRight" : "ђ", 
+    "KeyE" : "е", "Backslash" : "ж", "KeyY" : "з", "KeyI" : "и", "KeyJ" : "ј", "KeyK" : "к", 
+    "KeyL" : "л", "KeyQ" : "љ", "KeyM" : "м", "KeyN" : "н", "KeyW" : "њ", "KeyO" : "о", 
+    "KeyP" : "п", "KeyR" : "р", "KeyS" : "с", "KeyT" : "т", "Quote" : "ћ", "KeyU" : "у", 
+    "KeyF" : "ф", "KeyH" : "х", "KeyC" : "ц", "Semicolon" : "ч", "KeyX" : "џ", "BracketLeft" : "ш"
+};
+
 (count = []).length = 30; count.fill(0);
 
 function copyArray(arr){
@@ -37,6 +45,29 @@ function fillCount() {
         count[ind - 1] += 1;
     }
 }
+
+document.addEventListener("keydown", function (event) {
+    if (event.defaultPrevented) return; 
+
+    let letter = keyMap[event.code];
+
+    if (letter) enter(letter);
+    else if (event.code == "Enter") checkEnteredWord();
+    else if (event.code == "Backspace") removeLetter();
+
+    // switch(event.code) {
+    //     case 'KeyA' : enter('а'); break;
+    //     case 'KeyA' : enter('б'); break;
+    //     case 'KeyA' : enter('в'); break;
+    //     case 'KeyA' : enter('г'); break;
+    //     case 'KeyA' : enter('д'); break;
+        
+
+    // }
+
+    
+    event.preventDefault();
+  }, true);
 
 
 function enter(currentLetter) { // we put letter in (currentRow, currentCol)
