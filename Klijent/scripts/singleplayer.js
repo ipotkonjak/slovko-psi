@@ -7,6 +7,7 @@ let enteredWord = [];
 let currentRow = 1;
 let currentCol = 1;
 var enableEntry = true;
+var won = false;
 var numOfGuesses = 6;
 
 const letterMap = new Map();
@@ -39,6 +40,7 @@ function fillCount() {
 
 
 function enter(currentLetter) { // we put letter in (currentRow, currentCol)
+    if (won) return;
     if (currentRow == numOfGuesses && currentCol == 6) return;
     if (enableEntry == false) return;
     if (currentCol == 6) {
@@ -59,7 +61,9 @@ function enter(currentLetter) { // we put letter in (currentRow, currentCol)
 }
 
 function removeLetter() { 
+    if (won) return;
     if (currentRow == 1 && currentCol == 1) return; // empty
+    if (currentCol == 6 && enableEntry == true) return; // UNESI was clicked
     currentCol -= 1;
     if (currentCol == 0) { //first letter after checking
         currentCol = 1;
@@ -74,6 +78,7 @@ function removeLetter() {
 }
 
 function checkEnteredWord() {
+    if (won) return;
     if (currentCol != 6) return;
     let greens = 0;
     (colored = []).length = 5; colored.fill(false);
@@ -113,7 +118,7 @@ function checkEnteredWord() {
     }
 
     if (greens < 5) { enableEntry = true; return; }
-    
+    won = true;
     setTimeout(function() {
         alert("Свака част!");
     }, 1000);
