@@ -1,6 +1,6 @@
 # Slovko
 
-Slovko je projekat nastao kao deo praktične nastave na predmetu Principi softverskog inženjerstva  na Elektrotehničkom fakultetu u Beogradu.
+Slovko je projekat nastao kao deo praktične nastave na predmetu Principi softverskog inženjerstva na Elektrotehničkom fakultetu u Beogradu.
 
 ## Psimboličko ime
 
@@ -12,5 +12,5 @@ Studenti koji rade na projektu **Slovko** su:
 
 ## O projektu
 
-**Slovko** predstavlja unapređenje postojeća igre Wordle. Ideja je proširiti igru novim, zanimljivim funkcionalnostima.
+**Slovko** predstavlja unapređenje postojeće igre Wordle. Ideja je proširiti igru novim, zanimljivim funkcionalnostima.
 
