@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\KorisnikModel;
 
 class Gost extends BaseController
 {
@@ -34,5 +35,21 @@ class Gost extends BaseController
         if($lozinka == '') {
             return $this->prikaz('stranice/login', ['sifraGreska' => 'Unesite lozinku']);
         }
+        
+        $korModel = new KorisnikModel();
+        $korisnik = $korModel->where('username', $korime)->first();
+        
+        if($korisnik == null) {
+            return $this->prikaz('stranice/login', ['korimeGreska' => 'Korisnik ne postoji']);
+        }
+        
+        if($korisnik->lozinka != $lozinka) {
+            return $this->prikaz('stranice/login', ['sifraGreska' => 'Pogresna lozinka']);
+        }
+        
+        $this->session->set('korisnik', $korisnik->idK);
+        $this->session->set('korisnickoIme', $korime);
+        
+        return redirect()->to(site_url('Korisnik/index'));
     }
 }
