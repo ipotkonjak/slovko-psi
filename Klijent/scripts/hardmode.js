@@ -1,7 +1,6 @@
 let colorGreen = 'rgba(89, 217, 131, 0.5)';
 let colorPink = 'rgba(217, 138, 89, 0.5)';
 let colorGrey = 'rgba(79, 74, 71, 0.4)';
-let colorRed = 'rgba(255, 0, 0, 0.5)'
 
 let secretWord = "одмор";
 let enteredWord = [];
@@ -29,8 +28,11 @@ const keyMap = {
     "KeyF" : "ф", "KeyH" : "х", "KeyC" : "ц", "Semicolon" : "ч", "KeyX" : "џ", "BracketLeft" : "ш"
 };
 
-(guessedLetters = []).length = 5; guessedLetters.fill('-');
 (count = []).length = 30; count.fill(0);
+(correctLetters = []).length = 5; correctLetters.fill('-');
+hasLetters = [];
+noLetters = [];
+
 
 function copyArray(arr){
 	let copyArr = [];
@@ -38,7 +40,18 @@ function copyArray(arr){
 	return copyArr;
 }
 
+function removeFromArr(arr, value){
+	let copyArr = [];
+    let num = 0;
+	for(let i = 0; i < arr.length; i++) {
+        if (num == 0 && arr[i] == value) { num++; continue; }
+        copyArr.push(arr[i]);
+    }
+	return copyArr;
+}
+
 function fillCount() {
+    showPopup("Користите сваки хинт");
     for (let i = 0; i < 5; i++) {
         let ind = letterMap[secretWord[i]];
         count[ind - 1] += 1;
@@ -68,7 +81,7 @@ function enter(currentLetter) { // we put letter in (currentRow, currentCol)
         enteredWord = []
     }
     let squareId = "square" + currentRow + currentCol;
-    document.getElementById(squareId).innerHTML = currentLetter.toUpperCase(); // TODO center!!!
+    document.getElementById(squareId).innerHTML = currentLetter.toUpperCase(); 
     enteredWord.push(
         {
             letter : currentLetter,
@@ -96,70 +109,100 @@ function removeLetter() {
 	enteredWord.pop();
 }
 
-function colorLettersInGreen() {
+function hardModeCheck() {
+    let msg = "";
     for(let i = 0; i < 5; i++) {
-        if (enteredWord[i].letter == secretWord[i]) {          
-            document.getElementById(enteredWord[i].square).style.backgroundColor = colorGreen;
-            document.getElementById(enteredWord[i].letter).style.backgroundColor = colorGreen;
-            guessedLetters[i] = secretWord[i];
-            greens++;   
-            copyCount[letterMap[secretWord[i]] - 1] -= 1;   
-            colored[i] = true;      
-            continue;
+        if (correctLetters[i] != '-' && enteredWord[i].letter != correctLetters[i]) {        
+            msg = "Слово " + correctLetters[i].toUpperCase() + " мора бити на " + (i + 1) + ". месту!";
+            showPopup(msg);
+            return false;
+        }   
+        if (noLetters.includes(enteredWord[i].letter)) {        
+            msg = "Слово " + enteredWord[i].letter.toUpperCase() + " не постоји у речи!";
+            showPopup(msg);
+            return false;
         }     
     }
-}
-
-function colorLettersInPink() {
-    for(let i = 0; i < 5; i++) { 
-        if (colored[i]) continue;
-        let ind = letterMap[enteredWord[i].letter];
-        if (copyCount[ind - 1] > 0) {
-            document.getElementById(enteredWord[i].square).style.backgroundColor = colorPink;
-            let keyboard = document.getElementById(enteredWord[i].letter);
-			if(keyboard.style.backgroundColor!==colorGreen) keyboard.style.backgroundColor = colorPink;
-            colored[i] = true;
-            copyCount[ind - 1] -= 1;
+    for(let i = 0; i < hasLetters.length; i++) { 
+        let found = false;  
+        for(let j = 0; j < 5; j++) {
+            if (enteredWord[j].letter == correctLetters[j]) continue;
+            if (enteredWord[j].letter == hasLetters[i]) {
+                found = true;
+                break;
+            }
+        }
+        if (found == false) {
+            msg = "Слово " + hasLetters[i].toUpperCase() +  " мора да постоји у речи!";
+            showPopup(msg);
+            return false;
         }
     }
+    return true;
 }
 
-function colorLettersInGrey() {
-    for(let i = 0; i < 5; i++) { 
-        if (colored[i]) continue;
-        document.getElementById(enteredWord[i].square).style.backgroundColor = colorGrey;
-		let keyboard = document.getElementById(enteredWord[i].letter);
-        if(keyboard.style.backgroundColor!==colorGreen && keyboard.style.backgroundColor!==colorPink) keyboard.style.backgroundColor = colorGrey;
-        colored[i] = true;
-    }
-}
 
-function hardModeCheck() {
-    for(let i = 0; i < 5; i++) {
-        if (guessedLetters[i] == '-') continue;
-        if (enteredWord[i].letter != guessedLetters[i]) {          
-            document.getElementById(enteredWord[i].square).style.backgroundColor = colorRed;
-        }     
-    }
+function showPopup(msg) {
+    $("#myPopup").text(msg);
+    $("#myPopup").fadeIn(1000); 
+    setTimeout(function() {
+        $("#myPopup").fadeOut(1000);  
+    }, 2500);
 }
 
 function checkEnteredWord() {
     if (gameOver) return;
     if (currentCol != 6) return;
 
-    hardModeCheck();
+
+    if (!hardModeCheck()) return;
     
     guess++;
     let greens = 0;
+    let colored = [];
     (colored = []).length = 5; colored.fill(false);
 
     let copyCount = copyArray(count);
 		
-	colorLettersInGreen();
+	for(let i = 0; i < 5; i++) {
+        if (enteredWord[i].letter == secretWord[i]) {          
+            document.getElementById(enteredWord[i].square).style.backgroundColor = colorGreen;
+            document.getElementById(enteredWord[i].letter).style.backgroundColor = colorGreen;
+            correctLetters[i] = enteredWord[i].letter;
+            if (hasLetters.includes(correctLetters[i])) {
+                hasLetters = removeFromArr(hasLetters, correctLetters[i]);
+            }
+            greens++;   
+            copyCount[letterMap[secretWord[i]] - 1] -= 1;   
+            colored[i] = true;      
+            continue;
+        }     
+    }
+	
 
-    colorLettersInPink();
+    for(let i = 0; i < 5; i++) { 
+        if (colored[i]) continue;
+        let ind = letterMap[enteredWord[i].letter];
+        if (copyCount[ind - 1] > 0) {
+            document.getElementById(enteredWord[i].square).style.backgroundColor = colorPink;
+            hasLetters.push(enteredWord[i].letter);
+            let keyboard = document.getElementById(enteredWord[i].letter);
+			if(keyboard.style.backgroundColor !== colorGreen) keyboard.style.backgroundColor = colorPink;
+            colored[i] = true;
+            copyCount[ind - 1] -= 1;
+        }
+    }
 
-	colorLettersInGrey();   
+		
+    for(let i = 0; i < 5; i++) { 
+        if (colored[i]) continue;
+        document.getElementById(enteredWord[i].square).style.backgroundColor = colorGrey;
+        noLetters.push(enteredWord[i].letter);
+		let keyboard = document.getElementById(enteredWord[i].letter);
+        if(keyboard.style.backgroundColor!==colorGreen && keyboard.style.backgroundColor!==colorPink) keyboard.style.backgroundColor = colorGrey;
+         
+        colored[i] = true;
+    }
 
     if (greens == 5) {
         gameOver = true;
@@ -174,5 +217,9 @@ function checkEnteredWord() {
         }, 1000);
     }
     else { enableEntry = true; }
+
+    console.log(correctLetters);
+    console.log(hasLetters);
+    console.log(noLetters);
     
 }

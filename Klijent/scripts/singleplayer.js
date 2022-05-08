@@ -100,6 +100,7 @@ function checkEnteredWord() {
     
     guess++;
     let greens = 0;
+    let colored = []; //
     (colored = []).length = 5; colored.fill(false);
 
     let copyCount = copyArray(count);
