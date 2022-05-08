@@ -1,0 +1,22 @@
+CRITICAL - 2022-05-08 04:09:03 --> Invalid file: stranice/pocetna.php
+#0 C:\wamp64\www\slovko\vendor\codeigniter4\framework\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stranice/pocetn...')
+#1 C:\wamp64\www\slovko\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('stranice/pocetn...', Array, true)
+#2 C:\wamp64\www\slovko\app\Controllers\Gost.php(8): view('stranice/pocetn...')
+#3 C:\wamp64\www\slovko\app\Controllers\Gost.php(13): App\Controllers\Gost->prikaz('stranice/pocetn...', Array)
+#4 C:\wamp64\www\slovko\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Gost->index()
+#5 C:\wamp64\www\slovko\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Gost))
+#6 C:\wamp64\www\slovko\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\wamp64\www\slovko\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 C:\wamp64\www\slovko\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\wamp64\\www\\s...')
+#9 {main}
+CRITICAL - 2022-05-08 04:42:34 --> Invalid file: stranice/igra.php
+#0 C:\wamp64\www\slovko\vendor\codeigniter4\framework\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('stranice/igra.p...')
+#1 C:\wamp64\www\slovko\vendor\codeigniter4\framework\system\Common.php(1089): CodeIgniter\View\View->render('stranice/igra', Array, true)
+#2 C:\wamp64\www\slovko\app\Controllers\Gost.php(8): view('stranice/igra')
+#3 C:\wamp64\www\slovko\app\Controllers\Gost.php(17): App\Controllers\Gost->prikaz('stranice/igra', Array)
+#4 C:\wamp64\www\slovko\vendor\codeigniter4\framework\system\CodeIgniter.php(832): App\Controllers\Gost->igra()
+#5 C:\wamp64\www\slovko\vendor\codeigniter4\framework\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Gost))
+#6 C:\wamp64\www\slovko\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\wamp64\www\slovko\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 C:\wamp64\www\slovko\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(43): require_once('C:\\wamp64\\www\\s...')
+#9 {main}
