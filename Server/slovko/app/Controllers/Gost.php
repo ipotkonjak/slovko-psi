@@ -3,6 +3,7 @@
 namespace App\Controllers;
 use App\Models\KorisnikModel;
 use App\Models\StatistikaModel;
+use App\Models\ReciModel;
 
 class Gost extends BaseController
 {
@@ -10,13 +11,20 @@ class Gost extends BaseController
         echo view($page, $data);
     }
     
+    
+    
     public function index()
-    {
+    {   
+        
         return $this->prikaz('stranice/pocetna', []);
     }
     
     public function igra() {
-        return $this->prikaz('stranice/index', []);
+        $reciModel = new ReciModel();
+        $rand = $reciModel->orderBy('id', 'RANDOM')->first();
+        
+        
+        return $this->prikaz('stranice/index', ["rec" => $rand->rec]);
     }
     
     public function login() {

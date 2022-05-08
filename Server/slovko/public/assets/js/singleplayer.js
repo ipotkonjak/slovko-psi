@@ -1,15 +1,18 @@
-let colorGreen = 'rgba(89, 217, 131, 0.5)';
-let colorPink = 'rgba(217, 138, 89, 0.5)';
-let colorGrey = 'rgba(79, 74, 71, 0.4)';
+var colorGreen = 'rgba(89, 217, 131, 0.5)';
+var colorPink = 'rgba(217, 138, 89, 0.5)';
+var colorGrey = 'rgba(79, 74, 71, 0.4)';
 
-let secretWord = "одмор";
+//let secretWord = "одмор";
+
 let enteredWord = [];
+let count = [];
 let currentRow = 1;
 let currentCol = 1;
 let guess = 0;
-var enableEntry = true;
-var gameOver = false;
-var numOfGuesses = 6;
+let badWord = false;
+let enableEntry = true;
+let gameOver = false;
+let numOfGuesses = 6;
 
 const letterMap = {
     "а" : 1, "б" : 2, "в" : 3, "г" : 4, "д" : 5, 
@@ -28,7 +31,33 @@ const keyMap = {
     "KeyF" : "ф", "KeyH" : "х", "KeyC" : "ц", "Semicolon" : "ч", "KeyX" : "џ", "BracketLeft" : "ш"
 };
 
-(count = []).length = 30; count.fill(0);
+
+function init() {
+    enteredWord = [];
+    currentRow = 1;
+    currentCol = 1;
+    guess = 0;
+    badWord = false;
+    enableEntry = true;
+    gameOver = false;
+    numOfGuesses = 6;
+    count = [];
+    (count = []).length = 30; count.fill(0);
+    fillCount();
+}
+
+function reset() {
+    init();
+    $(".square").css({"background-color" : "transparent"});
+    $(".square").html("");
+    $("#keyboard button").css({"background-color" : "lightblue"});
+    $.ajax({
+        type: "POST",
+        url: "/Ajax/generisiRec",
+        }).done(function(result) {
+            secretWord = result;
+        });
+}
 
 function copyArray(arr){
 	let copyArr = [];
@@ -49,7 +78,7 @@ document.addEventListener("keydown", function (event) {
     let letter = keyMap[event.code];
 
     if (letter) enter(letter);
-    else if (event.code == "Enter") checkEnteredWord();
+    else if (event.code == "Enter") check();
     else if (event.code == "Backspace") removeLetter();
     
     event.preventDefault();
@@ -94,10 +123,34 @@ function removeLetter() {
 	enteredWord.pop();
 }
 
+function wordToString(word) {
+    let rec = '';
+    for(let i = 0; i < 5; i++) {
+        rec += word[i].letter;
+    }
+    return rec;
+}
+
+function check(){
+    $.ajax({
+        type: "POST",
+        url: "/Ajax/proveraReci",
+        data: {
+        word: wordToString(enteredWord)
+        }
+        }).done(function(result) {
+            badWord = result;
+            checkEnteredWord();
+        });
+}
+
 function checkEnteredWord() {
     if (gameOver) return;
     if (currentCol != 6) return;
-    
+    if (badWord == "false") {
+        alert("Реч не постоји!");
+        return;
+    }
     guess++;
     let greens = 0;
     (colored = []).length = 5; colored.fill(false);

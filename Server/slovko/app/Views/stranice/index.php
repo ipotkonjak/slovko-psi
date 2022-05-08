@@ -7,11 +7,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.js"
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+    <script>
+        <?php
+             echo "let secretWord = '$rec';";
+         ?>
+    </script>
     <script src="/assets/js/singleplayer.js"></script>
     <title>Словко</title>
 </head>
 
-<body onload="fillCount()">
+<body onload="init()">
     <header>
         <ul type="none">
             <li><a href="<?php echo site_url('Gost/index')?>">Правила</a></li>
@@ -114,7 +123,7 @@
                     <button id="ћ" onclick="enter('ћ')">ћ</button>
                 </div>
                 <div class="k-row">
-                    <button data-key="↵" class="one-and-a-half" onclick="checkEnteredWord()">унеси</button></a>
+                    <button data-key="↵" class="one-and-a-half" onclick="check()">унеси</button></a>
                     <button id="џ" onclick="enter('џ')">џ</button>
                     <button id="ц" onclick="enter('ц')">ц</button>
                     <button id="в" onclick="enter('в')">в</button>
@@ -124,6 +133,7 @@
                     <button id="←" class="one-and-a-half" onclick="removeLetter()">обриши</button>
                 </div>
             </div>
+            <button type="button" onclick="reset()">Нова игра</button>
         </div>
     </div>
 </body>

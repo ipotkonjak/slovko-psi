@@ -4,6 +4,7 @@ namespace App\Controllers;
 use App\Models\StatistikaModel;
 use App\Models\KorisnikModel;
 use App\Models\PrijavaGreskeModel;
+use App\Models\ReciModel;
 
 class Korisnik extends BaseController
 {
@@ -13,12 +14,16 @@ class Korisnik extends BaseController
     
     public function index()
     {
-        return $this->prikaz('stranice/loggedin', []);
+        $reciModel = new ReciModel();
+        $rand = $reciModel->orderBy('id', 'RANDOM')->first();
+        
+        
+        return $this->prikaz('stranice/loggedin', ["rec" => $rand->rec]);
     }
     
     public function logout() {
         $this->session->destroy();
-        return redirect()->to(site_url('Gost/index'));
+        return redirect()->to(site_url('Gost/igra'));
     }
     
     public function pregled() {

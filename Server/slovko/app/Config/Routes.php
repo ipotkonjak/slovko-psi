@@ -33,6 +33,8 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Gost::index');
 
+$route['ajax-word'] = 'Gost/proveraReci';
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

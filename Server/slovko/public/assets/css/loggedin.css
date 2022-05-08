@@ -104,6 +104,8 @@ li a:hover{
     text-align: center;
     font-weight: bold;
     font-size: 40px;
+    vertical-align: middle;
+    padding-top: 5px;
 }
 
 #keyboard{

@@ -8,6 +8,7 @@ use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
+use App\Models\ReciModel;
 
 /**
  * Class BaseController
@@ -49,4 +50,6 @@ class BaseController extends Controller
 
         $this->session = \Config\Services::session();
     }
+    
+    
 }
