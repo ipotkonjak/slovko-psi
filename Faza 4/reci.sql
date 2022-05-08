@@ -1,41 +1,7 @@
--- phpMyAdmin SQL Dump
--- version 4.2.10
--- http://www.phpmyadmin.net
---
--- Host: localhost
--- Generation Time: Apr 10, 2022 at 05:20 PM
--- Server version: 5.5.40-0+wheezy1-log
--- PHP Version: 5.4.35-0+deb7u2
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-
---
--- Database: `brainteasers`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `serbianwordle`
---
-
-CREATE TABLE IF NOT EXISTS `serbianwordle` (
-`id` int(11) NOT NULL,
-  `word` varchar(20) CHARACTER SET cp1250 COLLATE cp1250_croatian_ci NOT NULL,
-) ENGINE=InnoDB AUTO_INCREMENT=40501 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `serbianwordle`
---
-
-INSERT INTO `serbianwordle` (`word`) VALUES
+INSERT INTO `reci` (`rec`) VALUES
 ('агава'),
 ('аорта'),
 ('ацера'),
@@ -2568,7 +2534,7 @@ INSERT INTO `serbianwordle` (`word`) VALUES
 ('мутан'),
 ('мудар'),
 ('опран'),
-('тужан'),,
+('тужан'),
 ('перон'),
 ('топаз'),
 ('одраз'),
@@ -2603,7 +2569,7 @@ INSERT INTO `serbianwordle` (`word`) VALUES
 ('лопте'),
 ('доста'),
 ('трећи'),
-('оксид'),,
+('оксид'),
 ('такси'),
 ('успут'),
 ('синус'),
@@ -2640,7 +2606,7 @@ INSERT INTO `serbianwordle` (`word`) VALUES
 ('бајна'),
 ('клица'),
 ('спора'),
-('колач'),,
+('колач'),
 ('кљове'),
 ('марке'),
 ('мокро'),
@@ -2710,8 +2676,8 @@ INSERT INTO `serbianwordle` (`word`) VALUES
 ('имати'),
 ('десно'),
 ('омора'),
-('гарав'),,
-('дизач'),,
+('гарав'),
+('дизач'),
 ('туфер'),
 ('фруле'),
 ('одрон'),
@@ -2772,7 +2738,7 @@ INSERT INTO `serbianwordle` (`word`) VALUES
 ('туњав'),
 ('губав'),
 ('жуљић'),
-('иксић'),,
+('иксић'),
 ('бурић'),
 ('ослон'),
 ('водка'),
@@ -2786,14 +2752,14 @@ INSERT INTO `serbianwordle` (`word`) VALUES
 ('мудре'),
 ('краће'),
 ('кладе'),
-('јадне'),,
+('јадне'),
 ('сарме'),
 ('базна'),
 ('лажне'),
 ('жедна'),
 ('сајле'),
 ('јакне'),
-('сочан'),,
+('сочан'),
 ('дилдо'),
 ('хитно'),
 ('банке'),
@@ -2822,7 +2788,7 @@ INSERT INTO `serbianwordle` (`word`) VALUES
 ('руска'),
 ('мушка'),
 ('ћопав'),
-('писте'),,
+('писте'),
 ('пирит'),
 ('етида'),
 ('неуки'),
@@ -2891,7 +2857,7 @@ INSERT INTO `serbianwordle` (`word`) VALUES
 ('севап'),
 ('гурач'),
 ('лотус'),
-('барба'),,
+('барба'),
 ('фарса'),
 ('секси'),
 ('тесан'),
@@ -2929,7 +2895,7 @@ INSERT INTO `serbianwordle` (`word`) VALUES
 ('мачке'),
 ('рампе'),
 ('школе'),
-('будна'),,
+('будна'),
 ('тукан'),
 ('гушач'),
 ('бледи'),
@@ -3218,7 +3184,7 @@ INSERT INTO `serbianwordle` (`word`) VALUES
 ('хорде'),
 ('фешта'),
 ('фетиш'),
-('апорт'),,
+('апорт'),
 ('учити'),
 ('борбе'),
 ('бедра'),
@@ -3237,7 +3203,7 @@ INSERT INTO `serbianwordle` (`word`) VALUES
 ('мечке'),
 ('пулпа'),
 ('чисти'),
-('рутав'),,
+('рутав'),
 ('коале'),
 ('узети'),
 ('врсте'),
@@ -3305,7 +3271,7 @@ INSERT INTO `serbianwordle` (`word`) VALUES
 ('разне'),
 ('јести'),
 ('росно'),
-('авакс'),,
+('авакс'),
 ('шеста'),
 ('јужне'),
 ('нежно'),
@@ -3329,7 +3295,7 @@ INSERT INTO `serbianwordle` (`word`) VALUES
 ('пајдо'),
 ('гарде'),
 ('квант'),
-('палме'),,
+('палме'),
 ('цепач'),
 ('цигле'),
 ('јадни'),
@@ -3345,10 +3311,10 @@ INSERT INTO `serbianwordle` (`word`) VALUES
 ('депра'),
 ('гасер'),
 ('боеми'),
-('тврђа'),,
+('тврђа'),
 ('копна'),
 ('репка'),
-('снаге'),,
+('снаге'),
 ('стаја'),
 ('лакше'),
 ('гужве'),
@@ -3521,24 +3487,3 @@ INSERT INTO `serbianwordle` (`word`) VALUES
 ('чипке'),
 ('диоде'),
 ('инбус');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `serbianwordle`
---
-ALTER TABLE `serbianwordle`
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `serbianwordle`
---
-ALTER TABLE `serbianwordle`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=40501;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
