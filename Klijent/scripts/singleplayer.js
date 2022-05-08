@@ -97,22 +97,24 @@ function removeLetter() {
 function checkEnteredWord() {
     if (gameOver) return;
     if (currentCol != 6) return;
+    
     guess++;
     let greens = 0;
     (colored = []).length = 5; colored.fill(false);
+
+    let copyCount = copyArray(count);
 		
 	for(let i = 0; i < 5; i++) {
         if (enteredWord[i].letter == secretWord[i]) {          
             document.getElementById(enteredWord[i].square).style.backgroundColor = colorGreen;
             document.getElementById(enteredWord[i].letter).style.backgroundColor = colorGreen;
             greens++;   
-            count[letterMap[secretWord[i]] - 1] -= 1;   
+            copyCount[letterMap[secretWord[i]] - 1] -= 1;   
             colored[i] = true;      
             continue;
         }     
     }
 	
-	let copyCount = copyArray(count);
 
     for(let i = 0; i < 5; i++) { 
         if (colored[i]) continue;
