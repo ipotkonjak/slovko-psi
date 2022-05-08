@@ -27,33 +27,37 @@
                 
             </div>
             <div class="forms">
-                <form action="">
+                <form action="<?php echo site_url("Gost/registracijaRequest"); ?>" method="post">
+                    <?php if(isset($korimegreska)){ ?>
+                    <div class="greska" id="korisnickoImeGreska"><?php echo $korimegreska ?></div>
+                    <?php } ?>
                     <div class="form-els">
-                        <label for=""><b>Корисничко име: </b></label> <input type="text" id="korisnickoIme" class="unos" required>
+                        <label for=""><b>Корисничко име: </b></label> <input type="text" id="korisnickoIme" name="korisnickoIme" class="unos" required>
                     </div>
-                    <div class="greska" id="korisnickoImeGreska"></div>
+                    <?php if(isset($sifragreska)){ ?>
+                    <div class="greska" id="sifraGreska"><?php echo $sifragreska ?></div>
+                    <?php } ?>
                     <div class="form-els">
-                        <label for=""><b>Лозинка: </b></label><input type="password" id="sifra" class="unos" required>
-                    </div>
-                    <div class="form-els">
-                        <label for=""><b>Поновљена лозинка: </b></label><input type="password" id="ponovljenaSifra" class="unos" required>
-                    </div>
-                    <div class="greska" id="sifraGreska"></div>
-                    <div class="form-els">
-                        <label for=""><b>Име: </b></label> <input type="text" id="ime" class="unos" required>
+                        <label for=""><b>Лозинка: </b></label><input type="password" id="sifra" name="sifra" class="unos" required>
                     </div>
                     <div class="form-els">
-                        <label for=""><b>Презиме: </b></label><input type="text" id="prezime" class="unos" required>
+                        <label for=""><b>Поновљена лозинка: </b></label><input type="password" id="ponovljenaSifra" name="ponovljenaSifra" class="unos" required>
                     </div>
                     <div class="form-els">
-                        <label for=""><b>e-mail: </b></label> <input type="email" id="mejl" class="unos" required>
+                        <label for=""><b>Име: </b></label> <input type="text" id="ime" name="ime" class="unos" required>
+                    </div>
+                    <div class="form-els">
+                        <label for=""><b>Презиме: </b></label><input type="text" id="prezime" name="prezime" class="unos" required>
+                    </div>
+                    <div class="form-els">
+                        <label for=""><b>e-mail: </b></label> <input type="email" id="mejl" name="mejl" class="unos" required>
                     </div>
                     <div class="form-sub">
                         <div class="form-text">
                             Уколико већ имаш налог <a href="<?php echo site_url('Gost/login')?>">пријави се</a>.
                         </div>
                         <div class="form-button">
-                            <input type="submit" value="Региструј се!" id="reg_dugme" onclick="registracija()">
+                            <input type="submit" value="Региструј се!" id="reg_dugme">
                         </div>
                     </div>
                     
