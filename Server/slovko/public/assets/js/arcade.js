@@ -146,7 +146,6 @@ function init() {
 }
 
 function reset() {
-    init();
     $(".square").css({"background-color" : "transparent"});
     $(".square").html("");
     $("#keyboard button").css({"background-color" : "lightblue"});
@@ -155,6 +154,7 @@ function reset() {
         url: "/Ajax/generisiRec",
         }).done(function(result) {
             secretWord = result;
+			init();
         });
 }
 
