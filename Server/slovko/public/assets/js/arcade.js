@@ -306,11 +306,11 @@ function checkEnteredWord() {
            treptanje = -1;
        }
        timerlock=false;
-       reset();
        rezultat++;
        $("#counter").html("Речи:"+rezultat.toString());
        $("#myPopup").css("color","green");
        showPopup("Браво!!!");
+	   reset();
     }
     else if (guess == numOfGuesses) {
         //gameOver = true;
