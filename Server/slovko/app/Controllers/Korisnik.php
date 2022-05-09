@@ -12,6 +12,13 @@ class Korisnik extends BaseController
         echo view($page, $data);
     }
     
+    public function arcade(){
+        $reciModel = new ReciModel();
+        $rand = $reciModel->orderBy('id', 'RANDOM')->first();
+        
+        return $this->prikaz("stranice/arcade", ["rec" => $rand->rec]);
+    }
+    
     public function index()
     {
         $reciModel = new ReciModel();

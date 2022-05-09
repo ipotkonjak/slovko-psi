@@ -134,6 +134,7 @@
                     <button id="←" class="one-and-a-half" onclick="removeLetter()">обриши</button>
                 </div>
             </div>
+            <button type="button" onclick="reset()">Нова игра</button>
         </div>
     </div>
 </body>

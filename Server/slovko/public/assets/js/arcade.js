@@ -1,3 +1,5 @@
+
+
 var colorGreen = 'rgba(89, 217, 131, 0.5)';
 var colorPink = 'rgba(217, 138, 89, 0.5)';
 var colorGrey = 'rgba(79, 74, 71, 0.4)';
@@ -11,8 +13,16 @@ let currentCol = 1;
 let guess = 0;
 let badWord = false;
 let enableEntry = true;
-let gameOver = false;
+let gameOver = true;
 let numOfGuesses = 6;
+let rezultat = 0;
+let lastsquare=null;
+let fhandle=0;
+let countdown=3;
+let timer=0;
+let treptanje=-1;
+let black=true;
+let timerlock=false;
 
 const letterMap = {
     "а" : 1, "б" : 2, "в" : 3, "г" : 4, "д" : 5, 
@@ -31,6 +41,90 @@ const keyMap = {
     "KeyF" : "ф", "KeyH" : "х", "KeyC" : "ц", "Semicolon" : "ч", "KeyX" : "џ", "BracketLeft" : "ш"
 };
 
+function showPopup(msg) {
+    $("#myPopup").text(msg);
+    $("#myPopup").fadeIn(1000); 
+    setTimeout(function() {
+        $("#myPopup").fadeOut(1000);  
+    }, 2500);
+}
+
+function newArcade(){
+    if(gameOver==false) return;
+    fhandle = setInterval(function(){
+        if(lastsquare!=null){
+            lastsquare.css("background-color","transparent");
+            lastsquare.html("");
+        }
+        if(countdown==0){
+            clearInterval(fhandle);
+            fhandle = 0;
+            countdown = 3;
+            lastsquare = null;
+            startGame();
+            return;
+        }
+        let row = Math.floor(Math.random() * 6) + 1;
+        let col = Math.floor(Math.random() * 5) + 1;
+        let square = $("#square"+row.toString()+col.toString());
+        switch(countdown){
+            case 3: square.css("background-color", "red"); break;
+            case 2: square.css("background-color", "yellow"); break;
+            case 1: square.css("background-color", "green");
+        }
+        square.html(countdown.toString());
+        lastsquare=square;
+        countdown--;
+    },1000);
+}
+
+function startGame(){
+    reset();
+    $("#timer").html("3:00").show();
+    $("#counter").html("Речи:0").show();
+    timer = setInterval(function(){
+        while(timerlock) ;
+        timerlock=true;
+        let tmp = $("#timer").html();
+        let min = parseInt(tmp.split(":")[0]);
+        let sec = parseInt(tmp.split(":")[1]);
+        sec--;
+        if(sec<0){
+            sec = 59;
+            min--;
+        }
+        if(min==-1){
+            timerlock=false;
+            clearInterval(timer);
+            if(treptanje!=-1) {
+                clearInterval(treptanje);
+                treptanje = -1;
+            }
+            gameOver = true;
+            alert("Igra je gotova! Vas rezultat je: " + rezultat);
+            //mozda nesto sa ajaxom zbog statistike u bazi
+            return;
+        }
+        if(min==0 && sec<=20 && treptanje==-1){
+            treptanje = setInterval(function(){
+                if(black){
+                    black=false;
+                    $("#timer").css("color","red");
+                }
+                else{
+                    black=true;
+                    $("#timer").css("color","black");
+                }
+            },500);
+        }
+        tmp = min.toString() + ":";
+        if(sec<10) tmp = tmp + "0";
+        tmp = tmp + sec.toString();
+        $("#timer").html(tmp);
+        timerlock=false;
+    },1000);
+}
+
 
 function init() {
     enteredWord = [];
@@ -44,6 +138,7 @@ function init() {
     count = [];
     (count = []).length = 30; count.fill(0);
     fillCount();
+    rezultat = 0;
 }
 
 function reset() {
@@ -186,23 +281,44 @@ function checkEnteredWord() {
     for(let i = 0; i < 5; i++) { 
         if (colored[i]) continue;
         document.getElementById(enteredWord[i].square).style.backgroundColor = colorGrey;
-		let keyboard = document.getElementById(enteredWord[i].letter);
+        let keyboard = document.getElementById(enteredWord[i].letter);
         if(keyboard.style.backgroundColor!==colorGreen && keyboard.style.backgroundColor!==colorPink) keyboard.style.backgroundColor = colorGrey;
         colored[i] = true;
     }
 
     if (greens == 5) {
-        gameOver = true;
-        setTimeout(function() {
-            alert("Свака част!");
-        }, 1000);
+        //gameOver = true;
+        //setTimeout(function() {
+        //    alert("Свака част!");
+       // }, 1000);
+       while(timerlock) ;
+       timerlock = true;
+       let tmp = $("#timer").html();
+       let min = parseInt(tmp.split(":")[0]);
+       let sec = parseInt(tmp.split(":")[1]);
+       min++;
+       tmp = min.toString() + ":";
+       if(sec<10) tmp = tmp + "0";
+       tmp = tmp + sec.toString();
+       $("#timer").html(tmp);
+       timerlock=false;
+       reset();
+       rezultat++;
+       $("#counter").html("Речи:"+rezultat.toString());
+       $("#myPopup").css("color","green");
+       showPopup("Браво!!!");
     }
     else if (guess == numOfGuesses) {
-        gameOver = true;
-        setTimeout(function() {
-            alert("Тражена реч је била " + secretWord + "!");
-        }, 1000);
+        //gameOver = true;
+        //setTimeout(function() {
+        //    alert("Тражена реч је била " + secretWord + "!");
+        //}, 1000);
+        $("#myPopup").css("color","#fff");
+        showPopup("Реч је била " + secretWord);
+        reset();
     }
     else { enableEntry = true; }
     
 }
+
+
