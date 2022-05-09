@@ -104,7 +104,7 @@ function startGame(){
             $("#timer").css("color","black");
             $("#timer").hide();
             $("#counter").hide();
-            reset();
+            clearKeyboardAndBoard();
 			gameOver = true;
             alert("Igra je gotova! Vas rezultat je: " + rezultat);
             //mozda nesto sa ajaxom zbog statistike u bazi
@@ -145,10 +145,14 @@ function init() {
     fillCount();
 }
 
-function reset() {
-    $(".square").css({"background-color" : "transparent"});
+function clearKeyboardAndBoard(){
+	$(".square").css({"background-color" : "transparent"});
     $(".square").html("");
     $("#keyboard button").css({"background-color" : "lightblue"});
+}
+
+function reset() {
+	clearKeyboardAndBoard();
     $.ajax({
         type: "POST",
         url: "/Ajax/generisiRec",
