@@ -132,6 +132,7 @@ function wordToString(word) {
 }
 
 function check(){
+	if(enteredWord.length!=5) return;
     $.ajax({
         type: "POST",
         url: "/Ajax/proveraReci",
