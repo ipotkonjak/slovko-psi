@@ -101,11 +101,11 @@ function startGame(){
                 clearInterval(treptanje);
                 treptanje = -1;
             }
-            gameOver = true;
             $("#timer").css("color","black");
             $("#timer").hide();
             $("#counter").hide();
             reset();
+			gameOver = true;
             alert("Igra je gotova! Vas rezultat je: " + rezultat);
             //mozda nesto sa ajaxom zbog statistike u bazi
             return;
