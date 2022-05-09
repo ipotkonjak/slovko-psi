@@ -301,6 +301,10 @@ function checkEnteredWord() {
        if(sec<10) tmp = tmp + "0";
        tmp = tmp + sec.toString();
        $("#timer").html(tmp);
+	   if(treptanje!=-1){
+           clearInterval(treptanje);
+           treptanje = -1;
+       }
        timerlock=false;
        reset();
        rezultat++;
