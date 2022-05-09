@@ -101,6 +101,10 @@ function startGame(){
                 treptanje = -1;
             }
             gameOver = true;
+            $("#timer").css("color","black");
+            $("#timer").hide();
+            $("#counter").hide();
+            reset();
             alert("Igra je gotova! Vas rezultat je: " + rezultat);
             //mozda nesto sa ajaxom zbog statistike u bazi
             return;
@@ -301,7 +305,7 @@ function checkEnteredWord() {
        if(sec<10) tmp = tmp + "0";
        tmp = tmp + sec.toString();
        $("#timer").html(tmp);
-	   if(treptanje!=-1){
+       if(treptanje!=-1){
            clearInterval(treptanje);
            treptanje = -1;
        }
@@ -310,7 +314,7 @@ function checkEnteredWord() {
        $("#counter").html("Речи:"+rezultat.toString());
        $("#myPopup").css("color","green");
        showPopup("Браво!!!");
-	   reset();
+       reset();
     }
     else if (guess == numOfGuesses) {
         //gameOver = true;
