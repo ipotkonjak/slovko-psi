@@ -52,7 +52,7 @@ class Gost extends BaseController
             return $this->prikaz('stranice/login', ['korimeGreska' => 'Korisnik ne postoji']);
         }
         
-        if($korisnik->lozinka != $lozinka) {
+        if(!password_verify($lozinka, $korisnik->lozinka)) {
             return $this->prikaz('stranice/login', ['sifraGreska' => 'Pogresna lozinka']);
         }
         
@@ -74,7 +74,7 @@ class Gost extends BaseController
         
         $korisnik = $korModel->insert([
                 "username" => $this->request->getVar("korisnickoIme"),
-                "lozinka" => $this->request->getVar("sifra"), //Treba da se hesira sifra
+                "lozinka" => password_hash($this->request->getVar("sifra"), PASSWORD_DEFAULT), //Treba da se hesira sifra
                 "ime" => $this->request->getVar("ime"),
                 "prezime" => $this->request->getVar("prezime"),
                 "vip" => 0,
