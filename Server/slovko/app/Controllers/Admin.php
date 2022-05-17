@@ -72,4 +72,38 @@ class Admin extends BaseController
         
         return $this->prikaz('stranice/pocetna', []);
     }
+    
+    public function pregledKorisnika($korime) {
+        $korModel = new KorisnikModel();
+        $korisnik = $korModel->find($korime);
+        
+        $statModel = new StatistikaModel();
+        $stat = $statModel->where('username', $korime)->first();
+        
+        return $this->prikaz('stranice/obradaVIPzahtev', ['korisnik' => $korisnik, 'statistika' => $stat]);
+    }
+    
+    public function vipObrada($korime) {
+        $zahtevModel = new VipZahtevModel();
+        $zahtev = $zahtevModel->where('username', $korime)->where('status', 'N')->first();
+        
+        $dozvola = $this->request->getVar('prihvacen');
+        $opis = $this->request->getVar('opis');
+        
+        if($dozvola == "on") {
+            $korModel = new KorisnikModel();
+            $korisnik = $korModel->find($korime);
+            $korisnik->vip = 1;
+            $korModel->save($korisnik);
+            
+            $zahtev->status = 'P';
+        }
+        else $zahtev->status = 'O';
+        
+        $zahtev->opis = $opis;
+        $zahtevModel->save($zahtev);
+        
+        return redirect()->to(site_url('Admin/rukovodjenje'));
+        
+    }
 }

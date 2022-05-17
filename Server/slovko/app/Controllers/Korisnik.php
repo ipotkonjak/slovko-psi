@@ -83,7 +83,7 @@ class Korisnik extends BaseController
         
         $kor = $korModel->find($korisnik);
         $stat = $statModel->where('username', $korisnik)->first();
-        $idZah = $vipModel->where('username', $korisnik)->first();
+        $idZah = $vipModel->where('username', $korisnik)->where('status', 'N')->first();
        
         
        
@@ -93,7 +93,7 @@ class Korisnik extends BaseController
         }
         $vipZahtev = $vipModel->insert([
             "status" => "N",
-            "username" => $kor
+            "username" => $kor->username
         ]);
         
         return redirect()->to(site_url('Korisnik/pregled'));

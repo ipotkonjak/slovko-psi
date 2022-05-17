@@ -28,6 +28,9 @@
             <div class="title-right">  </div>
         </div>
 
+        
+        
+        
         <div class="info">
             <table class="styled-info">
                 <tr>
@@ -85,11 +88,11 @@
 
         </div>
         <div class = "vipZahtev">
-            <form >
-                Захтев прихваћен: <input type="checkbox" name="prihvacen">
+            <form action="<?php echo site_url("Admin/vipObrada/".$korisnik->username); ?>" method="post">
+                Захтев прихваћен: <input type="checkbox" name="prihvacen"><br>
                 Разлог прихватања/одбијања:<br>
-                <textarea name="opis">
-                <input type="submit" value="Обради ѕахтев">
+                <textarea name="opis" cols="60"></textarea><br>
+                <input type="submit" value="Обради захтев">
             </form>
         </div>
             <div class="dugmici">

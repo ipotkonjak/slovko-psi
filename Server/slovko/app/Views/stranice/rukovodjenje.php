@@ -69,7 +69,9 @@
                     <?php
                     foreach ($vipZahtevi as $vipZahtev) {
                         echo "<tr><td>{$vipZahtev->username}</td><td>{$vipZahtev->opis}</td>";
-                        echo "<td><div class=\"butt\"><input type=\"button\" value=\"Уклони\" id=\"button-ukloni\" onclick=\"\"></div></td></tr>";
+                        echo "<td><div class=\"butt\"><a href = \"";
+                        echo site_url('Admin/pregledKorisnika/'.$vipZahtev->username);
+                        echo "\" ><input type=\"button\" value=\"Прихвати\" id=\"button-prihvati\" onclick=\"\"></div></td></tr>";
                     }
 
                     ?>

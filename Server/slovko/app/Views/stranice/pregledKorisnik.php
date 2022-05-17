@@ -91,10 +91,16 @@
             <div class="dugmici">
                 <div class="butt">
                     <a href="<?php echo site_url('Korisnik/rangLista')?>"><input type="button" value="Ранг листа" id="button-igraj"></a>
-                </div
+                </div>
+                <?php
+                    if($korisnik->vip == 0) {
+                ?>
                 <div class="butt">
                     <a href="<?php echo site_url('Korisnik/posaljiVipZahtev')?>"><input type="button" value="Пошаљите ВИП захтев" id="button-igraj"></a>
                 </div>
+                <?php
+                    }
+                ?>
                 <div class="butt">  
                     <input type="button" value="Крај прегледа" id="button-igraj" onclick="history.back()">
                 </div>
