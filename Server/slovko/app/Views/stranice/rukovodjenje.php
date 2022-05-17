@@ -47,9 +47,9 @@
                 <tbody>
                     <?php
                     foreach ($korisnici as $korisnik) {
-                        echo "<tr><td>{$korisnik->username}</td><td>{$korisnik->ime}</td>";
-                        echo "<td>{$korinsik->prezime}</td><td>{$korisnik->mail}</td>";
-                        echo "<td><div class=\"butt\"><input type=\"button\" value=\"Уклони\" id=\"button-ukloni\" onclick=\"\"></div></td></tr>";
+                        echo "<tr id=\"{$korisnik->username}\"><td>{$korisnik->username}</td><td>{$korisnik->ime}</td>";
+                        echo "<td>{$korisnik->prezime}</td><td>{$korisnik->email}</td>";
+                        echo "<td><div class=\"butt\"><input type=\"button\" value=\"Уклони\" id=\"button-ukloni\" onclick=\"ukloni('{$korisnik->username}')\"></div></td></tr>";
                     }
                     ?>
                 </tbody>

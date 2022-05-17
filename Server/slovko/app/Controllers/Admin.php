@@ -5,6 +5,7 @@ use App\Models\StatistikaModel;
 use App\Models\KorisnikModel;
 use App\Models\PrijavaGreskeModel;
 use App\Models\ReciModel;
+use App\Models\VipZahtevModel;
 
 class Admin extends BaseController
 {
@@ -55,7 +56,16 @@ class Admin extends BaseController
     }
 
     public function rukovodjenje(){
-        return $this->prikaz('stranice/rukovodjenje', ['korisnici' => [], 'vipZahtevi' => [], 'greske' => []]);
+        $korModel = new KorisnikModel();
+        $korisnici = $korModel->where('odobren', 1)->findAll();
+        
+        $vipModel = new VipZahtevModel();
+        $vipZahtevi = $vipModel->where('status', 'N')->findAll();
+        
+        $greskeModel = new PrijavaGreskeModel();
+        $greske = $greskeModel->where('evidentirano', 0)->findAll();
+        
+        return $this->prikaz('stranice/rukovodjenje', ['korisnici' => $korisnici, 'vipZahtevi' => $vipZahtevi, 'greske' => $greske]);
     }
     public function pravila()
     {   
