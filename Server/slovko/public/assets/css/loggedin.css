@@ -128,3 +128,9 @@ li a:hover {
     padding: 3px;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
+#gamemode{
+    margin-top: 3px;
+    padding: 5px;
+    border-radius: 5px;
+}

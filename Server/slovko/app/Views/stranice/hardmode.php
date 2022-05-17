@@ -25,6 +25,14 @@
         <ul type="none">
             <li><a href="<?php echo site_url('Gost/index') ?>">Правила</a></li>
             <li><a href="<?php echo site_url('Gost/prijavaGreske') ?>">Пријави грешку</a></li>
+            <li>
+                <select name="gamemode" id="gamemode">
+                    <option value="sp">Singleplayer</option>
+                    <option value="mp">Multiplayer</option>
+                    <option value="hard" selected>Hardmode</option>
+                    <option value="arcade">Arcade</option>
+                </select>
+            </li>
         </ul>
         <img class="logo" src="/assets/img/slovko.svg" alt="logo" width="200px" height="50px">
         <nav>
@@ -146,7 +154,7 @@
             <div id="dugmici">
                 <button type="button" onclick="reset()">Нова игра</button>
                 <button type="button" onclick="moreTries()">Додатни покушај</button>
-                <button type="button" onclick="giveUp()">Одустани</button>  
+                <button type="button" onclick="giveUp()">Одустани</button>
             </div>
         </div>
     </div>

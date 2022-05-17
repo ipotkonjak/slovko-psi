@@ -32,6 +32,14 @@
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo site_url("$controller/prijavaGreske") ?>">Пријави грешку</a>
                         </li>
+                        <li>
+                            <select name="gamemode" id="gamemode">
+                                <option value="sp" selected>Singleplayer</option>
+                                <option value="mp">Multiplayer</option>
+                                <option value="hard">Hardmode</option>
+                                <option value="arcade">Arcade</option>
+                            </select>
+                        </li>
                     </ul>
                 </nav>
             </div>
