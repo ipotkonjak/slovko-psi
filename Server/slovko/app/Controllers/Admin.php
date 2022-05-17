@@ -57,4 +57,9 @@ class Admin extends BaseController
     public function rukovodjenje(){
         return $this->prikaz('stranice/rukovodjenje', ['korisnici' => [], 'vipZahtevi' => [], 'greske' => []]);
     }
+    public function pravila()
+    {   
+        
+        return $this->prikaz('stranice/pocetna', []);
+    }
 }

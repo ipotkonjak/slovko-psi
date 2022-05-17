@@ -9,6 +9,7 @@ use App\Models\ReciModel;
 class Korisnik extends BaseController
 {
     protected function prikaz($page, $data) {
+        $data['controller'] = 'Korisnik';
         echo view($page, $data);
     }
     
@@ -65,5 +66,11 @@ class Korisnik extends BaseController
             "username" => $kor
         ]);
         return $this->prikaz('stranice/prijava_greske', ['poruka' => 'Uspesno ste prijavili gresku']);
+    }
+    
+    public function pravila()
+    {   
+        
+        return $this->prikaz('stranice/pocetna', []);
     }
 }
