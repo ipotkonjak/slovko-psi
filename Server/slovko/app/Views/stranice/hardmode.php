@@ -25,11 +25,13 @@
     <header>
         <ul type="none">
             <li><a href="<?php echo site_url('Gost/index')?>">Правила</a></li>
+            <li><a href="<?php echo site_url('Gost/prijavaGreske')?>">Пријави грешку</a></li>
         </ul>
         <img class="logo" src="/assets/img/slovko.svg" alt="logo" width="200px" height="50px">
         <nav>
             <ul type="none">
-                <li><a href="<?php echo site_url('Gost/prijavaGreske')?>">Пријави грешку</a></li>
+                <li><a href="<?php echo site_url('Korisnik/pregled')?>">Преглед профила</a></li>
+                <li><a href="<?php echo site_url('Korisnik/logout')?>">Одјави се</a></li>
             </ul>
         </nav>
     </header>
@@ -93,6 +95,13 @@
                         <div class="square" id="square64"></div>
                         <div class="square" id="square65"></div>
                     </div>
+                    <div class="row" id="row7">
+                        <div class="square" id="square71"></div>
+                        <div class="square" id="square72"></div>
+                        <div class="square" id="square73"></div>
+                        <div class="square" id="square74"></div>
+                        <div class="square" id="square75"></div>
+                    </div>
                 </div>
             </div>
             <div id="keyboard">
@@ -136,6 +145,9 @@
                 </div>
             </div>
             <button type="button" onclick="reset()">Нова игра</button>
+            <button type="button" onclick="moreTries()">Додатни покушај</button>
+            <button type="button" onclick="giveUp()">Одустани</button>
+            
         </div>
     </div>
 </body>

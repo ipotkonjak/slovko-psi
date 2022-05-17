@@ -8,7 +8,6 @@ let enteredWord = [];
 let count = [];
 let correctLetters = [];
 let hasLetters = [];
-let noLetters = [];
 let currentRow = 1;
 let currentCol = 1;
 let guess = 0;
@@ -49,11 +48,12 @@ function init() {
     correctLetters = [];
     (correctLetters = []).length = 5; correctLetters.fill('-');
     hasLetters = [];
-    noLetters = [];
     fillCount();
 }
 
 function reset() {
+    $("#board").css({"grid-template-rows": "repeat(6, 1fr)"});
+    $("#row7").css({"display": "none"});
     init();
     $(".square").css({"background-color" : "transparent"});
     $(".square").html("");
@@ -66,21 +66,36 @@ function reset() {
         });
 }
 
+function moreTries() {
+    if (numOfGuesses != 6) {
+        showPopup("Већ сте додали доадтни покушај!");
+        return;
+    }
+    numOfGuesses++;
+    $("#board").css({"grid-template-rows": "repeat(7, 1fr)"});
+    $("#row7").css({"display": "grid"});
+    
+}
+function giveUp() {
+    alert("Тражена реч је била " + secretWord + ".");
+    reset();
+    
+}
 
 function copyArray(arr){
-	let copyArr = [];
-	for(let i = 0; i < arr.length; i++) copyArr.push(arr[i]);
-	return copyArr;
+    let copyArr = [];
+    for(let i = 0; i < arr.length; i++) copyArr.push(arr[i]);
+    return copyArr;
 }
 
 function removeFromArr(arr, value){
-	let copyArr = [];
+    let copyArr = [];
     let num = 0;
 	for(let i = 0; i < arr.length; i++) {
         if (num == 0 && arr[i] == value) { num++; continue; }
         copyArr.push(arr[i]);
     }
-	return copyArr;
+    return copyArr;
 }
 
 function fillCount() {
@@ -150,11 +165,7 @@ function hardModeCheck() {
             showPopup(msg);
             return false;
         }   
-        if (noLetters.includes(enteredWord[i].letter)) {        
-            msg = "Слово " + enteredWord[i].letter.toUpperCase() + " не постоји у речи!";
-            showPopup(msg);
-            return false;
-        }     
+    
     }
     for(let i = 0; i < hasLetters.length; i++) { 
         let found = false;  
@@ -247,7 +258,7 @@ function checkEnteredWord() {
             document.getElementById(enteredWord[i].square).style.backgroundColor = colorPink;
             hasLetters.push(enteredWord[i].letter);
             let keyboard = document.getElementById(enteredWord[i].letter);
-			if(keyboard.style.backgroundColor !== colorGreen) keyboard.style.backgroundColor = colorPink;
+            if(keyboard.style.backgroundColor !== colorGreen) keyboard.style.backgroundColor = colorPink;
             colored[i] = true;
             copyCount[ind - 1] -= 1;
         }
@@ -258,9 +269,6 @@ function checkEnteredWord() {
         if (colored[i]) continue;
         document.getElementById(enteredWord[i].square).style.backgroundColor = colorGrey;
         
-        if (correctLetters.includes(enteredWord[i]).letter == false) {
-            noLetters.push(enteredWord[i].letter);
-        }
         
 	let keyboard = document.getElementById(enteredWord[i].letter);
         if(keyboard.style.backgroundColor!==colorGreen && keyboard.style.backgroundColor!==colorPink) keyboard.style.backgroundColor = colorGrey;

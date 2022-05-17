@@ -199,7 +199,7 @@ function checkEnteredWord() {
         if (colored[i]) continue;
         document.getElementById(enteredWord[i].square).style.backgroundColor = colorGrey;
         
-        if (correctLetters.includes(enteredWord[i]).letter == false) {
+        if (correctLetters.includes(enteredWord[i].letter) == false) {
             noLetters.push(enteredWord[i].letter);
         }
         
