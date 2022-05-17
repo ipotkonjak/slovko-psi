@@ -19,6 +19,13 @@ class Korisnik extends BaseController
         return $this->prikaz("stranice/arcade", ["rec" => $rand->rec]);
     }
     
+    public function hardmode(){
+        $reciModel = new ReciModel();
+        $rand = $reciModel->orderBy('id', 'RANDOM')->first();
+        
+        return $this->prikaz("stranice/hardmode", ["rec" => $rand->rec]);
+    }
+    
     public function index()
     {
         $reciModel = new ReciModel();
