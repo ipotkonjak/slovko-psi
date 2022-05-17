@@ -43,10 +43,10 @@
                 <nav class="navbar navbar-expand-sm navbar-light">
                     <ul class="navbar-nav" type="none">
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo site_url('Gost/login')?>">Улогуј се</a>
+                            <a class="nav-link" href="<?php echo site_url('Korisnik/pregled')?>">Преглед профила</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo site_url('Gost/registracija')?>">Региструј се</a>
+                            <a class="nav-link" href="<?php echo site_url('Korisnik/logout')?>">Одјави се</a>
                         </li>
                     </ul>
                 </nav>
