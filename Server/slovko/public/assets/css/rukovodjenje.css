@@ -1,0 +1,168 @@
+/* Uros Mutavdzic 19/0378 */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: lightgrey;
+}
+
+a{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+    color: black;
+    text-decoration: none;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+    border-bottom: 0.5px solid grey;
+}
+
+.logo{
+    cursor: pointer;
+}
+
+
+#container{
+    display: flex;
+    background-color: black;
+    height: 100%;
+    align-items: center;
+    flex-direction: column;
+    background-color: lightgrey;
+}
+
+.welcome-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+}
+
+.title-left, .title-right{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.title-left, .title-right{
+    width: 4em;
+}
+
+.title-center{
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.dugmici {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#button-igraj {
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 7px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#button-ukloni {
+    background-color: rgb(255, 77, 77, 0.75);
+    color: white;
+    border-radius: 10px;
+    padding: 4px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#button-prihvati {
+    background-color: rgb(0, 179, 60, 0.75);
+    color: white;
+    border-radius: 10px;
+    padding: 4px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+
+td {
+    text-align: left;
+}
+
+th {
+    text-align: left;
+}
+
+#stat{
+    padding:10px;
+    text-align: center;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.styled-info {
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+    min-width: 600px;
+    /* max-width: 600px; */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.styled-info td{
+    padding:5px;
+    text-align: center;
+}
+
+.styled-info th{
+    padding:5px;
+    text-align: center;
+}
+
+.styled-info thead tr {
+    border-bottom: 0.5px solid gray;
+}
+
+
+/* dodato */
+.paging-nav {
+    text-align: right;
+    padding-top: 2px;
+  }
+  
+  .paging-nav a {
+    margin: auto 1px;
+    text-decoration: none;
+    display: inline-block;
+    padding: 1px 7px;
+    background: #91b9e6;
+    color: white;
+    border-radius: 3px;
+  }
+  
+  .paging-nav .selected-page {
+    background: #187ed5;
+    font-weight: bold;
+  }
+  
+  .paging-nav, #tableData, #tableData1, #tableData2 {
+    width: 600px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+  }

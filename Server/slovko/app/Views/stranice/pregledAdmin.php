@@ -1,4 +1,4 @@
-<!-- Katarina Jocic 19/0014 -->
+<!-- Uros Mutavdzic 19/0378 -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/pregled.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/pregledAdmin.css" type="text/css">
     <title>Преглед профила</title>
 </head>
 
@@ -29,7 +29,7 @@
             </div>
 
             <div class="info">
-                <table class="styled-info">
+            <table class="styled-info">
                     <tr>
                         <th>Kорисничко име</th>
                         <td><?php echo $korisnik->username; ?></td>
@@ -47,7 +47,9 @@
                         <td><?php echo $korisnik->email; ?></td>
                     </tr>
                 </table>
-                <br><hr><br>
+                <br>
+                <hr>
+                <br>
                 <table class="styled-info">
                     <thead>
                         <tr>
@@ -84,7 +86,10 @@
             </div> 
             <div class="dugmici">
                 <div class="butt">
-                    <a href="<?php echo site_url('Korisnik/rangLista')?>"><input type="button" value="Ранг листа" id="button-igraj"></a>
+                    <a href="rang_lista.html"><input type="button" value="Ранг листа" id="button-igraj"></a>
+                </div>
+                <div class="butt">  
+                    <a href="<?php echo site_url("$controller/rukovodjenje")?>"><input type="button" value="Руковођење" id="button-igraj"></a>
                 </div>
                 <div class="butt">  
                     <input type="button" value="Крај прегледа" id="button-igraj" onclick="history.back()">
