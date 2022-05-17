@@ -11,5 +11,5 @@ class IgraModel extends Model
 
     protected $returnType     = 'object';
     
-    protected $allowedFields = ['brojPokusaja1', 'brojPokusaja2', 'vreme1', 'vreme2', 'idK1', 'idK2', 'pobeda1'];
+    protected $allowedFields = ['brojPokusaja1', 'brojPokusaja2', 'vreme1', 'vreme2', 'username1', 'username2', 'pobeda1'];
 }

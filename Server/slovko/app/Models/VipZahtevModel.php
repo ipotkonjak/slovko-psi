@@ -11,5 +11,5 @@ class VipZahtevModel extends Model
 
     protected $returnType     = 'object';
     
-    protected $allowedFields = ['opis', 'status', 'idK'];
+    protected $allowedFields = ['opis', 'status', 'username'];
 }

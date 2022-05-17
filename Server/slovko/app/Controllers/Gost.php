@@ -30,9 +30,11 @@ class Gost extends BaseController
     public function login() {
         return $this->prikaz('stranice/login', []);
     }
+
     public function registracija() {
         return $this->prikaz('stranice/register', []);
     }
+    
     public function loginRequest() {
         $korime = $this->request->getVar('korisnickoIme');
         $lozinka = $this->request->getVar('sifra');

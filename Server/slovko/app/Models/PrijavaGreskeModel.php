@@ -11,5 +11,5 @@ class PrijavaGreskeModel extends Model
 
     protected $returnType     = 'object';
     
-    protected $allowedFields = ['idAdmin', 'opis', 'evidentirano', 'idK'];
+    protected $allowedFields = ['admin', 'opis', 'evidentirano', 'username'];
 }
