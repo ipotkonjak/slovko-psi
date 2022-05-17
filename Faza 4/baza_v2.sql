@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `igra` (
 DROP TABLE IF EXISTS `korisnik`;
 CREATE TABLE IF NOT EXISTS `korisnik` (
   `username` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `lozinka` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `lozinka` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `ime` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `prezime` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `vip` tinyint(1) NOT NULL,
