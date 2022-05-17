@@ -30,11 +30,9 @@ class Gost extends BaseController
     public function login() {
         return $this->prikaz('stranice/login', []);
     }
-
     public function registracija() {
         return $this->prikaz('stranice/register', []);
     }
-    
     public function loginRequest() {
         $korime = $this->request->getVar('korisnickoIme');
         $lozinka = $this->request->getVar('sifra');
@@ -48,7 +46,7 @@ class Gost extends BaseController
         }
         
         $korModel = new KorisnikModel();
-        $korisnik = $korModel->where('username', $korime)->first();
+        $korisnik = $korModel->find($korime);
         
         if($korisnik == null) {
             return $this->prikaz('stranice/login', ['korimeGreska' => 'Korisnik ne postoji']);
@@ -58,7 +56,6 @@ class Gost extends BaseController
             return $this->prikaz('stranice/login', ['sifraGreska' => 'Pogresna lozinka']);
         }
         
-        $this->session->set('korisnik', $korisnik->idK);
         $this->session->set('korisnickoIme', $korime);
         
         return redirect()->to(site_url('Korisnik/index'));
@@ -66,7 +63,7 @@ class Gost extends BaseController
     
     public function registracijaRequest(){
         $korModel = new KorisnikModel();
-        $korisnik = $korModel->where("username", $this->request->getVar("korisnickoIme"))->first();
+        $korisnik = $korModel->find($this->request->getVar("korisnickoIme"));
         if($korisnik != null){
             return $this->prikaz("stranice/register", ["korimegreska" => "Корисничко име је заузето."]);
             //return redirect()->to(site_url('Gost/registracija'));
@@ -85,7 +82,6 @@ class Gost extends BaseController
                 "email" => $this->request->getVar("mejl"),
             ]
         );
-        $idKor = $korModel->getInsertId();
         
         $statModel = new StatistikaModel();
         $statistika = $statModel->insert([
@@ -94,10 +90,9 @@ class Gost extends BaseController
             "brojNeresenih" => 0,
             "brojPoraza" => 0,
             "arcadeRecord" => 0,
-            "idK" => $idKor
+            "username" => $this->request->getVar("korisnickoIme")
         ]);
         
-        $this->session->set('korisnik', $idKor);
         $this->session->set('korisnickoIme', $this->request->getVar("korisnickoIme"));
         
         return redirect()->to(site_url('Korisnik/index'));

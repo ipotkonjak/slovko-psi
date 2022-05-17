@@ -28,10 +28,10 @@
                 <nav class="navbar navbar-expand-sm navbar-light">
                     <ul class="navbar-nav" type="none">
                         <li class="nav-item">
-                            <a class="nav-link" href="pocetna.html">Правила</a>
+                            <a class="nav-link" href="<?php echo site_url('Gost/index')?>">Правила</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="prijava_greske.html">Пријави грешку</a>
+                            <a class="nav-link" href="<?php echo site_url('Gost/prijavaGreske')?>">Пријави грешку</a>
                         </li>
                     </ul>
                 </nav>
@@ -43,10 +43,10 @@
                 <nav class="navbar navbar-expand-sm navbar-light">
                     <ul class="navbar-nav" type="none">
                         <li class="nav-item">
-                            <a class="nav-link" href="login.html">Улогуј се</a>
+                            <a class="nav-link" href="<?php echo site_url('Gost/login')?>">Улогуј се</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="register.html">Региструј се</a>
+                            <a class="nav-link" href="<?php echo site_url('Gost/registracija')?>">Региструј се</a>
                         </li>
                     </ul>
                 </nav>

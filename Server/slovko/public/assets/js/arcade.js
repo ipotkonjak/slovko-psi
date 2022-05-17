@@ -106,7 +106,7 @@ function startGame(){
             $("#counter").hide();
             clearKeyboardAndBoard();
 			gameOver = true;
-            alert("Igra je gotova! Vas rezultat je: " + rezultat);
+            alert("Игра је готова! Последња реч је била: " + secretWord + ". Ваш резултат је: " + rezultat);
             //mozda nesto sa ajaxom zbog statistike u bazi
             return;
         }

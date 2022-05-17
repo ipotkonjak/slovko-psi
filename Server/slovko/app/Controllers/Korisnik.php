@@ -34,12 +34,12 @@ class Korisnik extends BaseController
     }
     
     public function pregled() {
-        $korisnik = $this->session->get('korisnik');
+        $korisnik = $this->session->get('korisnickoIme');
         $korModel = new KorisnikModel();
         $statModel = new StatistikaModel();
         
         $kor = $korModel->find($korisnik);
-        $stat = $statModel->where('idK', $korisnik)->first();
+        $stat = $statModel->where('username', $korisnik)->first();
         
         return $this->prikaz('stranice/pregledKorisnik', ['korisnik' => $kor, 'statistika' => $stat]);
     }
@@ -49,13 +49,13 @@ class Korisnik extends BaseController
     }
     
     public function greskaSubmit() {
-        $kor = $this->session->get('korisnik');
+        $kor = $this->session->get('korisnickoIme');
         $tekst = $this->request->getVar('unos');
         
         $greskaModel = new PrijavaGreskeModel();
         $greskaModel->insert([
             "opis" => $tekst,
-            "idK" => $kor
+            "username" => $kor
         ]);
         return $this->prikaz('stranice/prijava_greske', ['poruka' => 'Uspesno ste prijavili gresku']);
     }
