@@ -41,22 +41,22 @@ class Gost extends BaseController
         $lozinka = $this->request->getVar('sifra');
         
         if($korime == '') {
-            return $this->prikaz('stranice/login', ['korimeGreska' => 'Unesite korisnicko ime']);
+            return $this->prikaz('stranice/login', ['korimeGreska' => 'Унесите корисничко име']);
         }
         
         if($lozinka == '') {
-            return $this->prikaz('stranice/login', ['sifraGreska' => 'Unesite lozinku']);
+            return $this->prikaz('stranice/login', ['sifraGreska' => 'Унесите лозинку']);
         }
         
         $korModel = new KorisnikModel();
         $korisnik = $korModel->find($korime);
         
         if($korisnik == null) {
-            return $this->prikaz('stranice/login', ['korimeGreska' => 'Korisnik ne postoji']);
+            return $this->prikaz('stranice/login', ['korimeGreska' => 'Корисник не постоји']);
         }
         
         if(!password_verify($lozinka, $korisnik->lozinka)) {
-            return $this->prikaz('stranice/login', ['sifraGreska' => 'Pogresna lozinka']);
+            return $this->prikaz('stranice/login', ['sifraGreska' => 'Погрешна лозинка']);
         }
         
         $this->session->set('korisnickoIme', $korime);

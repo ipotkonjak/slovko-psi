@@ -82,15 +82,30 @@
                 </table>
                 
             </div> 
+        
+            <div>
+                <div class="greska" id="zahtevGreska" ><font color='red'><?php if(isset($zahtevGreska)) echo $zahtevGreska;?></font></div>
+            </div>
+          
+           
             <div class="dugmici">
                 <div class="butt">
                     <a href="<?php echo site_url('Korisnik/rangLista')?>"><input type="button" value="Ранг листа" id="button-igraj"></a>
+                </div
+                <div class="butt">
+                    <a href="<?php echo site_url('Korisnik/posaljiVipZahtev')?>"><input type="button" value="Пошаљите ВИП захтев" id="button-igraj"></a>
                 </div>
                 <div class="butt">  
                     <input type="button" value="Крај прегледа" id="button-igraj" onclick="history.back()">
                 </div>
             </div>
     </div>
+<!--    <script>
+        function noviVip() {
+            let ret = confirm("Вип можете послати ако сте одиграли барем 100 партија." + "\n" + "Да ли желите да пошаљете?");
+            
+        }
+    </script>-->
 </body>
 
 </html>

@@ -5,6 +5,7 @@ use App\Models\StatistikaModel;
 use App\Models\KorisnikModel;
 use App\Models\PrijavaGreskeModel;
 use App\Models\ReciModel;
+use App\Models\VipZahtevModel;
 
 class Korisnik extends BaseController
 {
@@ -72,5 +73,29 @@ class Korisnik extends BaseController
     {   
         
         return $this->prikaz('stranice/pocetna', []);
+    }
+    
+    public function posaljiVipZahtev() {
+        $korisnik = $this->session->get('korisnickoIme');
+        $korModel = new KorisnikModel();
+        $statModel = new StatistikaModel();
+        $vipModel = new VipZahtevModel();
+        
+        $kor = $korModel->find($korisnik);
+        $stat = $statModel->where('username', $korisnik)->first();
+        $idZah = $vipModel->where('username', $korisnik)->first();
+       
+        
+       
+        if ($idZah != null) {
+            return $this->prikaz("stranice/pregledKorisnik", 
+                    ['korisnik' => $kor, 'statistika' => $stat, 'zahtevGreska' => 'Већ сте послали ВИП захтев']);
+        }
+        $vipZahtev = $vipModel->insert([
+            "status" => "N",
+            "username" => $kor
+        ]);
+        
+        return redirect()->to(site_url('Korisnik/pregled'));
     }
 }
