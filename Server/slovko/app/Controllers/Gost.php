@@ -30,9 +30,11 @@ class Gost extends BaseController
     public function login() {
         return $this->prikaz('stranice/login', []);
     }
+
     public function registracija() {
         return $this->prikaz('stranice/register', []);
     }
+
     public function loginRequest() {
         $korime = $this->request->getVar('korisnickoIme');
         $lozinka = $this->request->getVar('sifra');
@@ -58,7 +60,12 @@ class Gost extends BaseController
         
         $this->session->set('korisnickoIme', $korime);
         
-        return redirect()->to(site_url('Korisnik/index'));
+        if($korisnik->admin == 0){
+            return redirect()->to(site_url('Korisnik/index'));
+        }
+        else{
+            return redirect()->to(site_url('Admin/index'));
+        }
     }
     
     public function registracijaRequest(){

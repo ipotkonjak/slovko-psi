@@ -24,14 +24,14 @@
 <body onload="init()">
     <header>
         <ul type="none">
-            <li><a href="<?php echo site_url('Korisnik/pravila')?>">Правила</a></li>
-            <li><a href="<?php echo site_url('Korisnik/prijavaGreske')?>">Пријави грешку</a></li>
+            <li><a href="<?php echo site_url("$controller/pravila")?>">Правила</a></li>
+            <li><a href="<?php echo site_url("$controller/prijavaGreske")?>">Пријави грешку</a></li>
         </ul>
         <img class="logo" src="/assets/img/slovko.svg" alt="logo" width="200px" height="50px">
         <nav>
             <ul type="none">
-                <li><a href="<?php echo site_url('Korisnik/pregled')?>">Преглед профила</a></li>
-                <li><a href="<?php echo site_url('Korisnik/logout')?>">Одјави се</a></li>
+                <li><a href="<?php echo site_url("$controller/pregled")?>">Преглед профила</a></li>
+                <li><a href="<?php echo site_url("$controller/logout")?>">Одјави се</a></li>
             </ul>
         </nav>
     </header>
