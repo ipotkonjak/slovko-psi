@@ -63,7 +63,7 @@ header{
     align-items: center;
 }
 
-#button-igraj {
+.button-igraj {
     background-color: black;
     color: white;
     border-radius: 10px;
