@@ -8,6 +8,7 @@ use App\Models\ReciModel;
 class Gost extends BaseController
 {
     protected function prikaz($page, $data) {
+        $data['controller'] = 'Gost';
         echo view($page, $data);
     }
     
