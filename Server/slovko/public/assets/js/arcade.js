@@ -81,7 +81,7 @@ function newArcade(){
 function startGame(){
     reset();
 	rezultat=0;
-    $("#timer").html("3:00").show();
+    $("#timer").html("1:00").show();
     $("#counter").html("Речи:0").show();
     timer = setInterval(function(){
         while(timerlock) ;
@@ -107,7 +107,15 @@ function startGame(){
             clearKeyboardAndBoard();
 			gameOver = true;
             alert("Игра је готова! Последња реч је била: " + secretWord + ". Ваш резултат је: " + rezultat);
-            //mozda nesto sa ajaxom zbog statistike u bazi
+            $.ajax({
+                type: "POST",
+                url: "/Ajax/azurirajRekord",
+                data: {
+                result: rezultat,
+                username: korisnik
+                }
+                }).done(function(result) {
+                });
             return;
         }
         if(min==0 && sec<=20 && treptanje==-1){

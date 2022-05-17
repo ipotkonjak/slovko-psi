@@ -3,6 +3,7 @@
 namespace App\Controllers;
 use App\Models\ReciModel;
 use App\Models\KorisnikModel;
+use App\Models\StatistikaModel;
 
 
 class Ajax extends BaseController
@@ -38,5 +39,18 @@ class Ajax extends BaseController
         $reciModel = new ReciModel();
         $rand = $reciModel->orderBy('id', 'RANDOM')->first();
         echo $rand->rec;
+    }
+    
+    public function azurirajRekord(){
+        $korime = $this->request->getVar('username');
+        $rezultat = $this->request->getVar("result");
+        $statModel = new StatistikaModel();
+        
+        $statistika = $statModel->where("username", $korime)->first();
+        if($statistika->arcadeRecord < $rezultat){
+            $statistika->arcadeRecord = $rezultat;
+            $statModel->save($statistika);
+        }
+        
     }
 }

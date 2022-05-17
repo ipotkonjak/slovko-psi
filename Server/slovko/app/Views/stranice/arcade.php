@@ -16,6 +16,7 @@
     <script>
         <?php
              echo "let secretWord = '$rec';";
+             echo "let korisnik = '$korisnik';"
          ?>
     </script>
     <script src="/assets/js/arcade.js"></script>
