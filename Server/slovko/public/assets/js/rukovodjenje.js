@@ -16,3 +16,18 @@ function ukloni(id) {
             $('#' + id).remove();
         });
 }
+
+function evidentiraj(id, greska) {
+    $.ajax({
+        type: "POST",
+        url: "/Ajax/evidencijaGreske",
+        data: {
+        admin: id,
+        idGreske: greska
+        }
+        }).done(function(result) {
+            $('#' + greska).remove();
+            //alert(result);
+            //$('#' + id).remove();
+        });
+}

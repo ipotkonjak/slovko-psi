@@ -4,6 +4,7 @@ namespace App\Controllers;
 use App\Models\ReciModel;
 use App\Models\KorisnikModel;
 use App\Models\StatistikaModel;
+use App\Models\PrijavaGreskeModel;
 
 
 class Ajax extends BaseController
@@ -13,6 +14,19 @@ class Ajax extends BaseController
         return view('welcome_message');
     }
     
+    public function evidencijaGreske() {
+        $admin = $this->request->getVar('admin');
+        $greska = $this->request->getVar('idGreske');
+        
+        $prijavaModel = new PrijavaGreskeModel();
+        $prijava = $prijavaModel->find(intval($greska));
+        
+        $prijava->admin = $admin;
+        $prijava->evidentirano = 1;
+        
+        $prijavaModel->save($prijava);
+    }
+
     public function ukloniKorisnika(){
        $korime = $this->request->getVar('korime');
        $korModel = new KorisnikModel();

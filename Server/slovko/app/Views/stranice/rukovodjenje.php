@@ -71,7 +71,7 @@
                         echo "<tr><td>{$vipZahtev->username}</td><td>{$vipZahtev->opis}</td>";
                         echo "<td><div class=\"butt\"><a href = \"";
                         echo site_url('Admin/pregledKorisnika/'.$vipZahtev->username);
-                        echo "\" ><input type=\"button\" value=\"Прихвати\" id=\"button-prihvati\" onclick=\"\"></div></td></tr>";
+                        echo "\" ><input type=\"button\" value=\"Обради\" id=\"button-prihvati\" onclick=\"\"></div></td></tr>";
                     }
 
                     ?>
@@ -90,8 +90,8 @@
 
                     <?php
                     foreach ($greske as $greska) {
-                        echo "<tr><td>{$greska->username}</td><td>{$greska->opis}</td>";
-                        echo "<td><div class=\"butt\"><input type=\"button\" value=\"Уклони\" id=\"button-ukloni\" onclick=\"\"></div></td></tr>";
+                        echo "<tr id=\"{$greska->idP}\"><td>{$greska->username}</td><td>{$greska->opis}</td>";
+                        echo "<td><div class=\"butt\"><input type=\"button\" value=\"Евидентирај\" id=\"button-prihvati\" onclick=\"evidentiraj('{$_SESSION['korisnickoIme']}', '{$greska->idP}')\"></div></td></tr>";
                     }
 
                     ?>
