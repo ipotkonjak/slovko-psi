@@ -91,7 +91,7 @@
                     <?php
                     foreach ($greske as $greska) {
                         echo "<tr id=\"{$greska->idP}\"><td>{$greska->username}</td><td>{$greska->opis}</td>";
-                        echo "<td><div class=\"butt\"><input type=\"button\" value=\"Евидентирај\" id=\"button-prihvati\" onclick=\"evidentiraj('{$_SESSION['korisnickoIme']}', '{$greska->idP}')\"></div></td></tr>";
+                        echo "<td><div class=\"butt\"><input type=\"button\" value=\"Евидентирај\" id=\"button-prihvatigit\" onclick=\"evidentiraj('{$_SESSION['korisnickoIme']}', '{$greska->idP}')\"></div></td></tr>";
                     }
 
                     ?>
