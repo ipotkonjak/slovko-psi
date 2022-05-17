@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 use App\Models\ReciModel;
+use App\Models\KorisnikModel;
+
 
 class Ajax extends BaseController
 {
@@ -9,6 +11,17 @@ class Ajax extends BaseController
     {
         return view('welcome_message');
     }
+    
+    public function ukloniKorisnika(){
+       $korime = $this->request->getVar('korime');
+       $korModel = new KorisnikModel();
+       
+       $korisnik = $korModel->find($korime);
+       $korisnik->odobren = 0;
+       $korModel->save($korisnik);
+       echo $korime;
+    }
+    
     public function proveraReci(){
         $rec = $this->request->getVar('word');
         $reciModel = new ReciModel();
