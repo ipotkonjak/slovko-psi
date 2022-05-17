@@ -257,8 +257,12 @@ function checkEnteredWord() {
     for(let i = 0; i < 5; i++) { 
         if (colored[i]) continue;
         document.getElementById(enteredWord[i].square).style.backgroundColor = colorGrey;
-        noLetters.push(enteredWord[i].letter);
-		let keyboard = document.getElementById(enteredWord[i].letter);
+        
+        if (correctLetters.includes(enteredWord[i]).letter == false) {
+            noLetters.push(enteredWord[i].letter);
+        }
+        
+	let keyboard = document.getElementById(enteredWord[i].letter);
         if(keyboard.style.backgroundColor!==colorGreen && keyboard.style.backgroundColor!==colorPink) keyboard.style.backgroundColor = colorGrey;
          
         colored[i] = true;

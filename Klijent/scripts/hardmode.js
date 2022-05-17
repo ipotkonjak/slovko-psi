@@ -2,7 +2,7 @@ let colorGreen = 'rgba(89, 217, 131, 0.5)';
 let colorPink = 'rgba(217, 138, 89, 0.5)';
 let colorGrey = 'rgba(79, 74, 71, 0.4)';
 
-let secretWord = "одмор";
+let secretWord = "даске";
 let enteredWord = [];
 let currentRow = 1;
 let currentCol = 1;
@@ -117,6 +117,7 @@ function hardModeCheck() {
             showPopup(msg);
             return false;
         }   
+       
         if (noLetters.includes(enteredWord[i].letter)) {        
             msg = "Слово " + enteredWord[i].letter.toUpperCase() + " не постоји у речи!";
             showPopup(msg);
@@ -197,7 +198,11 @@ function checkEnteredWord() {
     for(let i = 0; i < 5; i++) { 
         if (colored[i]) continue;
         document.getElementById(enteredWord[i].square).style.backgroundColor = colorGrey;
-        noLetters.push(enteredWord[i].letter);
+        
+        if (correctLetters.includes(enteredWord[i]).letter == false) {
+            noLetters.push(enteredWord[i].letter);
+        }
+        
 		let keyboard = document.getElementById(enteredWord[i].letter);
         if(keyboard.style.backgroundColor!==colorGreen && keyboard.style.backgroundColor!==colorPink) keyboard.style.backgroundColor = colorGrey;
          
@@ -218,8 +223,11 @@ function checkEnteredWord() {
     }
     else { enableEntry = true; }
 
+    console.log("Correct");
     console.log(correctLetters);
+    console.log("Has");
     console.log(hasLetters);
+    console.log("No");
     console.log(noLetters);
     
 }
