@@ -9,15 +9,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="/assets/css/arcade.css">
-    <script
-    src="https://code.jquery.com/jquery-3.6.0.js"
-    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script>
         <?php
-             echo "let secretWord = '$rec';";
-             echo "let korisnik = '$korisnik';"
-         ?>
+        echo "let secretWord = '$rec';";
+        ?>
     </script>
     <script src="/assets/js/arcade.js"></script>
 </head>
@@ -29,10 +25,10 @@
                 <nav class="navbar navbar-expand-sm navbar-light">
                     <ul class="navbar-nav" type="none">
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo site_url('Gost/index')?>">Правила</a>
+                            <a class="nav-link" href="<?php echo site_url('Gost/index') ?>">Правила</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo site_url('Gost/prijavaGreske')?>">Пријави грешку</a>
+                            <a class="nav-link" href="<?php echo site_url('Gost/prijavaGreske') ?>">Пријави грешку</a>
                         </li>
                     </ul>
                 </nav>
@@ -44,10 +40,10 @@
                 <nav class="navbar navbar-expand-sm navbar-light">
                     <ul class="navbar-nav" type="none">
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo site_url('Korisnik/pregled')?>">Преглед профила</a>
+                            <a class="nav-link" href="<?php echo site_url('Korisnik/pregled') ?>">Преглед профила</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo site_url('Korisnik/logout')?>">Одјави се</a>
+                            <a class="nav-link" href="<?php echo site_url('Korisnik/logout') ?>">Одјави се</a>
                         </li>
                     </ul>
                 </nav>
@@ -55,7 +51,7 @@
             <hr>
         </div>
         <div class="popup" id="myPopup">
-                Bravo
+            Bravo
         </div>
         <div class="row" id="title-row">
             <div class="col-sm-3"> &nbsp; </div>
@@ -154,7 +150,9 @@
                             <button id="м" onclick="enter('м')">м</button>
                             <button id="←" class="one-and-a-half" onclick="removeLetter()">обриши</button>
                         </div>
-                        <button type="button" onclick="newArcade()" style="text-align: center">Започни игру</button>
+                        <div id="dugmici">
+                            <button type="button" onclick="newArcade()" style="text-align: center">Започни игру</button>
+                        </div>
                     </div>
                 </div>
             </div>
