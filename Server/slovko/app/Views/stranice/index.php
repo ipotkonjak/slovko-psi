@@ -31,17 +31,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo site_url('Gost/prijavaGreske') ?>">Пријави грешку</a>
                         </li>
-                        <li>
-                            <div class="dropdown">
-                                <button class="dropbtn">Мод игре</button>
-                                <div class="dropdown-content">
-                                    <a href="<?php echo site_url("$controller/index") ?>">Singleplayer</a>
-                                    <a href="<?php echo site_url("$controller/arcade") ?>">Arcade</a>
-                                    <a href="<?php echo site_url("$controller/multiplayer") ?>">Multiplayer</a>
-                                    <a href="<?php echo site_url("$controller/hardmode") ?>">Hardmode</a>
-                                </div>
-                            </div>
-                        </li>
                     </ul>
                 </nav>
             </div>
