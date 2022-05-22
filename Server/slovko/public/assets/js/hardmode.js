@@ -17,20 +17,20 @@ let gameOver = false;
 let numOfGuesses = 6;
 
 const letterMap = {
-    "а" : 1, "б" : 2, "в" : 3, "г" : 4, "д" : 5, 
-    "ђ" : 6, "е" : 7, "ж" : 8, "з" : 9, "и" : 10, 
-    "ј" : 11, "к" : 12, "л" : 13, "љ" : 14, "м" : 15, 
-    "н" : 16, "њ" : 17, "о" : 18, "п" : 19, "р" : 20, 
-    "с" : 21, "т" : 22, "ћ" : 23, "у" : 24, "ф" : 25, 
-    "х" : 26, "ц" : 27, "ч" : 28, "џ" : 29, "ш" : 30 
+    "а": 1, "б": 2, "в": 3, "г": 4, "д": 5,
+    "ђ": 6, "е": 7, "ж": 8, "з": 9, "и": 10,
+    "ј": 11, "к": 12, "л": 13, "љ": 14, "м": 15,
+    "н": 16, "њ": 17, "о": 18, "п": 19, "р": 20,
+    "с": 21, "т": 22, "ћ": 23, "у": 24, "ф": 25,
+    "х": 26, "ц": 27, "ч": 28, "џ": 29, "ш": 30
 }
 
 const keyMap = {
-    "KeyA" : "а", "KeyB" : "б", "KeyV" : "в", "KeyG" : "г", "KeyD" : "д", "BracketRight" : "ђ", 
-    "KeyE" : "е", "Backslash" : "ж", "KeyY" : "з", "KeyZ" : "з", "KeyI" : "и", "KeyJ" : "ј", "KeyK" : "к", 
-    "KeyL" : "л", "KeyQ" : "љ", "KeyM" : "м", "KeyN" : "н", "KeyW" : "њ", "KeyO" : "о", 
-    "KeyP" : "п", "KeyR" : "р", "KeyS" : "с", "KeyT" : "т", "Quote" : "ћ", "KeyU" : "у", 
-    "KeyF" : "ф", "KeyH" : "х", "KeyC" : "ц", "Semicolon" : "ч", "KeyX" : "џ", "BracketLeft" : "ш"
+    "KeyA": "а", "KeyB": "б", "KeyV": "в", "KeyG": "г", "KeyD": "д", "BracketRight": "ђ",
+    "KeyE": "е", "Backslash": "ж", "KeyY": "з", "KeyZ": "з", "KeyI": "и", "KeyJ": "ј", "KeyK": "к",
+    "KeyL": "л", "KeyQ": "љ", "KeyM": "м", "KeyN": "н", "KeyW": "њ", "KeyO": "о",
+    "KeyP": "п", "KeyR": "р", "KeyS": "с", "KeyT": "т", "Quote": "ћ", "KeyU": "у",
+    "KeyF": "ф", "KeyH": "х", "KeyC": "ц", "Semicolon": "ч", "KeyX": "џ", "BracketLeft": "ш"
 };
 
 
@@ -52,18 +52,18 @@ function init() {
 }
 
 function reset() {
-    $("#board").css({"grid-template-rows": "repeat(6, 1fr)"});
-    $("#row7").css({"display": "none"});
-    init();
-    $(".square").css({"background-color" : "transparent"});
-    $(".square").html("");
-    $("#keyboard button").css({"background-color" : "lightblue"});
+    $("#row7").css({ "display": "none" });
+
     $.ajax({
         type: "POST",
         url: "/Ajax/generisiRec",
-        }).done(function(result) {
-            secretWord = result;
-        });
+    }).done(function (result) {
+        secretWord = result;
+        init();
+        $(".square").css({ "background-color": "transparent" });
+        $(".square").html("");
+        $("#keyboard button").css({ "background-color": "lightblue" });
+    });
 }
 
 function moreTries() {
@@ -72,26 +72,25 @@ function moreTries() {
         return;
     }
     numOfGuesses++;
-    $("#board").css({"grid-template-rows": "repeat(7, 1fr)"});
-    $("#row7").css({"display": "grid"});
-    
+    $("#board").css({ "grid-template-rows": "repeat(7, 1fr)" });
+    $("#row7").css({ "display": "grid" });
+
 }
 function giveUp() {
     alert("Тражена реч је била " + secretWord + ".");
     reset();
-    
 }
 
-function copyArray(arr){
+function copyArray(arr) {
     let copyArr = [];
-    for(let i = 0; i < arr.length; i++) copyArr.push(arr[i]);
+    for (let i = 0; i < arr.length; i++) copyArr.push(arr[i]);
     return copyArr;
 }
 
-function removeFromArr(arr, value){
+function removeFromArr(arr, value) {
     let copyArr = [];
     let num = 0;
-	for(let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
         if (num == 0 && arr[i] == value) { num++; continue; }
         copyArr.push(arr[i]);
     }
@@ -107,16 +106,16 @@ function fillCount() {
 }
 
 document.addEventListener("keydown", function (event) {
-    if (event.defaultPrevented) return; 
+    if (event.defaultPrevented) return;
 
     let letter = keyMap[event.code];
 
     if (letter) enter(letter);
     else if (event.code == "Enter") check();
     else if (event.code == "Backspace") removeLetter();
-    
+
     event.preventDefault();
-  }, true);
+}, true);
 
 
 function enter(currentLetter) { // we put letter in (currentRow, currentCol)
@@ -129,18 +128,18 @@ function enter(currentLetter) { // we put letter in (currentRow, currentCol)
         enteredWord = []
     }
     let squareId = "square" + currentRow + currentCol;
-    document.getElementById(squareId).innerHTML = currentLetter.toUpperCase(); 
+    document.getElementById(squareId).innerHTML = currentLetter.toUpperCase();
     enteredWord.push(
         {
-            letter : currentLetter,
-            square : squareId
+            letter: currentLetter,
+            square: squareId
         }
     )
     currentCol += 1;
     if (currentCol == 6) enableEntry = false;
 }
 
-function removeLetter() { 
+function removeLetter() {
     if (gameOver) return;
     if (currentRow == 1 && currentCol == 1) return; // empty
     if (currentCol == 6 && enableEntry == true) return; // UNESI was clicked
@@ -154,22 +153,22 @@ function removeLetter() {
     }
     let squareId = "square" + currentRow + currentCol;
     document.getElementById(squareId).innerHTML = "";
-	enteredWord.pop();
+    enteredWord.pop();
 }
 
 function hardModeCheck() {
     let msg = "";
-    for(let i = 0; i < 5; i++) {
-        if (correctLetters[i] != '-' && enteredWord[i].letter != correctLetters[i]) {        
+    for (let i = 0; i < 5; i++) {
+        if (correctLetters[i] != '-' && enteredWord[i].letter != correctLetters[i]) {
             msg = "Слово " + correctLetters[i].toUpperCase() + " мора бити на " + (i + 1) + ". месту!";
             showPopup(msg);
             return false;
-        }   
-    
+        }
+
     }
-    for(let i = 0; i < hasLetters.length; i++) { 
-        let found = false;  
-        for(let j = 0; j < 5; j++) {
+    for (let i = 0; i < hasLetters.length; i++) {
+        let found = false;
+        for (let j = 0; j < 5; j++) {
             if (enteredWord[j].letter == correctLetters[j]) continue;
             if (enteredWord[j].letter == hasLetters[i]) {
                 found = true;
@@ -177,7 +176,7 @@ function hardModeCheck() {
             }
         }
         if (found == false) {
-            msg = "Слово " + hasLetters[i].toUpperCase() +  " мора да постоји у речи!";
+            msg = "Слово " + hasLetters[i].toUpperCase() + " мора да постоји у речи!";
             showPopup(msg);
             return false;
         }
@@ -187,104 +186,104 @@ function hardModeCheck() {
 
 function wordToString(word) {
     let rec = '';
-    for(let i = 0; i < 5; i++) {
+    for (let i = 0; i < 5; i++) {
         rec += word[i].letter;
     }
     return rec;
 }
 
-function check(){
-    if(enteredWord.length!=5) return;
+function check() {
+    if (enteredWord.length != 5) return;
     $.ajax({
         type: "POST",
         url: "/Ajax/proveraReci",
         data: {
-        word: wordToString(enteredWord)
+            word: wordToString(enteredWord)
         }
-        }).done(function(result) {
-            badWord = result;
-            checkEnteredWord();
-        });
+    }).done(function (result) {
+        badWord = result;
+        checkEnteredWord();
+    });
 }
 
 
 function showPopup(msg) {
     $("#myPopup").text(msg);
-    $("#myPopup").fadeIn(1000); 
-    setTimeout(function() {
-        $("#myPopup").fadeOut(1000);  
+    $("#myPopup").fadeIn(1000);
+    setTimeout(function () {
+        $("#myPopup").fadeOut(1000);
     }, 2500);
 }
 
 function checkEnteredWord() {
     if (gameOver) return;
     if (currentCol != 6) return;
-    
-    if (badWord == "false") {	
-        alert("Реч не постоји!");	
-        return;	
+
+    if (badWord == "false") {
+        alert("Реч не постоји!");
+        return;
     }
 
 
     if (!hardModeCheck()) return;
-    
+
     guess++;
     let greens = 0;
     let colored = [];
     (colored = []).length = 5; colored.fill(false);
 
     let copyCount = copyArray(count);
-		
-	for(let i = 0; i < 5; i++) {
-        if (enteredWord[i].letter == secretWord[i]) {          
+
+    for (let i = 0; i < 5; i++) {
+        if (enteredWord[i].letter == secretWord[i]) {
             document.getElementById(enteredWord[i].square).style.backgroundColor = colorGreen;
             document.getElementById(enteredWord[i].letter).style.backgroundColor = colorGreen;
             correctLetters[i] = enteredWord[i].letter;
             if (hasLetters.includes(correctLetters[i])) {
                 hasLetters = removeFromArr(hasLetters, correctLetters[i]);
             }
-            greens++;   
-            copyCount[letterMap[secretWord[i]] - 1] -= 1;   
-            colored[i] = true;      
+            greens++;
+            copyCount[letterMap[secretWord[i]] - 1] -= 1;
+            colored[i] = true;
             continue;
-        }     
+        }
     }
-	
 
-    for(let i = 0; i < 5; i++) { 
+
+    for (let i = 0; i < 5; i++) {
         if (colored[i]) continue;
         let ind = letterMap[enteredWord[i].letter];
         if (copyCount[ind - 1] > 0) {
             document.getElementById(enteredWord[i].square).style.backgroundColor = colorPink;
             hasLetters.push(enteredWord[i].letter);
             let keyboard = document.getElementById(enteredWord[i].letter);
-            if(keyboard.style.backgroundColor !== colorGreen) keyboard.style.backgroundColor = colorPink;
+            if (keyboard.style.backgroundColor !== colorGreen) keyboard.style.backgroundColor = colorPink;
             colored[i] = true;
             copyCount[ind - 1] -= 1;
         }
     }
 
-		
-    for(let i = 0; i < 5; i++) { 
+
+    for (let i = 0; i < 5; i++) {
         if (colored[i]) continue;
         document.getElementById(enteredWord[i].square).style.backgroundColor = colorGrey;
-        
-        
-	let keyboard = document.getElementById(enteredWord[i].letter);
-        if(keyboard.style.backgroundColor!==colorGreen && keyboard.style.backgroundColor!==colorPink) keyboard.style.backgroundColor = colorGrey;
-         
+
+
+        let keyboard = document.getElementById(enteredWord[i].letter);
+        if (keyboard.style.backgroundColor !== colorGreen && keyboard.style.backgroundColor !== colorPink) keyboard.style.backgroundColor = colorGrey;
+
         colored[i] = true;
     }
 
     if (greens == 5) {
         gameOver = true;
-        setTimeout(function() {
+        setTimeout(function () {
             alert("Свака част!");
         }, 1000);
     }
     else if (guess == numOfGuesses) {
         gameOver = true;
-        setTimeout(function() {
+        setTimeout(function () {
             alert("Тражена реч је била " + secretWord + "!");
         }, 1000);
     }
