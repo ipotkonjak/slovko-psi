@@ -74,11 +74,7 @@
                         <td>Успех - аркадна игра</td>
                         <td><?php echo $statistika->arcadeRecord;?></td>
                     </tr>
-                    <tr>
-                        <td>Позиција на ранг листи</td>
-                        <td>1</td> <!-- Dodati rang -->
-                    </tr>
-
+                    
                 </table>
                 
             </div> 

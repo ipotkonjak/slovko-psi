@@ -98,4 +98,21 @@ class Korisnik extends BaseController
         
         return redirect()->to(site_url('Korisnik/pregled'));
     }
+    
+    public function rangLista() {
+        $korime = $this->session->get('korisnickoIme');
+        $korModel = new KorisnikModel();
+        $statModel = new StatistikaModel();
+        
+        $rangLista = $statModel->orderBy('brojPoena', 'DESC')->findAll();
+        $korRang = 0;
+        foreach ($rangLista as $red) {
+            $korRang++;
+            if($red->username == $korime) {
+                break;
+            }
+        }
+        $korisnici = array_slice($rangLista, 0, 10);
+        return $this->prikaz('stranice/rang_lista', ['korisnici' => $korisnici, 'rangKor' => $korRang]);
+    }
 }
