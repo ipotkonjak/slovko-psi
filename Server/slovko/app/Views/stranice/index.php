@@ -9,14 +9,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="/assets/css/style.css">
-    <script
-    src="https://code.jquery.com/jquery-3.6.0.js"
-    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script>
         <?php
-             echo "let secretWord = '$rec';";
-         ?>
+        echo "let secretWord = '$rec';";
+        ?>
     </script>
     <script src="/assets/js/singleplayer.js"></script>
     <title>Словко</title>
@@ -29,10 +26,21 @@
                 <nav class="navbar navbar-expand-sm navbar-light">
                     <ul class="navbar-nav" type="none">
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo site_url('Gost/index')?>">Правила</a>
+                            <a class="nav-link" href="<?php echo site_url('Gost/index') ?>">Правила</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo site_url('Gost/prijavaGreske')?>">Пријави грешку</a>
+                            <a class="nav-link" href="<?php echo site_url('Gost/prijavaGreske') ?>">Пријави грешку</a>
+                        </li>
+                        <li>
+                            <div class="dropdown">
+                                <button class="dropbtn">Мод игре</button>
+                                <div class="dropdown-content">
+                                    <a href="<?php echo site_url("$controller/index") ?>">Singleplayer</a>
+                                    <a href="<?php echo site_url("$controller/arcade") ?>">Arcade</a>
+                                    <a href="<?php echo site_url("$controller/multiplayer") ?>">Multiplayer</a>
+                                    <a href="<?php echo site_url("$controller/hardmode") ?>">Hardmode</a>
+                                </div>
+                            </div>
                         </li>
                     </ul>
                 </nav>
@@ -44,10 +52,10 @@
                 <nav class="navbar navbar-expand-sm navbar-light">
                     <ul class="navbar-nav" type="none">
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo site_url('Gost/login')?>">Улогуј се</a>
+                            <a class="nav-link" href="<?php echo site_url('Gost/login') ?>">Улогуј се</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo site_url('Gost/registracija')?>">Региструј се</a>
+                            <a class="nav-link" href="<?php echo site_url('Gost/registracija') ?>">Региструј се</a>
                         </li>
                     </ul>
                 </nav>
@@ -55,7 +63,7 @@
             <hr>
         </div>
         <div class="popup" id="myPopup">
-                Bravo
+            Bravo
         </div>
         <div class="row" id="title-row">
             <div class="col-sm-3"> &nbsp; </div>

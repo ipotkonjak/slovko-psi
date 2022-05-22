@@ -33,12 +33,15 @@
                             <a class="nav-link" href="<?php echo site_url("$controller/prijavaGreske") ?>">Пријави грешку</a>
                         </li>
                         <li>
-                            <select name="gamemode" id="gamemode">
-                                <option value="sp" selected>Singleplayer</option>
-                                <option value="mp">Multiplayer</option>
-                                <option value="hard">Hardmode</option>
-                                <option value="arcade">Arcade</option>
-                            </select>
+                            <div class="dropdown">
+                                <button class="dropbtn">Мод игре</button>
+                                <div class="dropdown-content">
+                                    <a href="<?php echo site_url("$controller/index") ?>">Singleplayer</a>
+                                    <a href="<?php echo site_url("$controller/arcade") ?>">Arcade</a>
+                                    <a href="<?php echo site_url("$controller/multiplayer") ?>">Multiplayer</a>
+                                    <a href="<?php echo site_url("$controller/hardmode") ?>">Hardmode</a>
+                                </div>
+                            </div>
                         </li>
                     </ul>
                 </nav>

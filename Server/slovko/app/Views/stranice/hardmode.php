@@ -26,12 +26,15 @@
             <li><a href="<?php echo site_url('Gost/index') ?>">Правила</a></li>
             <li><a href="<?php echo site_url('Gost/prijavaGreske') ?>">Пријави грешку</a></li>
             <li>
-                <select name="gamemode" id="gamemode">
-                    <option value="sp">Singleplayer</option>
-                    <option value="mp">Multiplayer</option>
-                    <option value="hard" selected>Hardmode</option>
-                    <option value="arcade">Arcade</option>
-                </select>
+                <div class="dropdown">
+                    <button class="dropbtn">Мод игре</button>
+                    <div class="dropdown-content">
+                        <a href="<?php echo site_url("$controller/index") ?>">Singleplayer</a>
+                        <a href="<?php echo site_url("$controller/arcade") ?>">Arcade</a>
+                        <a href="<?php echo site_url("$controller/multiplayer") ?>">Multiplayer</a>
+                        <a href="<?php echo site_url("$controller/hardmode") ?>">Hardmode</a>
+                    </div>
+                </div>
             </li>
         </ul>
         <img class="logo" src="/assets/img/slovko.svg" alt="logo" width="200px" height="50px">
