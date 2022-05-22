@@ -6,28 +6,25 @@ use Ratchet\MessageComponentInterface;
 use Ratchet\ConnectionInterface;
 use App\Models\ReciModel;
 
-class Multiplayer implements MessageComponentInterface
-{
+class Multiplayer implements MessageComponentInterface {
+
     protected $clients;
     protected $korisnici;
     protected $igre;
 
-    public function __construct()
-    {
+    public function __construct() {
         $this->clients = new \SplObjectStorage;
         $this->korisnici = [];
         $this->igre = [];
     }
 
-    public function onOpen(ConnectionInterface $conn)
-    {
+    public function onOpen(ConnectionInterface $conn) {
         // Store the new connection to send messages to later
         $this->clients->attach($conn);
         echo "New connection! ({$conn->resourceId})\n";
     }
 
-    public function onMessage(ConnectionInterface $from, $msg)
-    {
+    public function onMessage(ConnectionInterface $from, $msg) {
         $por = json_decode($msg, true);
         switch ($por['kod']) {
             case "1": {
@@ -81,8 +78,10 @@ class Multiplayer implements MessageComponentInterface
                             $brPoena2 = $brPoena2 * (1 - 0.05 * intdiv(intval($this->igre[$index]['vreme2']), 15));
                         }
                         $pobedio = "Ishod je neresen.";
-                        if ($brPoena1 > $brPoena2) $pobedio = "Pobednik je " . $this->igre[$index]['igrac1']['korisnik'] . ".";
-                        if ($brPoena2 > $brPoena1) $pobedio = "Pobednik je " . $this->igre[$index]['igrac2']['korisnik'] . ".";
+                        if ($brPoena1 > $brPoena2)
+                            $pobedio = "Pobednik je " . $this->igre[$index]['igrac1']['korisnik'] . ".";
+                        if ($brPoena2 > $brPoena1)
+                            $pobedio = "Pobednik je " . $this->igre[$index]['igrac2']['korisnik'] . ".";
                         $poruka = [
                             'kod' => '2', 'poruka' => strval($pobedio),
                             $this->igre[$index]['igrac1']['korisnik'] => strval($brPoena1), $this->igre[$index]['igrac2']['korisnik'] => strval($brPoena2)
@@ -97,8 +96,7 @@ class Multiplayer implements MessageComponentInterface
         }
     }
 
-    public function onClose(ConnectionInterface $conn)
-    {
+    public function onClose(ConnectionInterface $conn) {
         // The connection is closed, remove it, as we can no longer send it messages
         $this->clients->detach($conn);
         $index = 0;
@@ -126,8 +124,10 @@ class Multiplayer implements MessageComponentInterface
                     $brPoena2 = $brPoena2 * (1 - 0.05 * intdiv(intval($this->igre[$index]['vreme2']), 15));
                 }
                 $pobedio = "Ishod je neresen.";
-                if ($brPoena1 > $brPoena2) $pobedio = "Pobednik je " . $this->igre[$index]['igrac1']['korisnik'] . ".";
-                if ($brPoena2 > $brPoena1) $pobedio = "Pobednik je " . $this->igre[$index]['igrac2']['korisnik'] . ".";
+                if ($brPoena1 > $brPoena2)
+                    $pobedio = "Pobednik je " . $this->igre[$index]['igrac1']['korisnik'] . ".";
+                if ($brPoena2 > $brPoena1)
+                    $pobedio = "Pobednik je " . $this->igre[$index]['igrac2']['korisnik'] . ".";
                 $poruka = [
                     'kod' => '2', 'poruka' => strval($pobedio),
                     $this->igre[$index]['igrac1']['korisnik'] => strval($brPoena1), $this->igre[$index]['igrac2']['korisnik'] => strval($brPoena2)
@@ -137,25 +137,26 @@ class Multiplayer implements MessageComponentInterface
                 //Upis u bazu
                 array_splice($this->igre, $index, 1);
             }
-            $index = 0;
-            $found = 0;
-            foreach ($this->korisnici as $korisnik) {
-                if ($korisnik['id'] === $conn) {
-                    $found = 1;
-                    break;
-                }
-                $index++;
-            }
-            if($found) array_splice($this->korisnici, $index, 1);
         }
+        $index = 0;
+        $found = 0;
+        foreach ($this->korisnici as $korisnik) {
+            if ($korisnik['id'] === $conn) {
+                $found = 1;
+                break;
+            }
+            $index++;
+        }
+        if ($found)
+            array_splice($this->korisnici, $index, 1);
 
         echo "Connection {$conn->resourceId} has disconnected\n";
     }
 
-    public function onError(ConnectionInterface $conn, \Exception $e)
-    {
+    public function onError(ConnectionInterface $conn, \Exception $e) {
         echo "An error has occurred: {$e->getMessage()}\n";
 
         $conn->close();
     }
+
 }

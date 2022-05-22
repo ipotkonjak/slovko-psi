@@ -14,7 +14,7 @@
         <?php
         echo "let secretWord = 'одмор';";
         ?>
-        let conn = new WebSocket('ws://localhost:8081');
+        let conn = null;
     </script>
     <script src="/assets/js/multiplayer.js"></script>
 </head>
@@ -70,11 +70,15 @@
             <div class="col-sm-6 text-center" id="title-bar">
                 <!-- <span id="counter"> &nbsp; </span> -->
                 <span id="title">MULTIPLAYER</span>
+                <span class="collapse" id="cekanje"> Чека се противник...</span>
                 <span id="timer">2:00</span>
             </div>
             <div class="col-sm-3"> &nbsp; </div>
         </div>
         <div class="row" id="content">
+<!--            <div class="col-sm-2 text-center" id="cekanje">
+                Чека се противник...
+            </div>-->
             <div class="col-sm-12 text-center">
                 <div id="board-container">
                     <div id="board">
@@ -163,7 +167,9 @@
                             <button id="←" class="one-and-a-half" onclick="removeLetter()">обриши</button>
                         </div>
                         <div id="dugmici">
-                            <button type="button" onclick="newArcade()" style="text-align: center">Започни игру</button>
+                            <button type="button" onclick="traziProtivnika()" style="text-align: center">Тражи противника</button>
+                            &nbsp;
+                            <button type="button" onclick="cancel()" style="text-align: center">Cancel</button>
                         </div>
                     </div>
                 </div>
@@ -173,31 +179,40 @@
     
     <script>
         let protivnik = null;
-        conn.onopen = function(e) {
+        function traziProtivnika() {
+            $("#cekanje").show();
+            conn = new WebSocket('ws://localhost:8081');
+            conn.onopen = function(e) {
             alert("Connection established!");
             obj = {
                 "korisnik" : "<?php echo $_SESSION['korisnickoIme'] ?>",
                 "kod" : "1"
             };
             conn.send(JSON.stringify(obj));
-        };
-
-        conn.onmessage = function(e) {
-            //alert(e.data);
-            //alert(JSON.stringify(JSON.parse(e.data)));
-            let msg = JSON.parse(e.data);
-            switch(msg['kod']){
-                case "1": {
-                    protivnik = msg['protivnik'];
-                    secretWord = msg['rec'];
-                    startGame();
-                } break;
-                case "2":{
-                    alert(msg['poruka']+"\n"+ '<?php echo $_SESSION['korisnickoIme'] ?>: ' + msg['<?php echo $_SESSION['korisnickoIme'] ?>']
-                    + "\n" + protivnik + ": " + msg[protivnik]);
+            };
+            
+            conn.onmessage = function(e) {
+                //alert(e.data);
+                //alert(JSON.stringify(JSON.parse(e.data)));
+                let msg = JSON.parse(e.data);
+                switch(msg['kod']){
+                    case "1": {
+                        protivnik = msg['protivnik'];
+                        secretWord = msg['rec'];
+                        startGame();
+                    } break;
+                    case "2":{
+                        alert(msg['poruka']+"\n"+ '<?php echo $_SESSION['korisnickoIme'] ?>: ' + msg['<?php echo $_SESSION['korisnickoIme'] ?>']
+                        + "\n" + protivnik + ": " + msg[protivnik]);
+                    }
                 }
-            }
-        };
+            };
+        }
+        
+        function cancel(){
+            conn.close();
+            
+        }
 
     </script>
 </body>
