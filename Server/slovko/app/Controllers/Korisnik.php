@@ -115,4 +115,8 @@ class Korisnik extends BaseController
         $korisnici = array_slice($rangLista, 0, 10);
         return $this->prikaz('stranice/rang_lista', ['korisnici' => $korisnici, 'rangKor' => $korRang]);
     }
+    
+    public function multiplayer() {
+        return $this->prikaz('stranice/multiplayer', []);
+    }
 }
