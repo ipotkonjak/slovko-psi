@@ -23,6 +23,9 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+        'gost' => \App\Filters\GostFilter::class,
+        'korisnik' => \App\Filters\KorisnikFilter::class,
+        'admin' => \App\Filters\AdminFilter::class,
     ];
 
     /**
@@ -64,5 +67,10 @@ class Filters extends BaseConfig
      *
      * @var array
      */
-    public $filters = [];
+    public $filters = [
+        'korisnik' => ['before' => ['Korisnik/*','Korisnik']],
+        'gost' => ['before' => ['Gost/*', 'Gost', '/']],
+        'admin' => ['before' => ['Admin/*', 'Admin']]
+        
+    ];
 }
