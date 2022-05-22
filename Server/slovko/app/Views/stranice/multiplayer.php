@@ -12,7 +12,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script>
         <?php
-        echo "let secretWord = 'одмор';";
+        echo "let secretWord = 'корак';";
         ?>
         let conn = null;
     </script>
@@ -167,9 +167,9 @@
                             <button id="←" class="one-and-a-half" onclick="removeLetter()">обриши</button>
                         </div>
                         <div id="dugmici">
-                            <button type="button" onclick="traziProtivnika()" style="text-align: center">Тражи противника</button>
-                            &nbsp;
-                            <button type="button" onclick="cancel()" style="text-align: center">Cancel</button>
+                            <button type="button" onclick="traziProtivnika()" style="text-align: center">Тражи новог противника</button>
+                            &emsp;&emsp;&emsp;&emsp;
+                            <button type="button" onclick="cancel()" style="text-align: center">Одустани</button>
                         </div>
                     </div>
                 </div>
@@ -181,6 +181,8 @@
         let protivnik = null;
         function traziProtivnika() {
             $("#cekanje").show();
+            $("#title").hide();
+            $("#timer").hide();
             conn = new WebSocket('ws://localhost:8081');
             conn.onopen = function(e) {
             alert("Connection established!");
@@ -199,6 +201,9 @@
                     case "1": {
                         protivnik = msg['protivnik'];
                         secretWord = msg['rec'];
+                        $("#cekanje").hide();
+                        $("#title").show();
+                        $("#timer").show();
                         startGame();
                     } break;
                     case "2":{
@@ -210,6 +215,7 @@
         }
         
         function cancel(){
+            endTimer();
             conn.close();
             
         }

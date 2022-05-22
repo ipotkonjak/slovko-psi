@@ -38,9 +38,19 @@ class Multiplayer implements MessageComponentInterface {
                             'vreme1' => 0, 'vreme2' => 0, 'pogodio1' => false, 'pogodio2' => false
                         ]);
 
-                        // $reciModel = new ReciModel();
-                        // $rand = $reciModel->orderBy('id', 'RANDOM')->first();
-                        $rand = "одмор";
+//                        $reciModel = new ReciModel();
+//                        $rand = $reciModel->orderBy('id', 'RANDOM')->first();
+//                        echo $rand;
+    
+                        $upit = "SELECT * FROM reci ORDER BY RAND() LIMIT 1;";
+                        $connBaza = mysqli_connect("localhost", "root", "", "slovko") or die ("Konekcija neuspesna");
+                        $result = mysqli_query($connBaza, $upit) or die ("Upit neuspesan");
+                        $reci_db = mysqli_fetch_array($result);
+                        $rand = $reci_db['rec'];
+                        echo $rand;
+                        
+                        
+//                        $rand = "одмор";
                         $poruka2 = ['kod' => "1", "rec" => $rand, "protivnik" => $protivnik['korisnik']];
                         $poruka1 = ['kod' => "1", "rec" => $rand, "protivnik" => $ja['korisnik']];
 

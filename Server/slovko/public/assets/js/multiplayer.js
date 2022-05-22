@@ -46,13 +46,15 @@ function init() {
     count = [];
     (count = []).length = 30; count.fill(0);
     fillCount();
+    $(".square").css({"background-color" : "transparent"});
+    $(".square").html("");
+    $("#keyboard button").css({"background-color" : "lightblue"});
+    $("#timer").css("color", "black");
 }
 
 function reset() {
     init();
-    $(".square").css({"background-color" : "transparent"});
-    $(".square").html("");
-    $("#keyboard button").css({"background-color" : "lightblue"});
+ 
     $.ajax({
         type: "POST",
         url: "/Ajax/generisiRec",
@@ -131,6 +133,13 @@ function wordToString(word) {
         rec += word[i].letter;
     }
     return rec;
+}
+
+function endTimer() {
+    if (timer != null) {
+        clearInterval(timer);
+        timer = null;
+    }
 }
 
 function check(){

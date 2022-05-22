@@ -40,14 +40,12 @@ function copyArray(arr){
 	return copyArr;
 }
 
-function removeFromArr(arr, value){
-	let copyArr = [];
-    let num = 0;
-	for(let i = 0; i < arr.length; i++) {
-        if (num == 0 && arr[i] == value) { num++; continue; }
-        copyArr.push(arr[i]);
+
+function includesLetter(arr, lett) {
+    for(let i = 0; i < arr.length; i++) {
+        if (arr[i].letter == lett) return i;
     }
-	return copyArr;
+    return -1;
 }
 
 function fillCount() {
@@ -123,13 +121,13 @@ function hardModeCheck() {
         let found = false;  
         for(let j = 0; j < 5; j++) {
             if (enteredWord[j].letter == correctLetters[j]) continue;
-            if (enteredWord[j].letter == hasLetters[i]) {
+            if (enteredWord[j].letter == hasLetters[i].letter) {
                 found = true;
                 break;
             }
         }
         if (found == false) {
-            msg = "Слово " + hasLetters[i].toUpperCase() +  " мора да постоји у речи!";
+            msg = "Слово " + hasLetters[i].letter.toUpperCase() +  " мора да постоји у речи!";
             showPopup(msg);
             return false;
         }
@@ -164,10 +162,14 @@ function checkEnteredWord() {
         if (enteredWord[i].letter == secretWord[i]) {          
             document.getElementById(enteredWord[i].square).style.backgroundColor = colorGreen;
             document.getElementById(enteredWord[i].letter).style.backgroundColor = colorGreen;
+           
             correctLetters[i] = enteredWord[i].letter;
-            if (hasLetters.includes(correctLetters[i])) {
-                hasLetters = removeFromArr(hasLetters, correctLetters[i]);
+
+            let indInHasLetters = includesLetter(hasLetters, enteredWord[i].letter);
+            if (indInHasLetters != -1) {
+                if (--hasLetters[indInHasLetters].num == 0) hasLetters.splice(indInHasLetters, 1);    
             }
+
             greens++;   
             copyCount[letterMap[secretWord[i]] - 1] -= 1;   
             colored[i] = true;      
@@ -176,12 +178,23 @@ function checkEnteredWord() {
     }
 	
 
+    let copyHasLetters = [];
+
     for(let i = 0; i < 5; i++) { 
         if (colored[i]) continue;
         let ind = letterMap[enteredWord[i].letter];
         if (copyCount[ind - 1] > 0) {
             document.getElementById(enteredWord[i].square).style.backgroundColor = colorPink;
-            hasLetters.push(enteredWord[i].letter);
+            
+            let indInCopyHasLetters = includesLetter(copyHasLetters, enteredWord[i].letter);
+            if (indInCopyHasLetters == -1) {
+                copyHasLetters.push({
+                    letter : enteredWord[i].letter,
+                    num : 1
+                });
+            }
+            else copyHasLetters[indInCopyHasLetters].num++;
+            
             let keyboard = document.getElementById(enteredWord[i].letter);
 			if(keyboard.style.backgroundColor !== colorGreen) keyboard.style.backgroundColor = colorPink;
             colored[i] = true;
@@ -189,13 +202,28 @@ function checkEnteredWord() {
         }
     }
 
+    console.log("Copyhas");
+    console.log(copyHasLetters);
+
+    for (let i = 0; i < copyHasLetters.length; i++) { // trenutno nadjena roze slova
+        let indInHasLetters = includesLetter(hasLetters, copyHasLetters[i].letter);
+        let numInCopyHasLetters = copyHasLetters[i].num;
+        if (indInHasLetters == -1) {
+            hasLetters.push({
+                letter : copyHasLetters[i].letter,
+                num : numInCopyHasLetters
+            });
+        }
+        else if (hasLetters[indInHasLetters].num < numInCopyHasLetters) {
+            hasLetters[indInHasLetters].num = numInCopyHasLetters;
+        }
+               
+    }
+
 		
     for(let i = 0; i < 5; i++) { 
         if (colored[i]) continue;
         document.getElementById(enteredWord[i].square).style.backgroundColor = colorGrey;
-        
-
-        
 		let keyboard = document.getElementById(enteredWord[i].letter);
         if(keyboard.style.backgroundColor!==colorGreen && keyboard.style.backgroundColor!==colorPink) keyboard.style.backgroundColor = colorGrey;
          
