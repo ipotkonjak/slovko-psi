@@ -1,28 +1,20 @@
 <?php
-
-namespace App\Controllers;
 use Ratchet\Server\IoServer;
 use Ratchet\Http\HttpServer;
 use Ratchet\WebSocket\WsServer;
 use App\Libraries\Multiplayer;
 
-class Server extends BaseController
-{
-    public function index()
-    {
+$korisnici = [];
 
-        require dirname(__DIR__) . '\vendor\autoload.php';
+    require dirname(__DIR__) . '/../vendor/autoload.php';
 
-        $server = IoServer::factory(
-            new HttpServer(
-                new WsServer(
-                    new Multiplayer()
-                )
-            ),
-            8080
-        );
+    $server = IoServer::factory(
+        new HttpServer(
+            new WsServer(
+                new Multiplayer($korisnici)
+            )
+        ),
+        8081
+    );
 
-        $server->run();
-    }
-        
-}
+    $server->run();

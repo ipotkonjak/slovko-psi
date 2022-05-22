@@ -3,17 +3,22 @@ namespace App\Libraries;
 use Ratchet\MessageComponentInterface;
 use Ratchet\ConnectionInterface;
 
-class Muliplayer implements MessageComponentInterface {
+class Multiplayer implements MessageComponentInterface {
     protected $clients;
+    protected $korisnici;
 
-    public function __construct() {
+    public function __construct(&$korisnici) {
         $this->clients = new \SplObjectStorage;
+        $this->korisnici = $korisnici;
     }
 
     public function onOpen(ConnectionInterface $conn) {
         // Store the new connection to send messages to later
         $this->clients->attach($conn);
-
+        array_push($this->korisnici, 1);
+        foreach ($this->clients as $client) {
+                $client->send(sizeof($this->korisnici));
+        }
         echo "New connection! ({$conn->resourceId})\n";
     }
 

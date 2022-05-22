@@ -54,7 +54,7 @@
                             <a class="nav-link" href="<?php echo site_url("{$controller}/pregled") ?>">Преглед профила</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo site_url("{$controller}}/logout") ?>">Одјави се</a>
+                            <a class="nav-link" href="<?php echo site_url("{$controller}/logout") ?>">Одјави се</a>
                         </li>
                     </ul>
                 </nav>
@@ -171,13 +171,13 @@
     </div>
     
     <script>
-        var conn = new WebSocket('ws://localhost:8080');
+        var conn = new WebSocket('ws://localhost:8081');
         conn.onopen = function(e) {
-            console.log("Connection established!");
+            alert("Connection established!");
         };
 
         conn.onmessage = function(e) {
-            console.log(e.data);
+            alert(e.data);
         };
     </script>
 </body>
