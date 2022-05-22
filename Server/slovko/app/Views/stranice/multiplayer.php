@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arcade</title>
+    <title>Multiplayer</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="/assets/css/arcade.css">
@@ -14,11 +14,12 @@
         <?php
         echo "let secretWord = 'одмор';";
         ?>
+        let conn = new WebSocket('ws://localhost:8081');
     </script>
-    <script src="/assets/js/arcade.js"></script>
+    <script src="/assets/js/multiplayer.js"></script>
 </head>
 
-<body>
+<body onload="init()">
     <div class="container-fluid">
         <div class="row" id="header">
             <div class="col-sm-4" id="links1">
@@ -67,9 +68,9 @@
         <div class="row" id="title-row">
             <div class="col-sm-3"> &nbsp; </div>
             <div class="col-sm-6 text-center" id="title-bar">
-                <span id="counter" style="display: none"></span>
+                <!-- <span id="counter"> &nbsp; </span> -->
                 <span id="title">MULTIPLAYER</span>
-                <span id="timer" style="display: none">3:00</span>
+                <span id="timer">2:00</span>
             </div>
             <div class="col-sm-3"> &nbsp; </div>
         </div>
@@ -171,14 +172,33 @@
     </div>
     
     <script>
-        var conn = new WebSocket('ws://localhost:8081');
+        let protivnik = null;
         conn.onopen = function(e) {
             alert("Connection established!");
+            obj = {
+                "korisnik" : "<?php echo $_SESSION['korisnickoIme'] ?>",
+                "kod" : "1"
+            };
+            conn.send(JSON.stringify(obj));
         };
 
         conn.onmessage = function(e) {
-            alert(e.data);
+            //alert(e.data);
+            //alert(JSON.stringify(JSON.parse(e.data)));
+            let msg = JSON.parse(e.data);
+            switch(msg['kod']){
+                case "1": {
+                    protivnik = msg['protivnik'];
+                    secretWord = msg['rec'];
+                    startGame();
+                } break;
+                case "2":{
+                    alert(msg['poruka']+"\n"+ '<?php echo $_SESSION['korisnickoIme'] ?>: ' + msg['<?php echo $_SESSION['korisnickoIme'] ?>']
+                    + "\n" + protivnik + ": " + msg[protivnik]);
+                }
+            }
         };
+
     </script>
 </body>
 
