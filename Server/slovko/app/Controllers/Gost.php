@@ -5,37 +5,68 @@ use App\Models\KorisnikModel;
 use App\Models\StatistikaModel;
 use App\Models\ReciModel;
 
+/**
+ * Gost - kontroler klasa Gosta
+ * To je osnovni tip korisnika sistema koji nema nalog.
+ * 
+ * @version 1.0
+ */
+
 class Gost extends BaseController
 {
+    /**
+     * Pomocna funkcija za prikaz odgovarajucih stranica 
+     * uz oznacavanje da se radi o Gostu.
+     * 
+     * @param string $page 
+     * @param array $data
+     * @return void
+     */
     protected function prikaz($page, $data) {
         $data['controller'] = 'Gost';
         echo view($page, $data);
     }
     
-    
-    
-    public function index()
-    {   
-        
+    /**
+     * Prikaz pocetne stranice sa pravilima o svim igrama.
+     * @return void
+     */
+    public function index() {   
         return $this->prikaz('stranice/pocetna', []);
     }
     
+    /**
+     * Osnovna singleplayer igra, dohvata se nasumicna rec iz tabele reci.
+     * @return void
+     */
     public function igra() {
         $reciModel = new ReciModel();
         $rand = $reciModel->orderBy('id', 'RANDOM')->first();
-        
-        
+              
         return $this->prikaz('stranice/index', ["rec" => $rand->rec]);
     }
     
+    /**
+     * Gost ako ima nalog moze zahtevati da unese svoje kredencijale.
+     * @return void
+     */
     public function login() {
         return $this->prikaz('stranice/login', []);
     }
 
+    /**
+     * Gost ako nema nalog moze zahtevati da se registruje.
+     * @return void
+     */
     public function registracija() {
         return $this->prikaz('stranice/register', []);
     }
 
+    /**
+     * Logovanje trenutno neulogovanog korisnika.
+     * Proverava se validnost kredencijala i pravi se sesija.
+     * @return void
+     */
     public function loginRequest() {
         $korime = $this->request->getVar('korisnickoIme');
         $lozinka = $this->request->getVar('sifra');
@@ -68,6 +99,14 @@ class Gost extends BaseController
             return redirect()->to(site_url('Admin/index'));
         }
     }
+    
+    /**
+     * Registracija trenutno neregistrovanog korisnika.
+     * Unose se korisnicko ime, lozinka, ime, prezime, i email.
+     * Korisnik se cuva u bazi u tabeli korisnik.
+     * Pravi se nova sesija.
+     * @return void
+     */
     
     public function registracijaRequest(){
         $korModel = new KorisnikModel();

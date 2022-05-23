@@ -7,13 +7,25 @@ use App\Models\StatistikaModel;
 use App\Models\PrijavaGreskeModel;
 
 
+/**
+ * Ajax - pomocna klasa kontrolera za funkcije odradjene koriscenjem Ajaxa
+ * 
+ * @version 1.0
+ */
+
 class Ajax extends BaseController
 {
-    public function index()
-    {
+    /**
+     * 
+     * @return void
+     */
+    public function index() {
         return view('welcome_message');
     }
     
+    /**
+     * 
+     */
     public function evidencijaGreske() {
         $admin = $this->request->getVar('admin');
         $greska = $this->request->getVar('idGreske');
@@ -64,7 +76,6 @@ class Ajax extends BaseController
         if($statistika->arcadeRecord < $rezultat){
             $statistika->arcadeRecord = $rezultat;
             $statModel->save($statistika);
-        }
-        
+        }       
     }
 }

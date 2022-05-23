@@ -27,10 +27,10 @@
                 <nav class="navbar navbar-expand-sm navbar-light">
                     <ul class="navbar-nav" type="none">
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo site_url('Gost/index') ?>">Правила</a>
+                            <a class="nav-link" href="<?php echo site_url("$controller/pravila") ?>">Правила</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo site_url('Gost/prijavaGreske') ?>">Пријави грешку</a>
+                            <a class="nav-link" href="<?php echo site_url('$controller/prijavaGreske') ?>">Пријави грешку</a>
                         </li>
                         <li>
                             <div class="dropdown">
