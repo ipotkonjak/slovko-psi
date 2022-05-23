@@ -33,6 +33,12 @@ const keyMap = {
     "KeyF" : "ф", "KeyH" : "х", "KeyC" : "ц", "Semicolon" : "ч", "KeyX" : "џ", "BracketLeft" : "ш"
 };
 
+$(document).ready(function(){
+	init();
+	gameOver=true;
+	$("#protivnik").hide();
+});
+
 
 function init() {
     enteredWord = [];

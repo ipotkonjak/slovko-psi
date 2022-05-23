@@ -19,7 +19,7 @@
     <script src="/assets/js/multiplayer.js"></script>
 </head>
 
-<body onload="init()">
+<body>
     <div class="container-fluid">
         <div class="row" id="header">
             <div class="col-sm-4" id="links1">
@@ -166,11 +166,14 @@
                             <button id="м" onclick="enter('м')">м</button>
                             <button id="←" class="one-and-a-half" onclick="removeLetter()">обриши</button>
                         </div>
-                        <div id="dugmici">
+                        <div id="dugmici" style="margin-top: 1em;">
                             <button type="button" onclick="traziProtivnika()" style="text-align: center">Тражи новог противника</button>
                             &emsp;&emsp;&emsp;&emsp;
                             <button type="button" onclick="cancel()" style="text-align: center">Одустани</button>
                         </div>
+						<div id="protivnik" style="margin-top: 1em; text-align: center; font-weight: bold;">
+							Противник: 
+						</div>
                     </div>
                 </div>
             </div>
@@ -185,7 +188,7 @@
             $("#timer").hide();
             conn = new WebSocket('ws://localhost:8081');
             conn.onopen = function(e) {
-            alert("Connection established!");
+            //alert("Connection established!");
             obj = {
                 "korisnik" : "<?php echo $_SESSION['korisnickoIme'] ?>",
                 "kod" : "1"
@@ -200,6 +203,7 @@
                 switch(msg['kod']){
                     case "1": {
                         protivnik = msg['protivnik'];
+						$("#protivnik").html("Противник: " + protivnik).show();
                         secretWord = msg['rec'];
                         $("#cekanje").hide();
                         $("#title").show();
@@ -209,6 +213,7 @@
                     case "2":{
                         alert(msg['poruka']+"\n"+ '<?php echo $_SESSION['korisnickoIme'] ?>: ' + msg['<?php echo $_SESSION['korisnickoIme'] ?>']
                         + "\n" + protivnik + ": " + msg[protivnik]);
+						$("#protivnik").hide();
                     }
                 }
             };
@@ -217,7 +222,9 @@
         function cancel(){
             endTimer();
             conn.close();
-            
+            $("#cekanje").hide();
+            $("#title").show();
+            $("#timer").show();
         }
 
     </script>
