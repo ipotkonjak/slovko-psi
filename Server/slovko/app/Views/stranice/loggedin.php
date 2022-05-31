@@ -164,7 +164,7 @@
                             <button id="←" class="one-and-a-half" onclick="removeLetter()">обриши</button>
                         </div>
                         <div id="dugmici">
-                            <button type="button" onclick="reset()" style="text-align: center">Започни игру</button>
+                            <button type="button" onclick="reset()" style="text-align: center">Нова игра</button>
                         </div>
                     </div>
                 </div>

@@ -44,18 +44,21 @@ function init() {
     count = [];
     (count = []).length = 30; count.fill(0);
     fillCount();
-}
-
-function reset() {
-    init();
+    $("#dugmici button").hide();
+    $("#myPopup").hide();
     $(".square").css({"background-color" : "transparent"});
     $(".square").html("");
     $("#keyboard button").css({"background-color" : "lightblue"});
+}
+
+function reset() {
+    
     $.ajax({
         type: "POST",
         url: "/Ajax/generisiRec",
         }).done(function(result) {
             secretWord = result;
+            init();
         });
 }
 
@@ -192,12 +195,15 @@ function checkEnteredWord() {
 
     if (greens == 5) {
         gameOver = true;
+        $("#dugmici button").show();
+        $("#myPopup").text("Свака част!");
         setTimeout(function() {
-            alert("Свака част!");
+            $("#myPopup").show();
         }, 1000);
     }
     else if (guess == numOfGuesses) {
         gameOver = true;
+        $("#dugmici button").show();
         setTimeout(function() {
             alert("Тражена реч је била " + secretWord + "!");
         }, 1000);

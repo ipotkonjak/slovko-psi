@@ -19,7 +19,7 @@
     <title>Словко</title>
 </head>
 
-<body onload="init()">
+<body onload="reset()">
     <div class="container-fluid">
         <div class="row" id="header">
             <div class="col-sm-4" id="links1">
@@ -152,7 +152,7 @@
                             <button id="←" class="one-and-a-half" onclick="removeLetter()">обриши</button>
                         </div>
                         <div id="dugmici">
-                            <button type="button" onclick="reset()" style="text-align: center">Нова игра</button>
+                            <button type="button" onclick="reset()" style="text-align: center;">Нова игра</button>
                         </div>
                     </div>
                 </div>

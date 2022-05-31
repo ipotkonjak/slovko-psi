@@ -26,7 +26,7 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md-6 center">
-                Moj rang: <?php echo $rangKor;?>
+                <b>Мој ранг: <?php echo $rangKor;?></b>
                 <table class="table table-bordered" id="rang">
                     <thead>
                       <tr>

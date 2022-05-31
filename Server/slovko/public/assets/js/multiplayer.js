@@ -59,13 +59,14 @@ function init() {
 }
 
 function reset() {
-    init();
+   
  
     $.ajax({
         type: "POST",
         url: "/Ajax/generisiRec",
         }).done(function(result) {
             secretWord = result;
+            init();
         });
 }
 
