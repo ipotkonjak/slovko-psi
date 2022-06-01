@@ -14,6 +14,9 @@
         <?php
         echo "let secretWord = '$rec';";
         ?>
+        function klikPrijaveGreske() {
+            alert("Морате бити регистровани корисник да бисте пријавили грешку.");
+        }
     </script>
     <script src="/assets/js/singleplayer.js"></script>
     <title>Словко</title>
@@ -29,7 +32,7 @@
                             <a class="nav-link" href="<?php echo site_url('Gost/index') ?>">Правила</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo site_url('Gost/prijavaGreske') ?>">Пријави грешку</a>
+                            <a class="nav-link" id="prijavaGreske" href="" onclick="klikPrijaveGreske()">Пријави грешку</a>
                         </li>
                     </ul>
                 </nav>

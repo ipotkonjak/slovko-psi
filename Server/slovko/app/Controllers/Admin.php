@@ -163,4 +163,41 @@ class Admin extends BaseController
         
         return redirect()->to(site_url('Admin/rukovodjenje'));     
     }
+    
+    
+    /**
+     * Multiplayer igra.
+     * Pokrece se prikaz stranice gde se daljim akcijama korisnika ostvaruje konekcija.
+     * @return void
+     */
+    public function multiplayer() {
+        return $this->prikaz('stranice/multiplayer', []);
+    }
+    
+    /**
+     * Teska igra.
+     * Admin moze da pristupi svim opcijama sistema, pa i hardmode koji je za Vip korisnike.
+     * @return void
+     */ 
+    public function hardmode(){
+        $korime = $this->session->get('korisnickoIme');
+        $korModel = new KorisnikModel();
+        
+        $reciModel = new ReciModel();
+        $rand = $reciModel->orderBy('id', 'RANDOM')->first();
+        
+        return $this->prikaz("stranice/hardmode", ["rec" => $rand->rec]);
+    }
+    
+    /**
+     * Arkadni mod.
+     * Bira se prva rec za arkadni mod i pokrece prikaz stranice.
+     * @return void
+     */
+    public function arcade(){
+        $reciModel = new ReciModel();
+        $rand = $reciModel->orderBy('id', 'RANDOM')->first();
+        
+        return $this->prikaz("stranice/arcade", ["rec" => $rand->rec, "korisnik" => $this->session->get("korisnickoIme")]);
+    }
 }
