@@ -1,4 +1,4 @@
-Korisceni alati:
+Korišćeni alati:
 
 Baza:
 	MySQL verzija 5.7.36 - relacioni visenitni sistem za upravljanje bazama podataka, baziran na SQL jeziku. Korišćen je za pristupanje i održavanje baze podataka koju koristi veb aplikacija.
