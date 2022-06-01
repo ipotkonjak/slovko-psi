@@ -10,17 +10,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="/assets/css/loggedin.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <script>
-        <?php
-        echo "let secretWord = '$rec';";
-        ?>
-    </script>
     <script src="/assets/js/singleplayer.js"></script>
 
     <title>Словко</title>
 </head>
 
-<body onload="init()">
+<body onload="reset()">
     <div class="container-fluid">
         <div class="row" id="header">
             <div class="col-sm-4" id="links1">
@@ -39,7 +34,9 @@
                                     <a href="<?php echo site_url("$controller/index") ?>">Singleplayer</a>
                                     <a href="<?php echo site_url("$controller/arcade") ?>">Arcade</a>
                                     <a href="<?php echo site_url("$controller/multiplayer") ?>">Multiplayer</a>
+                                    <?php if(isset($_SESSION['vip']) && $_SESSION['vip']){ ?>
                                     <a href="<?php echo site_url("$controller/hardmode") ?>">Hardmode</a>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </li>
@@ -164,7 +161,7 @@
                             <button id="←" class="one-and-a-half" onclick="removeLetter()">обриши</button>
                         </div>
                         <div id="dugmici">
-                            <button type="button" onclick="reset()" style="text-align: center">Нова игра</button>
+                            <button type="button" onclick="reset()" style="text-align: center; display: none;">Нова игра</button>
                         </div>
                     </div>
                 </div>

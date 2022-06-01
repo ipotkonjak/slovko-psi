@@ -4,8 +4,7 @@ const colorGreen = 'rgba(89, 217, 131, 0.5)';
 const colorPink = 'rgba(217, 138, 89, 0.5)';
 const colorGrey = 'rgba(79, 74, 71, 0.4)';
 
-//let secretWord = "одмор";
-
+let secretWord = "";
 let enteredWord = [];
 let count = [];
 let correctLetters = [];

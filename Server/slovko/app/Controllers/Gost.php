@@ -95,6 +95,7 @@ class Gost extends BaseController
         }
         
         $this->session->set('korisnickoIme', $korime);
+        $this->session->set('vip', $korisnik->vip || $korisnik->admin);
         
         if($korisnik->admin == 0){
             return redirect()->to(site_url('Korisnik/index'));

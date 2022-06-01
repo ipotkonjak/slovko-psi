@@ -4,8 +4,7 @@ var colorGreen = 'rgba(89, 217, 131, 0.5)';
 var colorPink = 'rgba(217, 138, 89, 0.5)';
 var colorGrey = 'rgba(79, 74, 71, 0.4)';
 
-//let secretWord = "одмор";
-
+let secretWord = '';
 let enteredWord = [];
 let count = [];
 let currentRow = 1;
@@ -50,7 +49,9 @@ function showPopup(msg) {
 }
 
 function newArcade(){
-    if(gameOver==false) return;
+    if(gameOver==false) {
+        return;
+    }
     fhandle = setInterval(function(){
         if(lastsquare!=null){
             lastsquare.css("background-color","transparent");
@@ -80,7 +81,7 @@ function newArcade(){
 
 function startGame(){
     reset();
-	rezultat=0;
+    rezultat=0;
     $("#timer").html("3:00").show();
     $("#counter").html("Речи:0").show();
     timer = setInterval(function(){
@@ -159,7 +160,7 @@ function clearKeyboardAndBoard(){
     $("#keyboard button").css({"background-color" : "lightblue"});
 }
 
-function reset() {
+function reset(first = false) {
 	clearKeyboardAndBoard();
     $.ajax({
         type: "POST",
@@ -167,6 +168,7 @@ function reset() {
         }).done(function(result) {
             secretWord = result;
 			init();
+            if(first) gameOver = true;
         });
 }
 

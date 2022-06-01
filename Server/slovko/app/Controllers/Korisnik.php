@@ -40,27 +40,11 @@ class Korisnik extends BaseController
     }
     
     /**
-     * Teska igra.
-     * Ako korisnik nije Vip, prikazuje se stranica gde moze poslati vip zahtev.
-     * Ako jeste Vip, bira se prva rec za tesku igru i pokrece prikaz stranice.
+     * Rutiranje za tesku igru.
      * @return void
      */ 
     public function hardmode(){
-        $korime = $this->session->get('korisnickoIme');
-        $korModel = new KorisnikModel();
-        
-        // ako korisnik nije Vip
-        $kor = $korModel->find($korime);
-        if ($kor->vip == 0) {
-            $statModel = new StatistikaModel();
-            $stat = $statModel->where('username', $korime)->first();   
-            return $this->prikaz('stranice/pregledKorisnik', ['korisnik' => $kor, 'statistika' => $stat]);       
-        }
-        
-        $reciModel = new ReciModel();
-        $rand = $reciModel->orderBy('id', 'RANDOM')->first();
-        
-        return $this->prikaz("stranice/hardmode", ["rec" => $rand->rec]);
+        return $this->prikaz("stranice/hardmode", []);
     }
        
     /**
@@ -68,11 +52,8 @@ class Korisnik extends BaseController
      * Osnovni mod igre, bira se rec i pokrece prikaz stranice.
      * @return void
      */
-    public function index() {
-        $reciModel = new ReciModel();
-        $rand = $reciModel->orderBy('id', 'RANDOM')->first();
-            
-        return $this->prikaz('stranice/loggedin', ["rec" => $rand->rec]);
+    public function index() {     
+        return $this->prikaz('stranice/loggedin', []);
     }
     
     /**
@@ -180,16 +161,18 @@ class Korisnik extends BaseController
         $korModel = new KorisnikModel();
         $statModel = new StatistikaModel();
         
+        $brPoena = -1;
         $rangLista = $statModel->orderBy('brojPoena', 'DESC')->findAll();
         $korRang = 0;
         foreach ($rangLista as $red) {
             $korRang++;
             if($red->username == $korime) {
+                $brPoena = $red->brojPoena;
                 break;
             }
         }
         $korisnici = array_slice($rangLista, 0, 10);
-        return $this->prikaz('stranice/rang_lista', ['korisnici' => $korisnici, 'rangKor' => $korRang]);
+        return $this->prikaz('stranice/rang_lista', ['korisnici' => $korisnici, 'rangKor' => $korRang, 'poeni' => $brPoena]);
     }
     
     /**

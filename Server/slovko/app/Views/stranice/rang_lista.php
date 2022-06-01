@@ -27,6 +27,8 @@
         <div class="row justify-content-center">
             <div class="col-md-6 center">
                 <b>Мој ранг: <?php echo $rangKor;?></b>
+                <span style="float: right"><b>Моји поени: <?php echo $poeni;?></b></span>
+                <br>
                 <table class="table table-bordered" id="rang">
                     <thead>
                       <tr>

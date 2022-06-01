@@ -50,7 +50,6 @@ class Multiplayer implements MessageComponentInterface {
                         echo $rand;
                         
                         
-//                        $rand = "одмор";
                         $poruka2 = ['kod' => "1", "rec" => $rand, "protivnik" => $protivnik['korisnik']];
                         $poruka1 = ['kod' => "1", "rec" => $rand, "protivnik" => $ja['korisnik']];
 

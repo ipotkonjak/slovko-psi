@@ -86,13 +86,13 @@
             </div> 
             <div class="dugmici">
                 <div class="butt">
-                    <a href="rang_lista.html"><input type="button" value="Ранг листа" id="button-igraj"></a>
+                    <a href="<?php echo site_url("$controller/rangLista")?>"><input type="button" value="Ранг листа" id="button-igraj"></a>
                 </div>
                 <div class="butt">  
                     <a href="<?php echo site_url("$controller/rukovodjenje")?>"><input type="button" value="Руковођење" id="button-igraj"></a>
                 </div>
-                <div class="butt">  
-                    <input type="button" value="Крај прегледа" id="button-igraj" onclick="history.back()">
+                <div class="butt">
+                    <a href="<?php echo site_url("$controller/index")?>"><input type="button" value="Крај прегледа" id="button-igraj"></a>
                 </div>
             </div>
     </div>

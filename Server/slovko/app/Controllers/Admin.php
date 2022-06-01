@@ -34,11 +34,8 @@ class Admin extends BaseController
      * Metod za osnovnu igru.
      * @return void
      */
-    public function index() {
-        $reciModel = new ReciModel();
-        $rand = $reciModel->orderBy('id', 'RANDOM')->first();
-        
-        return $this->prikaz('stranice/loggedin', ["rec" => $rand->rec]);
+    public function index() {  
+        return $this->prikaz('stranice/loggedin', []);
     }
     
     /**
@@ -162,5 +159,24 @@ class Admin extends BaseController
         $zahtevModel->save($zahtev);
         
         return redirect()->to(site_url('Admin/rukovodjenje'));     
+    }
+    
+    public function rangLista() {
+        $korime = $this->session->get('korisnickoIme');
+        $korModel = new KorisnikModel();
+        $statModel = new StatistikaModel();
+        
+        $brPoena = -1;
+        $rangLista = $statModel->orderBy('brojPoena', 'DESC')->findAll();
+        $korRang = 0;
+        foreach ($rangLista as $red) {
+            $korRang++;
+            if($red->username == $korime) {
+                $brPoena = $red->brojPoena;
+                break;
+            }
+        }
+        $korisnici = array_slice($rangLista, 0, 10);
+        return $this->prikaz('stranice/rang_lista', ['korisnici' => $korisnici, 'rangKor' => $korRang, 'poeni' => $brPoena]);
     }
 }
