@@ -150,6 +150,13 @@ class Korisnik extends BaseController
         $kor = $korModel->find($korisnik);
         $stat = $statModel->where('username', $korisnik)->first();
         $idZah = $vipModel->where('username', $korisnik)->where('status', 'N')->first();
+        
+        $brPartija = $stat->brojPobeda + $stat->brojNeresenih + $stat->brojPoraza;
+        
+        if($brPartija<50){
+            return $this->prikaz("stranice/pregledKorisnik", 
+                    ['korisnik' => $kor, 'statistika' => $stat, 'zahtevGreska' => 'Морате имати минимум 50 партија да бисте послали ВИП захтев!']);
+        }
              
         if ($idZah != null) {
             return $this->prikaz("stranice/pregledKorisnik", 

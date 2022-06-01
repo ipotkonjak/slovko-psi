@@ -34,6 +34,7 @@
         </div>
 
         <div class="info">
+            <h1>Корисници</h1>
             <table class="styled-info table table-striped" id="tableData">
                 <thead>
                     <tr>
@@ -57,6 +58,7 @@
 
             <hr>
 
+            <h1>ВИП захтеви</h1>
             <table class="styled-info table table-striped" id="tableData1">
                 <thead>
                     <tr>
@@ -77,7 +79,10 @@
                     ?>
                 </tbody>
             </table>
+            
             <hr>
+            
+            <h1>Пријављене грешке</h1>
             <table class="styled-info table table-striped" id="tableData2">
                 <thead>
                     <tr>
