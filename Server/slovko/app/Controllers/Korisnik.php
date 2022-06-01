@@ -122,7 +122,7 @@ class Korisnik extends BaseController
             "opis" => $tekst,
             "username" => $kor
         ]);
-        return $this->prikaz('stranice/prijava_greske', ['poruka' => 'Uspesno ste prijavili gresku']);
+        return $this->prikaz('stranice/prijava_greske', ['poruka' => 'Успешно сте пријавили грешку!']);
     }
     
     
