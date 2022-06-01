@@ -90,6 +90,10 @@ class Gost extends BaseController
             return $this->prikaz('stranice/login', ['sifraGreska' => 'Погрешна лозинка']);
         }
         
+        if(!$korisnik->odobren){
+            return $this->prikaz('stranice/login', ['korimeGreska' => 'Ваш налог је суспендован!']);
+        }
+        
         $this->session->set('korisnickoIme', $korime);
         
         if($korisnik->admin == 0){
