@@ -16,3 +16,10 @@ use App\Libraries\Multiplayer;
     );
 
     $server->run();
+    
+    /*
+     * Input output server koji se pokrece kao odvojen proces.
+     * Sluzi za prihvatanje konekcija od igraca za multiplayer
+     * preko socketa, spajanje i sinhronizovanje protivnika, i obavestavanje
+     * o ishodu odigrane partije.
+     */
