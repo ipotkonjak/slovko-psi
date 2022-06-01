@@ -179,4 +179,31 @@ class Admin extends BaseController
         $korisnici = array_slice($rangLista, 0, 10);
         return $this->prikaz('stranice/rang_lista', ['korisnici' => $korisnici, 'rangKor' => $korRang, 'poeni' => $brPoena]);
     }
+    
+    /**
+     * Pokrece prikaz stranice za hardmode.
+     * @return void
+     */ 
+    public function hardmode(){
+        return $this->prikaz("stranice/hardmode", []);
+    }
+    
+    /**
+     * Multiplayer igra.
+     * Pokrece se prikaz stranice gde se daljim akcijama korisnika ostvaruje konekcija.
+     * @return void
+     */
+    public function multiplayer() {
+        return $this->prikaz('stranice/multiplayer', []);
+    }
+    
+    
+    /**
+     * Arkadni mod.
+     * Pokrece se prikaz stranice.
+     * @return void
+     */
+    public function arcade(){
+        return $this->prikaz("stranice/arcade", ["korisnik" => $this->session->get("korisnickoIme")]);
+    }
 }

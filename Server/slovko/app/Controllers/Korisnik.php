@@ -33,14 +33,11 @@ class Korisnik extends BaseController
      * @return void
      */
     public function arcade(){
-        $reciModel = new ReciModel();
-        $rand = $reciModel->orderBy('id', 'RANDOM')->first();
-        
-        return $this->prikaz("stranice/arcade", ["rec" => $rand->rec, "korisnik" => $this->session->get("korisnickoIme")]);
+        return $this->prikaz("stranice/arcade", ["korisnik" => $this->session->get("korisnickoIme")]);
     }
     
     /**
-     * Rutiranje za tesku igru.
+     * Pokrece prikaz stranice za hardmode.
      * @return void
      */ 
     public function hardmode(){
