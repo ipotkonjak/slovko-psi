@@ -194,16 +194,17 @@ function checkEnteredWord() {
 
     if (greens == 5) {
         gameOver = true;
-        $("#dugmici button").show();
-        $("#myPopup").text("Свака част!");
+        
         setTimeout(function() {
-            $("#myPopup").show();
+            $("#dugmici button").show();
+            alert("Свака част!");
         }, 1000);
     }
     else if (guess == numOfGuesses) {
         gameOver = true;
-        $("#dugmici button").show();
+   
         setTimeout(function() {
+            $("#dugmici button").show();
             alert("Тражена реч је била " + secretWord + "!");
         }, 1000);
     }
