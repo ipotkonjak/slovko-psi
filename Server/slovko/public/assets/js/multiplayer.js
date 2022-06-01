@@ -2,6 +2,8 @@ var colorGreen = 'rgba(89, 217, 131, 0.5)';
 var colorPink = 'rgba(217, 138, 89, 0.5)';
 var colorGrey = 'rgba(79, 74, 71, 0.4)';
 
+let protivnik = null;
+let conn = null;
 let secretWord = "";
 let black = true;
 let treptanje = -1;
@@ -297,4 +299,54 @@ function izracunajVreme(){
     let min = parseInt(tmp.split(":")[0]);
     let sec = parseInt(tmp.split(":")[1]);
     return 120 - (min*60 + sec);
+}
+
+function traziProtivnika() {
+            $("#cekanje").show();
+            $("#title").hide();
+            $("#timer").hide();
+            conn = new WebSocket('ws://localhost:8081');
+            conn.onopen = function(e) {
+            //alert("Connection established!");
+                obj = {
+                    "korisnik" : korisnik,
+                    "kod" : "1"
+                };
+                conn.send(JSON.stringify(obj));
+            };
+            conn.onmessage = function(e) {
+                //alert(e.data);
+                //alert(JSON.stringify(JSON.parse(e.data)));
+                let msg = JSON.parse(e.data);
+                switch(msg['kod']){
+                    case "1": {
+                        protivnik = msg['protivnik'];
+						$("#protivnik").html("Противник: " + protivnik).show();
+                        secretWord = msg['rec'];
+                        $("#cekanje").hide();
+                        $("#title").show();
+                        $("#timer").show();
+                        startGame();
+                    } break;
+                    case "2":{
+                        alert(msg['poruka']+"\n"+ korisnik + msg[korisnik]
+                        + "\n" + protivnik + ": " + msg[protivnik]);
+						$("#protivnik").hide();
+                        conn.close();
+                        conn = null;
+                    }
+                }
+            };
+}
+            
+        
+function cancel(){
+            endTimer();
+            if(conn!=null){
+                conn.close();
+                conn = null;
+            }
+            $("#cekanje").hide();
+            $("#title").show();
+            $("#timer").show();
 }

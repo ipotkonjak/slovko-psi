@@ -10,13 +10,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="/assets/css/arcade.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <script>
-        <?php
-        echo "let secretWord = 'корак';";
-        ?>
-        let conn = null;
-    </script>
     <script src="/assets/js/multiplayer.js"></script>
+    <script>
+        let korisnik = '<?php echo $_SESSION['korisnickoIme'] ?>';
+    </script>
 </head>
 
 <body>
@@ -179,55 +176,7 @@
             </div>
         </div>
     </div>
-    
-    <script>
-        let protivnik = null;
-        function traziProtivnika() {
-            $("#cekanje").show();
-            $("#title").hide();
-            $("#timer").hide();
-            conn = new WebSocket('ws://localhost:8081');
-            conn.onopen = function(e) {
-            //alert("Connection established!");
-            obj = {
-                "korisnik" : "<?php echo $_SESSION['korisnickoIme'] ?>",
-                "kod" : "1"
-            };
-            conn.send(JSON.stringify(obj));
-            };
-            
-            conn.onmessage = function(e) {
-                //alert(e.data);
-                //alert(JSON.stringify(JSON.parse(e.data)));
-                let msg = JSON.parse(e.data);
-                switch(msg['kod']){
-                    case "1": {
-                        protivnik = msg['protivnik'];
-						$("#protivnik").html("Противник: " + protivnik).show();
-                        secretWord = msg['rec'];
-                        $("#cekanje").hide();
-                        $("#title").show();
-                        $("#timer").show();
-                        startGame();
-                    } break;
-                    case "2":{
-                        alert(msg['poruka']+"\n"+ '<?php echo $_SESSION['korisnickoIme'] ?>: ' + msg['<?php echo $_SESSION['korisnickoIme'] ?>']
-                        + "\n" + protivnik + ": " + msg[protivnik]);
-						$("#protivnik").hide();
-                    }
-                }
-            };
-        }
-        
-        function cancel(){
-            endTimer();
-            conn.close();
-            $("#cekanje").hide();
-            $("#title").show();
-            $("#timer").show();
-        }
-
-    </script>
+   
 </body>
 
 </html>
