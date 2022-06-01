@@ -1,11 +1,11 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => 'dev-main',
-        'version' => 'dev-main',
+        'pretty_version' => '1.0.0+no-version-set',
+        'version' => '1.0.0.0',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '6221f4ce14c43582e63298cf4af3b69d042180eb',
+        'reference' => NULL,
         'name' => 'codeigniter4/appstarter',
         'dev' => true,
     ),
@@ -20,12 +20,12 @@
             'dev_requirement' => false,
         ),
         'codeigniter4/appstarter' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
+            'pretty_version' => '1.0.0+no-version-set',
+            'version' => '1.0.0.0',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '6221f4ce14c43582e63298cf4af3b69d042180eb',
+            'reference' => NULL,
             'dev_requirement' => false,
         ),
         'codeigniter4/framework' => array(
@@ -110,12 +110,12 @@
             'dev_requirement' => true,
         ),
         'nikic/php-parser' => array(
-            'pretty_version' => 'v4.13.2',
-            'version' => '4.13.2.0',
+            'pretty_version' => 'v4.14.0',
+            'version' => '4.14.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../nikic/php-parser',
             'aliases' => array(),
-            'reference' => '210577fe3cf7badcc5814d99455df46564f3c077',
+            'reference' => '34bea19b6e03d8153165d8f30bba4c3be86184c1',
             'dev_requirement' => true,
         ),
         'phar-io/manifest' => array(
@@ -509,12 +509,12 @@
             'dev_requirement' => false,
         ),
         'symfony/http-foundation' => array(
-            'pretty_version' => 'v5.4.8',
-            'version' => '5.4.8.0',
+            'pretty_version' => 'v5.4.9',
+            'version' => '5.4.9.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/http-foundation',
             'aliases' => array(),
-            'reference' => 'ff2818d1c3d49860bcae1f2cbb5eb00fcd3bf9e2',
+            'reference' => '6b0d0e4aca38d57605dcd11e2416994b38774522',
             'dev_requirement' => false,
         ),
         'symfony/polyfill-ctype' => array(
