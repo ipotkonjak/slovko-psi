@@ -323,16 +323,18 @@ function traziProtivnika() {
                 switch(msg['kod']){
                     case "1": {
                         protivnik = msg['protivnik'];
-						$("#protivnik").html("Противник: " + protivnik).show();
+			$("#protivnik").html("Противник: <b>" + protivnik + "</b>").show();
                         secretWord = msg['rec'];
                         $("#cekanje").hide();
                         $("#title").show();
                         $("#timer").show();
+                        $("#dugmici").hide();
                         startGame();
                     } break;
                     case "2":{
                         $("#cekanje").hide();
                         $("#title").show();
+                        $("#dugmici").show();
                         alert(msg['poruka']+"\n"+ korisnik + ": " + msg[korisnik]
                         + "\n" + protivnik + ": " + msg[protivnik]);
 						$("#protivnik").hide();

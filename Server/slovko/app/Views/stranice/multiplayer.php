@@ -165,7 +165,7 @@
                             &emsp;&emsp;&emsp;&emsp;
                             <button type="button" onclick="cancel()" style="text-align: center">Одустани</button>
                         </div>
-						<div id="protivnik" style="margin-top: 1em; text-align: center; font-weight: bold;">
+						<div id="protivnik" style="margin-top: 1em; text-align: center; font-size: 23px;">
 							Противник: 
 						</div>
                     </div>
