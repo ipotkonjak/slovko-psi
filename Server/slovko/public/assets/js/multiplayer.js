@@ -225,6 +225,7 @@ function checkEnteredWord() {
             "vreme" : izracunajVreme().toString()
         };
         conn.send(JSON.stringify(poruka));
+        waitingForOpponentToFinish();
     }
     else if (guess == numOfGuesses) {
         gameOver = true;
@@ -241,6 +242,7 @@ function checkEnteredWord() {
             "vreme" : izracunajVreme().toString()
         };
         conn.send(JSON.stringify(poruka));
+        waitingForOpponentToFinish();
     }
     else { enableEntry = true; }
     
@@ -302,7 +304,7 @@ function izracunajVreme(){
 }
 
 function traziProtivnika() {
-            $("#cekanje").show();
+            $("#cekanje").text("Чека се противник...").show();
             $("#title").hide();
             $("#timer").hide();
             conn = new WebSocket('ws://localhost:8081');
@@ -329,7 +331,9 @@ function traziProtivnika() {
                         startGame();
                     } break;
                     case "2":{
-                        alert(msg['poruka']+"\n"+ korisnik + msg[korisnik]
+                        $("#cekanje").hide();
+                        $("#title").show();
+                        alert(msg['poruka']+"\n"+ korisnik + ": " + msg[korisnik]
                         + "\n" + protivnik + ": " + msg[protivnik]);
 						$("#protivnik").hide();
                         conn.close();
@@ -349,4 +353,10 @@ function cancel(){
             $("#cekanje").hide();
             $("#title").show();
             $("#timer").show();
+}
+
+
+function waitingForOpponentToFinish() {
+    $("#cekanje").text("Чека се противник да заврши...").show();
+    $("#title").hide();
 }

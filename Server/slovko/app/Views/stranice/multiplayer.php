@@ -73,9 +73,6 @@
             <div class="col-sm-3"> &nbsp; </div>
         </div>
         <div class="row" id="content">
-<!--            <div class="col-sm-2 text-center" id="cekanje">
-                Чека се противник...
-            </div>-->
             <div class="col-sm-12 text-center">
                 <div id="board-container">
                     <div id="board">

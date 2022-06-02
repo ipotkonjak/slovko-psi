@@ -184,7 +184,7 @@ class Multiplayer implements MessageComponentInterface {
                     $brPoena2 = $brPoena2 * (1 - 0.05 * intdiv(intval($this->igre[$index]['vreme2']), 15));
                 }
                 $pobedio = "Ishod je neresen.";
-                $pobeda = null;
+                $pobeda = "null";
                 if ($brPoena1 > $brPoena2) {
                     $pobedio = "Pobednik je " . $this->igre[$index]['igrac1']['korisnik'] . ".";
                     $pobeda = "'1'";
@@ -205,33 +205,34 @@ class Multiplayer implements MessageComponentInterface {
                                 "','".$this->igre[$index]['vreme1']."','".$this->igre[$index]['vreme2'].
                                 "',".$pobeda.",'".$this->igre[$index]['igrac1']['korisnik']."','".$this->igre[$index]['igrac2']['korisnik']."');";
                         //echo $upit;
-                $result = mysqli_query($this->connBaza, $upit) or die ("Upit neuspesan");
+                $result = mysqli_query($this->connBaza, $upit) or die ("Upit neuspesan igra");
                 
                 if($pobeda == "'1'") {
                     $upit = "UPDATE 'statistika' SET 'brojPoena'='brojPoena' + ".$brPoena1.
                             ",'brojPobeda'='brojPobeda' + 1 WHERE 'username'=".$this->igre[$index]['igrac1']['korisnik'].";";
                     echo $upit;
                     $result = mysqli_query($this->connBaza, $upit) or die ("Upit neuspesan");
-                    $upit = "UPDATE 'statistika' SET 'brojPoena'='brojPoena' + ".Math.floor($brPoena2 * 0.5).
+                    $upit = "UPDATE 'statistika' SET 'brojPoena'='brojPoena' + ".floor($brPoena2 * 0.5).
                             ",'brojPoraza'='brojPoraza' + 1 WHERE 'username'=".$this->igre[$index]['igrac2']['korisnik'].";";
-                    $result = mysqli_query($this->connBaza, $upit) or die ("Upit neuspesan");
+                    $result = mysqli_query($this->connBaza, $upit) or die ("Upit neuspesan 1");
                 
                 }
                 else if( $pobeda == "'0'") {
                     $upit = "UPDATE 'statistika' SET 'brojPoena'='brojPoena' + ".$brPoena2.
                             ",'brojPobeda'='brojPobeda' + 1 WHERE 'username'=".$this->igre[$index]['igrac2']['korisnik'].";";
                     $result = mysqli_query($this->connBaza, $upit) or die ("Upit neuspesan");
-                    $upit = "UPDATE 'statistika' SET 'brojPoena'='brojPoena' + ".Math.floor($brPoena1 * 0.5).
+                    $upit = "UPDATE 'statistika' SET 'brojPoena'='brojPoena' + ".floor($brPoena1 * 0.5).
                             ",'brojPoraza'='brojPoraza' + 1 WHERE 'username'=".$this->igre[$index]['igrac1']['korisnik'].";";
-                    $result = mysqli_query($this->connBaza, $upit) or die ("Upit neuspesan");
+                    $result = mysqli_query($this->connBaza, $upit) or die ("Upit neuspesan 2");
                 }
                 else {
                     $upit = "UPDATE 'statistika' SET 'brojPoena'='brojPoena' + ".$brPoena1.
                             ",'brojNeresenih'='brojNeresenih' + 1 WHERE 'username'=".$this->igre[$index]['igrac1']['korisnik'].";";
-                    $result = mysqli_query($this->connBaza, $upit) or die ("Upit neuspesan");
+                    echo $upit;
+                    $result = mysqli_query($this->connBaza, $upit) or die ("Upit neuspesan OVAJ");
                     $upit = "UPDATE 'statistika' SET 'brojPoena'='brojPoena' + ".$brPoena2.
                             ",'brojNeresenih'='brojNeresenih' + 1 WHERE 'username'=".$this->igre[$index]['igrac2']['korisnik'].";";
-                    $result = mysqli_query($this->connBaza, $upit) or die ("Upit neuspesan");
+                    $result = mysqli_query($this->connBaza, $upit) or die ("Upit neuspesan 3");
                 }
                 
                 array_splice($this->igre, $index, 1);
