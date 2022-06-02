@@ -1,4 +1,3 @@
-<!<!-- Luka Hrvacevic 0353/2019 -->
 <!DOCTYPE html>
 <html lang="en">
 

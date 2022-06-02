@@ -1,4 +1,3 @@
-<!<!-- Iva Potkonja 19/301 Uros Mutavdzic 19/378 -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,7 +26,7 @@
                             <a class="nav-link" href="<?php echo site_url("{$controller}/index") ?>">Правила</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo site_url("{$controller}}/prijavaGreske") ?>">Пријави грешку</a>
+                            <a class="nav-link" href="<?php echo site_url("{$controller}/prijavaGreske") ?>">Пријави грешку</a>
                         </li>
                         <li>
                             <div class="dropdown">
