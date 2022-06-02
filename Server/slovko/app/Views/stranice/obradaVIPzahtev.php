@@ -99,7 +99,7 @@
         </div>
             <div class="dugmici">
                 <div class="butt">  
-                    <input type="button" value="Крај прегледа" id="button-igraj" onclick="history.back()">
+                    <a href="<?php echo site_url("Admin/rukovodjenje") ?>"><input type="button" value="Крај прегледа" id="button-igraj"></a>
                 </div>
             </div>
     </div>

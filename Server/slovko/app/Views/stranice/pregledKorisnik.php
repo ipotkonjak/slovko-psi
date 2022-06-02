@@ -100,7 +100,7 @@
                     }
                 ?>
                 <div class="butt">  
-                    <input type="button" value="Крај прегледа" id="button-igraj" onclick="history.back()">
+                    <a href="<?php echo site_url("Korisnik/index") ?>"><input type="button" value="Крај прегледа" id="button-igraj"></input></a>
                 </div>
             </div>
     </div>

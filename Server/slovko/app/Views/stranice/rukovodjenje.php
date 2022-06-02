@@ -108,7 +108,7 @@
         </div>
         <div class="dugmici">
             <div class="butt">
-                <input type="button" value="Назад" id="button-igraj" onclick="history.back()">
+                <a href="<?php echo site_url("Admin/pregled") ?>"><input type="button" value="Назад" id="button-igraj"></input></a>
             </div>
         </div>
     </div>
