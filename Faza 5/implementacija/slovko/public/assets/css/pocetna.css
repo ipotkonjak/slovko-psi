@@ -1,0 +1,122 @@
+/* Katarina Jocic 2019/0014 */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: lightgrey;
+}
+
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+    border-bottom: 0.5px solid grey;
+}
+
+.logo{
+    cursor: pointer;
+}
+
+
+#container{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    flex-direction: column;
+    background-color: lightgrey;
+}
+
+.welcome-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+}
+
+.title-left, .title-right{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.title-left, .title-right{
+    width: 4em;
+}
+
+.title-center{
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+
+
+#button-igraj {
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 7px;
+    /*font-family: Georgia, 'Times New Roman', Times, serif;*/
+}
+
+.opcije {
+    /*margin-top: 10px;*/
+    font-weight: bold;
+    width: 50%;
+    margin-bottom: 20px;
+}
+
+.opcije a {
+    padding: 15px;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.opcije span.collapse {
+    border: 0.5px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 15px;
+    font-weight: normal;
+    background-color: white;
+    
+    text-align: justify;
+}
+
+span {
+    font-weight: bold;
+    background-color: white;
+}
+
+#single {
+    background-color: rgba(173, 216, 230, 0.9);
+}
+
+#multi {
+    background-color: rgba(173, 216, 230, 0.4);
+}
+
+#arcade {
+    background-color: rgba(173, 216, 230, 0.9);
+}
+#hard {
+    background-color: rgba(173, 216, 230, 0.4);
+}
+
+#single:hover + #singlePravila {
+    display: block;
+}
+
+#multi:hover + #multiPravila {
+    display: block;
+}
+
+#arcade:hover + #arcadePravila {
+    display: block;
+}
+
+#hard:hover + #hardPravila {
+    display: block;
+}
