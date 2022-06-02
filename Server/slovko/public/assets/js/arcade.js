@@ -1,4 +1,4 @@
-
+//Luka Hrvacevic 19/353
 
 var colorGreen = 'rgba(89, 217, 131, 0.5)';
 var colorPink = 'rgba(217, 138, 89, 0.5)';

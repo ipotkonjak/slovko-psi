@@ -1,3 +1,4 @@
+//Iva Potkonja 301/19
 var colorGreen = 'rgba(89, 217, 131, 0.5)';
 var colorPink = 'rgba(217, 138, 89, 0.5)';
 var colorGrey = 'rgba(79, 74, 71, 0.4)';

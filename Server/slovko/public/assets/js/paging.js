@@ -1,3 +1,4 @@
+//Uros Mutavdzic 378/19
 (function($) {
     $(function() {
         $.widget("zpd.paging", {

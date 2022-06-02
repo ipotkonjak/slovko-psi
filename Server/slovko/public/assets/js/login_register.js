@@ -1,3 +1,4 @@
+//Iva Potkonjak 301/19 Luka Hrvacevic 353/19
 let nizKorisnika = [
     {
         korisnickoIme : "admin",
