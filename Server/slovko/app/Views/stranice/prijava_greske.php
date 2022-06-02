@@ -39,7 +39,7 @@
                     </div>
                     <div class="form-sub">
                         <div class="form-button">
-                            <input type="button" value="Назад" id="nazad" onclick="history.back()"> 
+                            <a href="<?php echo site_url("Korisnik/index") ?>"><input type="button" value="Назад" id="nazad"> </a>
                             <input type="submit" value="Пошаљи" id="reg_dugme">
                         </div>
                     </div>

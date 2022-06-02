@@ -84,6 +84,9 @@
             <div>
                 <div class="greska" id="zahtevGreska" ><font color='red'><?php if(isset($zahtevGreska)) echo $zahtevGreska;?></font></div>
             </div>
+            <div>
+                <div id="zahtevUspeh" ><font color='green'><?php if(isset($zahtevUspeh)) echo $zahtevUspeh;?></font></div>
+            </div>
           
            
             <div class="dugmici">
@@ -100,7 +103,7 @@
                     }
                 ?>
                 <div class="butt">  
-                    <input type="button" value="Крај прегледа" id="button-igraj" onclick="history.back()">
+                    <a href="<?php echo site_url("Korisnik/index") ?>"><input type="button" value="Крај прегледа" id="button-igraj"></input></a>
                 </div>
             </div>
     </div>

@@ -1,5 +1,5 @@
 <?php
-//ceo tim
+
 namespace App\Controllers;
 use App\Models\StatistikaModel;
 use App\Models\KorisnikModel;
@@ -138,14 +138,15 @@ class Korisnik extends BaseController
              
         if ($idZah != null) {
             return $this->prikaz("stranice/pregledKorisnik", 
-                    ['korisnik' => $kor, 'statistika' => $stat, 'zahtevGreska' => 'Већ сте послали ВИП захтев']);
+                    ['korisnik' => $kor, 'statistika' => $stat, 'zahtevGreska' => 'Већ сте послали ВИП захтев.']);
         }
         $vipZahtev = $vipModel->insert([
             "status" => "N",
             "username" => $kor->username
         ]);
         
-        return redirect()->to(site_url('Korisnik/pregled'));
+        return $this->prikaz("stranice/pregledKorisnik", 
+                    ['korisnik' => $kor, 'statistika' => $stat, 'zahtevUspeh' => 'Успешно сте послали ВИП захтев.']);
     }
     
     /**
