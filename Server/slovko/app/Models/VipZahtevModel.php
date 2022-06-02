@@ -20,7 +20,7 @@ class VipZahtevModel extends Model
     protected $table      = 'vip_zahtev';
     
     /**
-     * @var string $primaryKey Primerni kljuc
+     * @var string $primaryKey Primarni kljuc
      */
     protected $primaryKey = 'idZ';
 

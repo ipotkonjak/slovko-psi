@@ -39,11 +39,8 @@ class Gost extends BaseController
      * Osnovna singleplayer igra, dohvata se nasumicna rec iz tabele reci.
      * @return void
      */
-    public function igra() {
-        $reciModel = new ReciModel();
-        $rand = $reciModel->orderBy('id', 'RANDOM')->first();
-              
-        return $this->prikaz('stranice/index', ["rec" => $rand->rec]);
+    public function igra() {              
+        return $this->prikaz('stranice/index', []);
     }
     
     /**

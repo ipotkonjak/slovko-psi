@@ -19,7 +19,7 @@ class StatistikaModel extends Model
     protected $table      = 'statistika';
     
     /**
-     * @var string $primaryKey Primerni kljuc
+     * @var string $primaryKey Primarni kljuc
      */
     protected $primaryKey = 'idS';
 

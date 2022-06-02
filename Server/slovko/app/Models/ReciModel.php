@@ -19,7 +19,7 @@ class ReciModel extends Model
     protected $table      = 'reci';
     
     /**
-     * @var string $primaryKey Primerni kljuc
+     * @var string $primaryKey Primarni kljuc
      */
     protected $primaryKey = 'idR';
 

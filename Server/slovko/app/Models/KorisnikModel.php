@@ -18,7 +18,7 @@ class KorisnikModel extends Model
     protected $table      = 'korisnik';
     
     /**
-     * @var string $primaryKey Primerni kljuc
+     * @var string $primaryKey Primarni kljuc
      */
     protected $primaryKey = 'username';
 

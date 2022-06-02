@@ -19,7 +19,7 @@ class IgraModel extends Model
     protected $table      = 'igra';
     
     /**
-     * @var string $primaryKey Primerni kljuc
+     * @var string $primaryKey Primarni kljuc
      */
     protected $primaryKey = 'idI';
 
