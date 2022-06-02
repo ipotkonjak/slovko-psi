@@ -6,12 +6,6 @@
     background-color: lightgrey;
 }
 
-a{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 15px;
-    color: black;
-    text-decoration: none;
-}
 
 header{
     display: flex;
@@ -29,7 +23,6 @@ header{
 
 #container{
     display: flex;
-    background-color: black;
     height: 100%;
     align-items: center;
     flex-direction: column;
@@ -58,43 +51,72 @@ header{
 }
 
 
-.options {
-    width: 45%;
-    text-align: left;
-    border: 2px solid black;
-    padding: 20px;
-}
-
-.options-title {
-    text-align: center;
-    text-decoration: underline;
-}
-
-
-dd {
-    margin-top: 10px;
-    margin-left: 20px;
-}
-
-dd p {
-    margin-left: 30px;
-}
-
-dt {
-    margin-top: 10px;
-}
-
 
 #button-igraj {
     background-color: black;
     color: white;
     border-radius: 10px;
-    margin: 20px;
+    margin-top: 20px;
     padding: 7px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    /*font-family: Georgia, 'Times New Roman', Times, serif;*/
 }
 
-li {
-    margin-top: 10px;
-    margin-bottom: 10px;
+.opcije {
+    /*margin-top: 10px;*/
+    font-weight: bold;
+    width: 50%;
+    margin-bottom: 20px;
+}
+
+.opcije a {
+    padding: 15px;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.opcije span.collapse {
+    border: 0.5px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 15px;
+    font-weight: normal;
+    background-color: white;
+    
+    text-align: justify;
+}
+
+span {
+    font-weight: bold;
+    background-color: white;
+}
+
+#single {
+    background-color: rgba(173, 216, 230, 0.9);
+}
+
+#multi {
+    background-color: rgba(173, 216, 230, 0.4);
+}
+
+#arcade {
+    background-color: rgba(173, 216, 230, 0.9);
+}
+#hard {
+    background-color: rgba(173, 216, 230, 0.4);
+}
+
+#single:hover + #singlePravila {
+    display: block;
+}
+
+#multi:hover + #multiPravila {
+    display: block;
+}
+
+#arcade:hover + #arcadePravila {
+    display: block;
+}
+
+#hard:hover + #hardPravila {
+    display: block;
 }
