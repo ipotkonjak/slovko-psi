@@ -84,6 +84,9 @@
             <div>
                 <div class="greska" id="zahtevGreska" ><font color='red'><?php if(isset($zahtevGreska)) echo $zahtevGreska;?></font></div>
             </div>
+            <div>
+                <div id="zahtevUspeh" ><font color='green'><?php if(isset($zahtevUspeh)) echo $zahtevUspeh;?></font></div>
+            </div>
           
            
             <div class="dugmici">
