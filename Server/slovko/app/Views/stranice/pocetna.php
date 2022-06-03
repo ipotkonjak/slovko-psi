@@ -76,7 +76,7 @@
             </div>
              
             <div class="butt">
-                <a href="<?php echo site_url('Gost/igra')?>"><input type="button" value="ИГРАЈ!" id="button-igraj"></a>
+                <a href="<?php echo site_url('Gost/igra')?>" ><button type="button" class="btn btn-dark btn-rounded" id="igraj">ИГРАЈ!</button></a>
             </div>
 
     </div>

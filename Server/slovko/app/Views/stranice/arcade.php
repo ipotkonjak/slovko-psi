@@ -162,7 +162,7 @@
                             <button id="←" class="one-and-a-half" onclick="removeLetter()">обриши</button>
                         </div>
                         <div id="dugmici">
-                            <button type="button" onclick="newArcade()" style="text-align: center">Започни игру</button>
+                            <button type="button" class="btn btn-dark btn-rounded" onclick="newArcade()" style="text-align: center">Започни игру</button>
                         </div>
                     </div>
                 </div>

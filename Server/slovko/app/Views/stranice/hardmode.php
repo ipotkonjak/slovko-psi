@@ -175,9 +175,9 @@
                             <button id="←" class="one-and-a-half" onclick="removeLetter()">обриши</button>
                         </div>
                         <div id="dugmici">
-                            <button type="button" onclick="reset()">Нова игра</button>
-                            <button type="button" onclick="moreTries()">Додатни покушај</button>
-                            <button type="button" onclick="giveUp()">Одустани</button>
+                            <button type="button" onclick="reset()" class="btn btn-dark btn-rounded">Нова игра</button>
+                            <button type="button" onclick="moreTries()" class="btn btn-dark btn-rounded">Додатни покушај</button>
+                            <button type="button" onclick="giveUp()" class="btn btn-dark btn-rounded">Одустани</button>
                         </div>
                     </div>
                 </div>

@@ -50,15 +50,9 @@ header{
     text-transform: uppercase;
 }
 
-
-
-#button-igraj {
-    background-color: black;
-    color: white;
-    border-radius: 10px;
-    margin-top: 20px;
-    padding: 7px;
-    /*font-family: Georgia, 'Times New Roman', Times, serif;*/
+#igraj{
+    width: 200px;
+    font-size: 30px;
 }
 
 .opcije {
@@ -120,3 +114,4 @@ span {
 #hard:hover + #hardPravila {
     display: block;
 }
+

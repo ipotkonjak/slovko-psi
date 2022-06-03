@@ -306,6 +306,7 @@ function izracunajVreme(){
 
 function traziProtivnika() {
             $("#cekanje").text("Чека се противник...").show();
+            $("#loading").show();
             $("#title").hide();
             $("#timer").hide();
             conn = new WebSocket('ws://localhost:8081');
@@ -327,6 +328,7 @@ function traziProtivnika() {
 			$("#protivnik").html("Противник: <b>" + protivnik + "</b>").show();
                         secretWord = msg['rec'];
                         $("#cekanje").hide();
+                        $("#loading").hide();
                         $("#title").show();
                         $("#timer").show();
                         $("#dugmici").hide();
@@ -334,6 +336,7 @@ function traziProtivnika() {
                     } break;
                     case "2":{
                         $("#cekanje").hide();
+                        $("#loading").hide();
                         $("#title").show();
                         $("#dugmici").show();
                         alert(msg['poruka']+"\n"+ korisnik + ": " + msg[korisnik]
@@ -354,6 +357,7 @@ function cancel(){
                 conn = null;
             }
             $("#cekanje").hide();
+            $("#loading").hide();
             $("#title").show();
             $("#timer").show();
 }
@@ -361,5 +365,6 @@ function cancel(){
 
 function waitingForOpponentToFinish() {
     $("#cekanje").text("Чека се противник да заврши...").show();
+    $("#loading").show();
     $("#title").hide();
 }
