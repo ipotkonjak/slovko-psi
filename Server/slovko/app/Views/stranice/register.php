@@ -6,10 +6,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/register.css">
-    <script src="/assets/js/login_register.js"></script>
+   
+<!--    <script src="/assets/js/login_register.js"></script>-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/register.css">
     <title>Регистрација</title>
 </head>
 
@@ -40,16 +41,16 @@
                     <div class="greska" id="sifraGreska"><?php echo $sifragreska ?></div>
                     <?php } ?>
                     <div class="form-els">
-                        <label for=""><b>Лозинка: </b></label><input type="password" id="sifra" name="sifra" class="unos" required>
+                        <label for=""><b>Лозинка: </b></label> <input type="password" id="sifra" name="sifra" class="unos" required>
                     </div>
                     <div class="form-els">
-                        <label for=""><b>Поновљена лозинка: </b></label><input type="password" id="ponovljenaSifra" name="ponovljenaSifra" class="unos" required>
+                        <label for=""><b>Поновљена лозинка: </b></label> <input type="password" id="ponovljenaSifra" name="ponovljenaSifra" class="unos" required>
                     </div>
                     <div class="form-els">
                         <label for=""><b>Име: </b></label> <input type="text" id="ime" name="ime" class="unos" required>
                     </div>
                     <div class="form-els">
-                        <label for=""><b>Презиме: </b></label><input type="text" id="prezime" name="prezime" class="unos" required>
+                        <label for=""><b>Презиме: </b></label> <input type="text" id="prezime" name="prezime" class="unos" required>
                     </div>
                     <div class="form-els">
                         <label for=""><b>e-mail: </b></label> <input type="email" id="mejl" name="mejl" class="unos" required>

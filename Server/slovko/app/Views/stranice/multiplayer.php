@@ -9,6 +9,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <link rel="stylesheet" href="/assets/css/arcade.css">
+        <link rel="stylesheet" href="/assets/css/multiplayer.css">
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
         <script src="/assets/js/multiplayer.js"></script>
         <script>
@@ -23,7 +24,7 @@
                     <nav class="navbar navbar-expand-sm navbar-light">
                         <ul class="navbar-nav" type="none">
                             <li class="nav-item">
-                                <a class="nav-link" href="<?php echo site_url("{$controller}/index") ?>">Правила</a>
+                                <a class="nav-link" href="<?php echo site_url("{$controller}/pravila") ?>">Правила</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="<?php echo site_url("{$controller}/prijavaGreske") ?>">Пријави грешку</a>
@@ -35,7 +36,9 @@
                                         <a href="<?php echo site_url("$controller/index") ?>">Singleplayer</a>
                                         <a href="<?php echo site_url("$controller/arcade") ?>">Arcade</a>
                                         <a href="<?php echo site_url("$controller/multiplayer") ?>">Multiplayer</a>
-                                        <a href="<?php echo site_url("$controller/hardmode") ?>">Hardmode</a>
+                                        <?php if(isset($_SESSION['vip']) && $_SESSION['vip']){ ?>
+                                            <a href="<?php echo site_url("$controller/hardmode") ?>">Hardmode</a>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </li>
@@ -68,6 +71,7 @@
                     <!-- <span id="counter"> &nbsp; </span> -->
                     <span id="title">MULTIPLAYER</span>
                     <span class="collapse" id="cekanje"> Чека се противник...</span>
+                    &emsp; &emsp;
                     <span class="spinner-border text-dark collapse" role="status" id="loading">
                     </span>
                     <span id="timer">2:00</span>

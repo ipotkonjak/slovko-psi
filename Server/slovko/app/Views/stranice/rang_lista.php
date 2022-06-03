@@ -21,8 +21,8 @@
     </header>
     <div class="container-fluid">
         <div class='row'>
-            <div class='col-sm-12'>
-                <br> <br>
+            <div class='col-sm-12 text-center'>
+                <br> <h3>РАНГ ЛИСТА</h3> <br>
             </div>
         </div>
         <div class="row justify-content-center">
