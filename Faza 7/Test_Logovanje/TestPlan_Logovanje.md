@@ -33,11 +33,11 @@ Preduslov: Korisnik je suspendovan.
 ### TP5 neuspešno logovanje - prazan korisnik
 1. Korisnik ne korisničko ime.
 2. Korisnik unosi neku lozinku.
-3. Korisnik klikće dugme "Prijavi se!"
+3. Korisnik klikće dugme "Prijavi se!"  
 :white_check_mark: VT Korisnik nije ulogovan na sistem.
 
 ### TP6 neuspešno logovanje - prazna šifra
 1. Korisnik unosi korisničko ime.
 2. Korisnik ne unosi lozinku.
-3. Korisnik klikće dugme "Prijavi se!"
+3. Korisnik klikće dugme "Prijavi se!"  
 :white_check_mark: VT Korisnik nije ulogovan na sistem.

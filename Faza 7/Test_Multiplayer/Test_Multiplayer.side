@@ -1,0 +1,124 @@
+{
+  "id": "b9ae9387-c4a2-4ae3-ad01-fe6d94b9144e",
+  "version": "2.0",
+  "name": "Test_Multiplayer",
+  "url": "http://localhost:8080/Korisnik/multiplayer",
+  "tests": [{
+    "id": "43297027-efd6-49e3-bc1f-bef778981d98",
+    "name": "TP1_Uspesno pokretanje igre i pobeda",
+    "commands": [{
+      "id": "3b9b0b5d-8697-44bd-a1c0-5589aaf607f7",
+      "comment": "",
+      "command": "open",
+      "target": "/Korisnik/multiplayer",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "699a3c66-818f-4131-952a-1d22cec82525",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "516x680",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "348a8409-85c8-4e13-ba21-e0589eafcb25",
+      "comment": "",
+      "command": "click",
+      "target": "id=igraj",
+      "targets": [
+        ["id=igraj", "id"],
+        ["xpath=//button[@id='igraj']", "xpath:attributes"],
+        ["xpath=//div[@id='dugmici']/button", "xpath:idRelative"],
+        ["xpath=//div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Тражи новог противника')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d3acf3cb-baa3-4e42-abe4-defb02766250",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=cekanje",
+      "targets": [
+        ["id=cekanje", "id"],
+        ["css=#cekanje", "css:finder"],
+        ["xpath=//span[@id='cekanje']", "xpath:attributes"],
+        ["xpath=//div[@id='title-bar']/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Чека се противник...')]", "xpath:innerText"]
+      ],
+      "value": "Чека се противник..."
+    }, {
+      "id": "fa7df395-4da0-40ef-b6d5-ea231cf1ff1e",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=title",
+      "targets": [
+        ["id=title", "id"],
+        ["css=#title", "css:finder"],
+        ["xpath=//span[@id='title']", "xpath:attributes"],
+        ["xpath=//div[@id='title-bar']/span", "xpath:idRelative"],
+        ["xpath=//span", "xpath:position"],
+        ["xpath=//span[contains(.,'MULTIPLAYER')]", "xpath:innerText"]
+      ],
+      "value": "MULTIPLAYER"
+    }, {
+      "id": "4d89a8e7-6d4c-400b-b585-30d669957306",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=cekanje",
+      "targets": [
+        ["id=cekanje", "id"],
+        ["css=#cekanje", "css:finder"],
+        ["xpath=//span[@id='cekanje']", "xpath:attributes"],
+        ["xpath=//div[@id='title-bar']/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Чека се противник да заврши...')]", "xpath:innerText"]
+      ],
+      "value": "Чека се противник да заврши..."
+    }, {
+      "id": "c2a98200-f7a4-4b7c-b43b-8fb9fd91c4fa",
+      "comment": "",
+      "command": "assertAlert",
+      "target": "Pobednik je aleks.\naleks: 2250\nmika: 2000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b750f31d-2bdf-4773-82e8-172ef13f7d04",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Преглед профила",
+      "targets": [
+        ["linkText=Преглед профила", "linkText"],
+        ["css=#links2 .nav-item:nth-child(1) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Преглед профила')]", "xpath:link"],
+        ["xpath=//div[@id='links2']/nav/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/Korisnik/pregled']", "xpath:href"],
+        ["xpath=//div[3]/nav/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Преглед профила')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a763df05-9a0e-49b5-b33b-bd2885104902",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.styled-info:nth-child(3) tr:nth-child(1) > td",
+      "targets": [
+        ["css=.styled-info:nth-child(3) tr:nth-child(1) > td", "css:finder"],
+        ["xpath=//div[@id='container']/div[2]/table[2]/tbody/tr/td", "xpath:idRelative"],
+        ["xpath=//table[2]/tbody/tr/td", "xpath:position"],
+        ["xpath=//td[contains(.,'2250')]", "xpath:innerText"]
+      ],
+      "value": "2250"
+    }]
+  }],
+  "suites": [{
+    "id": "d96df9fc-3d70-4ef2-80d7-35a3bd2d42c5",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["43297027-efd6-49e3-bc1f-bef778981d98"]
+  }],
+  "urls": ["http://localhost:8080/"],
+  "plugins": []
+}
