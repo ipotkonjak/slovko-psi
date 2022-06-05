@@ -7,4 +7,27 @@
     margin-top: -5px;
 }
 
+.infoTooltip {
+    visibility: hidden;
+    width: 15vw;
+    background-color: lightblue;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.7em;
+
+    position: absolute;
+    top: 13vh;
+
+    z-index: 1;
+}
+.info:hover {
+    cursor: help;
+
+}
+.info:hover .infoTooltip {
+    visibility: visible;
+}
+
 

@@ -1,4 +1,4 @@
-* {
+body {
     background-color: lightgrey;
 }
 
@@ -136,6 +136,7 @@ li a:hover {
 }
 
 .dropbtn {
+    background-color: lightgrey;
     color: rgba(0, 0, 0, .55);
     padding-top: 9px;
     font-size: 16px;
@@ -176,3 +177,11 @@ li a:hover {
 .dropdown:hover .dropbtn {
     color: blueviolet;
 }
+
+  #endGameModal .modal-content {
+      background-color: white !important;
+  }
+  
+  .modal-header, .modal-footer {
+    border: 0;
+  }

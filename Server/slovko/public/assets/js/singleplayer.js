@@ -151,7 +151,8 @@ function checkEnteredWord() {
     if (gameOver) return;
     if (currentCol != 6) return;
     if (badWord == "false") {
-        alert("Реч не постоји!");
+        //alert("Реч не постоји!");
+        showPopup("Реч не постоји!");
         return;
     }
     guess++;
@@ -198,7 +199,8 @@ function checkEnteredWord() {
         
         setTimeout(function() {
             $("#dugmici button").show();
-            alert("Свака част!");
+            //alert("Свака част!");
+            showEndGameModal("Свака част!");
         }, 1000);
     }
     else if (guess == numOfGuesses) {
@@ -206,9 +208,23 @@ function checkEnteredWord() {
    
         setTimeout(function() {
             $("#dugmici button").show();
-            alert("Тражена реч је била " + secretWord + "!");
+            //alert("Тражена реч је била " + secretWord + "!");
+            showEndGameModal("Тражена реч је била " + secretWord + "!");
         }, 1000);
     }
     else { enableEntry = true; }
     
+}
+
+function showEndGameModal(msg) {
+    $("#modalText").text(msg);
+    $('#endGameModal').modal('show');
+}
+
+function showPopup(msg) {
+    $("#myPopup").text(msg);
+    $("#myPopup").fadeIn(1000);
+    setTimeout(function () {
+        $("#myPopup").fadeOut(1000);
+    }, 2500);
 }

@@ -91,14 +91,14 @@ class Multiplayer implements MessageComponentInterface {
                             $brPoena2 = (7 - (intval($this->igre[$index]['brPokusaja2']))) * 500;
                             $brPoena2 = $brPoena2 * (1 - 0.05 * intdiv(intval($this->igre[$index]['vreme2']), 15));
                         }
-                        $pobedio = "Ishod je neresen.";
+                        $pobedio = "Исход је нерешен.";
                         $pobeda = "null";
                         if ($brPoena1 > $brPoena2) {
-                            $pobedio = "Pobednik je " . $this->igre[$index]['igrac1']['korisnik'] . ".";
+                            $pobedio = "Победник је " . $this->igre[$index]['igrac1']['korisnik'] . ".";
                             $pobeda = "'1'";
                         }
                         if ($brPoena2 > $brPoena1) {
-                            $pobedio = "Pobednik je " . $this->igre[$index]['igrac2']['korisnik'] . ".";
+                            $pobedio = "Победник је " . $this->igre[$index]['igrac2']['korisnik'] . ".";
                             $pobeda = "'0'";
                         }
 
@@ -184,14 +184,14 @@ class Multiplayer implements MessageComponentInterface {
                     $brPoena2 = (7 - (intval($this->igre[$index]['brPokusaja2']))) * 500;
                     $brPoena2 = $brPoena2 * (1 - 0.05 * intdiv(intval($this->igre[$index]['vreme2']), 15));
                 }
-                $pobedio = "Ishod je neresen.";
+                $pobedio = "Исход је нерешен.";
                 $pobeda = "null";
                 if ($brPoena1 > $brPoena2) {
-                    $pobedio = "Pobednik je " . $this->igre[$index]['igrac1']['korisnik'] . ".";
+                    $pobedio = "Победник је " . $this->igre[$index]['igrac1']['korisnik'] . ".";
                     $pobeda = "'1'";
                 }
                 if ($brPoena2 > $brPoena1) {
-                    $pobedio = "Pobednik je " . $this->igre[$index]['igrac2']['korisnik'] . ".";
+                    $pobedio = "Победник је " . $this->igre[$index]['igrac2']['korisnik'] . ".";
                     $pobeda = "'0'";
                 }
                 $poruka = [

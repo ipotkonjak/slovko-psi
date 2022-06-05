@@ -1,4 +1,4 @@
-* {
+body {
     background-color: lightgrey;
 }
 
@@ -132,7 +132,6 @@ li a:hover {
     border-radius: 10px;
     margin: -5px;
     padding: 3px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .dropbtn {
@@ -175,4 +174,12 @@ li a:hover {
   
   .dropdown:hover .dropbtn {
     color: blueviolet;
+  }
+  
+  #endGameModal .modal-content {
+      background-color: white !important;
+  }
+  
+  .modal-header, .modal-footer {
+    border: 0;
   }

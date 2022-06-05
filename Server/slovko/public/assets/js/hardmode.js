@@ -78,7 +78,8 @@ function moreTries() {
 
 }
 function giveUp() {
-    alert("Тражена реч је била " + secretWord + ".");
+    //alert("Тражена реч је била " + secretWord + ".");
+    showEndGameModal("Тражена реч је била " + secretWord + ".");
     reset();
 }
 
@@ -218,7 +219,8 @@ function checkEnteredWord() {
     if (currentCol != 6) return;
 
     if (badWord == "false") {
-        alert("Реч не постоји!");
+        //alert("Реч не постоји!");
+        showPopup("Реч не постоји!");
         return;
     }
 
@@ -304,13 +306,15 @@ function checkEnteredWord() {
     if (greens == 5) {
         gameOver = true;
         setTimeout(function () {
-            alert("Свака част!");
+            //alert("Свака част!");
+            showEndGameModal("Свака част!");
         }, 1000);
     }
     else if (guess == numOfGuesses) {
         gameOver = true;
         setTimeout(function () {
-            alert("Тражена реч је била " + secretWord + "!");
+            //alert("Тражена реч је била " + secretWord + "!");
+            showEndGameModal("Тражена реч је била " + secretWord + "!");
         }, 1000);
     }
     else { enableEntry = true; }
@@ -319,4 +323,10 @@ function checkEnteredWord() {
     console.log(correctLetters);
     console.log("Has");
     console.log(hasLetters);
+}
+
+
+function showEndGameModal(msg) {
+    $("#modalText").text(msg);
+    $('#endGameModal').modal('show');
 }

@@ -339,9 +339,16 @@ function traziProtivnika() {
                         $("#loading").hide();
                         $("#title").show();
                         $("#dugmici").show();
-                        alert(msg['poruka']+"\n"+ korisnik + ": " + msg[korisnik]
-                        + "\n" + protivnik + ": " + msg[protivnik]);
-						$("#protivnik").hide();
+//                        alert(msg['poruka']+"\n"+ korisnik + ": " + msg[korisnik]
+//                        + "\n" + protivnik + ": " + msg[protivnik]);
+                
+                        $('#modalText p').eq(0).text(msg['poruka']);
+                        $('#modalText .someText').eq(0).text(korisnik + ": ");
+                        $('#modalText strong').eq(0).text(msg[korisnik]);
+                        $('#modalText .someText').eq(1).text(protivnik + ": ");
+                        $('#modalText strong').eq(1).text(msg[protivnik]);
+                        $('#endGameModal').modal('show');
+			$("#protivnik").hide();
                         conn.close();
                         conn = null;
                     }

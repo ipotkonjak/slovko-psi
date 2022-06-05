@@ -1,4 +1,4 @@
-* {
+body {
     background-color: lightgrey;
     overflow: visible !important;
 }
@@ -99,19 +99,6 @@ li a:hover {
     font-size: 12px;
 }
 
-.popup {
-    font-size: larger;
-    margin: 0 auto;
-    padding: 5px;
-    padding-bottom: 30px;
-    width: 300px;
-    height: 30px;
-    background-color: gray;
-    color: #fff;
-    display: none;
-    text-align: center;
-    border-radius: 10px;
-}
 
 #dugmici {
     display: flex;
@@ -131,6 +118,7 @@ li a:hover {
 }
 
 .dropbtn {
+    background-color: lightgrey;
     color: rgba(0, 0, 0, .55);
     padding-top: 9px;
     font-size: 16px;
@@ -170,4 +158,12 @@ li a:hover {
 
 .dropdown:hover .dropbtn {
     color: blueviolet;
+}
+
+#endGameModal .modal-content {
+      background-color: white !important;
+  }
+  
+.modal-header, .modal-footer {
+  border: 0;
 }

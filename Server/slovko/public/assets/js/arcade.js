@@ -107,7 +107,14 @@ function startGame(){
             $("#counter").hide();
             clearKeyboardAndBoard();
 			gameOver = true;
-            alert("Игра је готова! Последња реч је била: " + secretWord + ". Ваш резултат је: " + rezultat);
+            //alert("Игра је готова! Последња реч је била: " + secretWord + ". Ваш резултат је: " + rezultat);            
+            $("#modalText").html([
+                $('<p>', {text: "Игра је готова!"}),
+                $('<p>', {text: "Последња реч је била: " + secretWord}),
+                $('<p>', {text: "Ваш резултат је: " + rezultat}),
+            ]);
+            $('#endGameModal').modal('show');
+            
             $.ajax({
                 type: "POST",
                 url: "/Ajax/azurirajRekord",
@@ -262,7 +269,8 @@ function checkEnteredWord() {
     if (gameOver) return;
     if (currentCol != 6) return;
     if (badWord == "false") {
-        alert("Реч не постоји!");
+        //alert("Реч не постоји!");
+        showPopup("Реч не постоји!");
         return;
     }
     guess++;
@@ -342,5 +350,4 @@ function checkEnteredWord() {
     else { enableEntry = true; }
     
 }
-
 

@@ -46,7 +46,7 @@ Preduslov: Korisnik je već registrovan, nerešen ishod. Preostalo vreme je 1:50
 
 ### TP4 Uspešno pokretanje igre i nasilni izlazak iz igre potivnika
 Preduslov: Korisnik je već registrovan. Preostalo vreme je 1:40 i pogađa reč u 1. pokušaju.
-1. Korisnik klikće dugme "Traži protivnika".
+1. Korisnik klikće dugme "Traži protivnika".  
 :white_check_mark: VT Sistem ispisuje "Čeka se protivnik...".
 2. Kada se pojavi novi protivnik, pokreće se Multiplayer igra i ispisuje korisničko ime protivnika.
 3. Korisnik pogađa reč.
@@ -56,7 +56,7 @@ Preduslov: Korisnik je već registrovan. Preostalo vreme je 1:40 i pogađa reč 
 :white_check_mark: VT Protivnik je osvojio 0 poena.  
 :white_check_mark: VT U "Rang lista" prethodna statistika se menja za 2850, a protivniku za 0.
 
-### TP4 Neuspešno pokretanje igre 
+### TP5 Neuspešno pokretanje igre 
 Preduslov: Korisnik je već registrovan.
 1. Korisnik klikće dugme "Traži protivnika".  
 :white_check_mark: VT Sistem ispisuje "Čeka se protivnik...".

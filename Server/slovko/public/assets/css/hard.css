@@ -1,22 +1,22 @@
 /* Katarina Jocic 2019/0014 */
 .popup {
-  font-size: 18px;
-  /* margin: 0 auto; */
-  /* padding: 5px; */
-  /* padding-bottom: 15px; */
-  width: 300px;
-  height: 30px;
-  background-color: gray;
-  color: black;
-  display: none;
-  text-align: center;
-  border-radius: 10px;
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  top: 8%;
+    font-size: larger;
+    margin: 0 auto;
+    padding: 5px;
+    padding-bottom: 30px;
+    width: 300px;
+    height: 30px;
+    background-color: gray;
+    color: #fff;
+    display: none;
+    text-align: center;
+    border-radius: 10px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 8%;
 }
 
 #board {
@@ -46,7 +46,6 @@
   border-radius: 10px;
   margin: 10px;
   padding: 7px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .dropbtn {
