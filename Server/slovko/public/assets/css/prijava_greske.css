@@ -7,7 +7,6 @@
 }
 
 a{
-    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 15px;
     color: black;
     text-decoration: underline;
@@ -112,5 +111,4 @@ label {
     color: white !important; 
     background-color: black !important;
     font-size: 17px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
 }
