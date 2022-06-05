@@ -26,7 +26,8 @@
                             <label><b>Корисничко име</b></label><br>
                             </div>
                             <div class="greska" id="korisnickoImeGreska" ><font color='red'><?php if(isset($korimeGreska)) echo $korimeGreska;?></font></div>
-                            <input type="text" class="unos" placeholder="Унесите корисничко име" id="korisnickoIme" name="korisnickoIme"><br><br>
+                            <input type="text" class="unos" placeholder="Унесите корисничко име" id="korisnickoIme" name="korisnickoIme"
+                                   value="<?= set_value('korisnickoIme') ?>"><br><br>
                             <div class="lab">
                             <label><b>Шифра</b></label><br>
                             </div>
