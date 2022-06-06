@@ -1,0 +1,164 @@
+{
+  "id": "f79e61e5-f47a-464b-aadf-2fb087ba8363",
+  "version": "2.0",
+  "name": "PregledProfilaTesting",
+  "url": "http://localhost:8080/Gost/login",
+  "tests": [{
+    "id": "8cb34b88-26e3-41a0-9da9-b8e2d63dffcf",
+    "name": "PregledProfila",
+    "commands": [{
+      "id": "f4f595e0-8cd5-47bd-bf69-1b6f7cf8a2a7",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/Gost/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "563dfdaa-5762-4be6-a0bd-3e91e788b723",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "788x824",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "811cb361-334f-411b-901f-86a2123330d9",
+      "comment": "",
+      "command": "click",
+      "target": "id=korisnickoIme",
+      "targets": [
+        ["id=korisnickoIme", "id"],
+        ["name=korisnickoIme", "name"],
+        ["css=#korisnickoIme", "css:finder"],
+        ["xpath=//input[@id='korisnickoIme']", "xpath:attributes"],
+        ["xpath=//div[@id='container']/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5ea68cde-0dd7-41b3-9bd1-fd8b70bba056",
+      "comment": "",
+      "command": "type",
+      "target": "id=korisnickoIme",
+      "targets": [
+        ["id=korisnickoIme", "id"],
+        ["name=korisnickoIme", "name"],
+        ["css=#korisnickoIme", "css:finder"],
+        ["xpath=//input[@id='korisnickoIme']", "xpath:attributes"],
+        ["xpath=//div[@id='container']/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "iva"
+    }, {
+      "id": "f78d1576-7244-40b9-a4a2-1f26f282ae22",
+      "comment": "",
+      "command": "click",
+      "target": "id=sifra",
+      "targets": [
+        ["id=sifra", "id"],
+        ["name=sifra", "name"],
+        ["css=#sifra", "css:finder"],
+        ["xpath=//input[@id='sifra']", "xpath:attributes"],
+        ["xpath=//div[@id='container']/div/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "67e2cb0d-7711-43bc-9719-2315da06555b",
+      "comment": "",
+      "command": "type",
+      "target": "id=sifra",
+      "targets": [
+        ["id=sifra", "id"],
+        ["name=sifra", "name"],
+        ["css=#sifra", "css:finder"],
+        ["xpath=//input[@id='sifra']", "xpath:attributes"],
+        ["xpath=//div[@id='container']/div/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "123"
+    }, {
+      "id": "bf6acf17-f6b6-452f-b850-4dfc4b228b18",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//input[@id='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='container']/div/form/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e110e77c-3d15-440f-8255-34b82c2878a2",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Преглед профила",
+      "targets": [
+        ["linkText=Преглед профила", "linkText"],
+        ["css=#links2 .nav-item:nth-child(1) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Преглед профила')]", "xpath:link"],
+        ["xpath=//div[@id='links2']/nav/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/Admin/pregled']", "xpath:href"],
+        ["xpath=//div[3]/nav/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Преглед профила')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8ca07933-2d91-4652-b38b-f49fc03e04fe",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.title-center > h3",
+      "targets": [
+        ["css=.title-center > h3", "css:finder"],
+        ["xpath=//div[@id='container']/div/div[2]/h3", "xpath:idRelative"],
+        ["xpath=//h3", "xpath:position"]
+      ],
+      "value": "ПРЕГЛЕД ПРОФИЛА"
+    }, {
+      "id": "94d317d7-3f4a-4242-bc2a-0d195ad9b675",
+      "comment": "",
+      "command": "click",
+      "target": "css=.butt:nth-child(3) #button-igraj",
+      "targets": [
+        ["css=.butt:nth-child(3) #button-igraj", "css:finder"],
+        ["xpath=(//input[@id='button-igraj'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='container']/div[3]/div[3]/a/input", "xpath:idRelative"],
+        ["xpath=//div[3]/a/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "821684d5-a5b1-418c-abaa-267e1c7639bb",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Одјави се",
+      "targets": [
+        ["linkText=Одјави се", "linkText"],
+        ["css=#links2 .nav-item:nth-child(2) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Одјави се')]", "xpath:link"],
+        ["xpath=//div[@id='links2']/nav/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8080/Admin/logout']", "xpath:href"],
+        ["xpath=//div[3]/nav/ul/li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Одјави се')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ccc15e84-1553-4014-a07a-f87dd9773543",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "f4f10c70-7af0-4e39-bccf-f9d8f15d1371",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["8cb34b88-26e3-41a0-9da9-b8e2d63dffcf"]
+  }],
+  "urls": ["http://localhost:8080/Gost/login"],
+  "plugins": []
+}
