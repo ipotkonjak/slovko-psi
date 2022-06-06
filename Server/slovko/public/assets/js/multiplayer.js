@@ -341,8 +341,8 @@ function traziProtivnika() {
                         $("#dugmici").show();
 //                        alert(msg['poruka']+"\n"+ korisnik + ": " + msg[korisnik]
 //                        + "\n" + protivnik + ": " + msg[protivnik]);
-                
-                        $('#modalText p').eq(0).text(msg['poruka']);
+                        
+                        $('#modalText p').eq(0).html(msg['poruka'] + "<br>Реч је била: <b>" + secretWord + "</b>");
                         $('#modalText .someText').eq(0).text(korisnik + ": ");
                         $('#modalText strong').eq(0).text(msg[korisnik]);
                         $('#modalText .someText').eq(1).text(protivnik + ": ");
