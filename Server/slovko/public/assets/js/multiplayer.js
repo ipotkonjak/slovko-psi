@@ -170,7 +170,8 @@ function checkEnteredWord() {
     if (gameOver) return;
     if (currentCol != 6) return;
     if (badWord == "false") {
-        alert("Реч не постоји!");
+        //alert("Реч не постоји!");
+        showPopup("Реч не постоји!");
         return;
     }
     guess++;

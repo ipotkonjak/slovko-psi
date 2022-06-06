@@ -112,3 +112,7 @@ label {
     background-color: black !important;
     font-size: 17px;
 }
+
+#nazadd:link {
+    text-decoration: none;
+}
