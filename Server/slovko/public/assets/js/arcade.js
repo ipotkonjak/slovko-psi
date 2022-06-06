@@ -22,6 +22,10 @@ let timer=0;
 let treptanje=-1;
 let black=true;
 let timerlock=false;
+let cash = new Audio("/assets/sounds/cash.mp3");
+let clock = new Audio("/assets/sounds/clock.mp3");
+let bruh = new Audio("/assets/sounds/bruh.mp3");
+let wahwahwah = new Audio("/assets/sounds/wahwahwah.mp3");
 
 const letterMap = {
     "а" : 1, "б" : 2, "в" : 3, "г" : 4, "д" : 5, 
@@ -107,7 +111,9 @@ function startGame(){
             $("#counter").hide();
             clearKeyboardAndBoard();
 			gameOver = true;
-            //alert("Игра је готова! Последња реч је била: " + secretWord + ". Ваш резултат је: " + rezultat);            
+            //alert("Игра је готова! Последња реч је била: " + secretWord + ". Ваш резултат је: " + rezultat); 
+            wahwahwah.loop = false;
+            wahwahwah.play();
             $("#modalText").html([
                 $('<p>', {text: "Игра је готова!"}),
                 $('<p>', {text: "Последња реч је била: " + secretWord}),
@@ -127,6 +133,8 @@ function startGame(){
             return;
         }
         if(min==0 && sec<=20 && treptanje==-1){
+            clock.loop = false;
+            clock.play();
             treptanje = setInterval(function(){
                 if(black){
                     black=false;
@@ -335,6 +343,8 @@ function checkEnteredWord() {
        rezultat++;
        $("#counter").html("Речи:"+rezultat.toString());
        $("#myPopup").css("color","green");
+       cash.loop = false;
+       cash.play();
        showPopup("Браво!!!");
        reset();
     }
@@ -344,6 +354,8 @@ function checkEnteredWord() {
         //    alert("Тражена реч је била " + secretWord + "!");
         //}, 1000);
         $("#myPopup").css("color","#fff");
+        bruh.loop = false;
+        bruh.play();
         showPopup("Реч је била " + secretWord);
         reset();
     }

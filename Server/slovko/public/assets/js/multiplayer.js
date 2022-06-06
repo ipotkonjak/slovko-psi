@@ -18,6 +18,7 @@ let badWord = false;
 let enableEntry = true;
 let gameOver = false;
 let numOfGuesses = 6;
+let clock = new Audio("/assets/sounds/clock.mp3");
 
 const letterMap = {
     "а" : 1, "б" : 2, "в" : 3, "г" : 4, "д" : 5, 
@@ -169,8 +170,7 @@ function checkEnteredWord() {
     if (gameOver) return;
     if (currentCol != 6) return;
     if (badWord == "false") {
-        //alert("Реч не постоји!");
-        showPopup("Реч не постоји!");
+        alert("Реч не постоји!");
         return;
     }
     guess++;
@@ -279,6 +279,8 @@ function startGame(){
             return;
         }
         if(min==0 && sec<=20 && treptanje==-1){
+            clock.loop = false;
+            clock.play();
             treptanje = setInterval(function(){
                 if(black){
                     black=false;
