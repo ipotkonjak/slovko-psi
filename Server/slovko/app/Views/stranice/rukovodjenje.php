@@ -28,7 +28,7 @@
             <div class="title-left"> </div>
             <div class="title-center">
                 <br>
-                <h1>Руковођење профилима и ВИП захтевима</h1> <!-- promeniti naslov -->
+                <h1>Руковођење системом</h1> 
                     <br>
             </div>
             <div class="title-right"> </div>

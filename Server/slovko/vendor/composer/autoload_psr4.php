@@ -24,7 +24,7 @@ return array(
     'Ratchet\\RFC6455\\' => array($vendorDir . '/ratchet/rfc6455/src'),
     'Ratchet\\' => array($vendorDir . '/cboden/ratchet/src/Ratchet'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
-    'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src', $vendorDir . '/psr/http-factory/src'),
+    'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-factory/src', $vendorDir . '/psr/http-message/src'),
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src/Prophecy'),
     'PhpParser\\' => array($vendorDir . '/nikic/php-parser/lib/PhpParser'),

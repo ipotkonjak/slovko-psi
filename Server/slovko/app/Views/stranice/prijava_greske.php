@@ -33,14 +33,14 @@
                 Уколико приметите било какав проблем на сајту пријавите грешку администраторима кроз следећу форму. 
             </p>
             <div class="forms">
-                <form  action="<?php echo site_url("Korisnik/greskaSubmit"); ?>" method="post">
+                <form  action="<?php echo site_url("$controller/greskaSubmit"); ?>" method="post">
                     
                     <div class="form-els">
                         <textarea name="unos" id="unos" cols="55" rows="7" placeholder=" Опис проблема"></textarea>
                     </div>
                     <div class="form-sub">
                         <div class="form-button">
-                            <a href="<?php echo site_url("Korisnik/index") ?>" id="nazadd"><input type="button" value="Назад" id="nazad"> </a>
+                            <a href="<?php echo site_url("$controller/index") ?>" id="nazadd"><input type="button" value="Назад" id="nazad"> </a>
                             <input type="submit" value="Пошаљи" id="reg_dugme">
                         </div>
                     </div>
