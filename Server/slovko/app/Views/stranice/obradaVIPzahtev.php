@@ -87,7 +87,7 @@
                 Захтев прихваћен: <input type="checkbox" name="prihvacen"><br>
                 Разлог прихватања/одбијања:<br>
                 <textarea name="opis" cols="60"></textarea><br>
-                <input type="submit" value="Обради захтев">
+                <input type="submit" value="Обради захтев" class="btn btn-dark" id="obradi">
             </form>
         </div>
             <div class="dugmici">

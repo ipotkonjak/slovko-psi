@@ -62,7 +62,7 @@ header{
     align-items: center;
 }
 
-#button-igraj {
+#button-igraj, #obradi{
     background-color: black;
     color: white;
     border-radius: 10px;
