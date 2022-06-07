@@ -26,6 +26,7 @@ let cash = new Audio("/assets/sounds/cash.mp3");
 let clock = new Audio("/assets/sounds/clock.mp3");
 let bruh = new Audio("/assets/sounds/bruh.mp3");
 let wahwahwah = new Audio("/assets/sounds/wahwahwah.mp3");
+let cdown = new Audio("/assets/sounds/countdown.mp3");
 
 const letterMap = {
     "а" : 1, "б" : 2, "в" : 3, "г" : 4, "д" : 5, 
@@ -80,6 +81,10 @@ function newArcade(){
         square.html(countdown.toString());
         lastsquare=square;
         countdown--;
+    },1000);
+    setTimeout(function(){
+        cdown.loop = false;
+        cdown.play();
     },1000);
 }
 
