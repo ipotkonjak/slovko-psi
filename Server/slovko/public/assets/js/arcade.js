@@ -172,6 +172,11 @@ function init() {
     count = [];
     (count = []).length = 30; count.fill(0);
     fillCount();
+    let tmp = $("#timer").html();
+    let min = parseInt(tmp.split(":")[0]);
+    let sec = parseInt(tmp.split(":")[1]);
+    if(min*60 + sec > 20)
+        $("#timer").css("color", "black");
 }
 
 function clearKeyboardAndBoard(){
