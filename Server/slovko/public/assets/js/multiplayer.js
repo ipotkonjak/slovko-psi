@@ -379,3 +379,11 @@ function waitingForOpponentToFinish() {
     $("#loading").show();
     $("#title").hide();
 }
+
+function showPopup(msg) {
+    $("#myPopup").text(msg);
+    $("#myPopup").fadeIn(1000);
+    setTimeout(function () {
+        $("#myPopup").fadeOut(1000);
+    }, 2500);
+}
