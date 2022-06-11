@@ -58,7 +58,7 @@
         </div>  
         <div class="row text-center">
             <div class="col-sm-12">
-                <a href="<?php echo site_url("Korisnik/pregled") ?>"><input type="button" value="Назад" id="button-nazad" style="width: 100px"></a>
+                <a href="<?php echo site_url("{$controller}/pregled") ?>"><input type="button" value="Назад" id="button-nazad" style="width: 100px"></a>
             </div>
             
         </div>
